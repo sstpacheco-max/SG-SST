@@ -173,6 +173,12 @@
 </head>
 
 <body>
+    <script>
+        // Verificación de sesión
+        if (sessionStorage.getItem('isLoggedIn') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
     <div class="contenedor-formato" style="max-width: 1200px;">
         <!-- Botón de Configuración -->
         <div style="text-align: right; margin-bottom: 1rem;">
