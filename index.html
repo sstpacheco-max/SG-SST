@@ -1,375 +1,201 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SG-SST - Sistema de Formatos Estandarizados</title>
+    <title>SG-SST - Iniciar Sesión</title>
     <link rel="stylesheet" href="css/estilos-formatos.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
     <style>
-        .hero {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
         }
 
-        .hero h1 {
-            font-family: var(--font-titulo);
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-
-        .grid-fases {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .fase-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow-md);
-            transition: all 0.3s ease;
-            border-top: 4px solid;
-        }
-
-        .fase-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .fase-card.planear {
-            border-color: #3b82f6;
-        }
-
-        .fase-card.hacer {
-            border-color: #10b981;
-        }
-
-        .fase-card.verificar {
-            border-color: #f59e0b;
-        }
-
-        .fase-card.actuar {
-            border-color: #8b5cf6;
-        }
-
-        .fase-numero {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background blobs */
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: var(--primary-gradient);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.4;
+            animation: move 20s infinite alternate;
+        }
+
+        .blob-1 { top: -100px; left: -100px; animation-delay: 0s; }
+        .blob-2 { bottom: -100px; right: -100px; background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%); animation-delay: -5s; }
+
+        @keyframes move {
+            from { transform: translate(0, 0); }
+            to { transform: translate(100px, 100px); }
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .login-header h1 {
+            font-family: 'Poppins', sans-serif;
             color: white;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
         }
 
-        .fase-card.planear .fase-numero {
-            background: #3b82f6;
+        .login-header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
         }
 
-        .fase-card.hacer .fase-numero {
-            background: #10b981;
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
-        .fase-card.verificar .fase-numero {
-            background: #f59e0b;
+        .form-group label {
+            display: block;
+            color: #e2e8f0;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
-        .fase-card.actuar .fase-numero {
-            background: #8b5cf6;
+        .input-wrapper {
+            position: relative;
         }
 
-        .fase-titulo {
-            font-family: var(--font-titulo);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--texto-principal);
-        }
-
-        .lista-formatos {
-            list-style: none;
-            margin-top: 1rem;
-        }
-
-        .lista-formatos li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .lista-formatos li:last-child {
-            border-bottom: none;
-        }
-
-        .lista-formatos a {
-            color: var(--color-primario);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .lista-formatos a:hover {
-            color: var(--color-primario-oscuro);
-            transform: translateX(5px);
-        }
-
-        .lista-formatos a::before {
-            content: '📄';
-        }
-
-        .info-ia {
-            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-            padding: 2rem;
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
             border-radius: 12px;
-            border-left: 4px solid #3b82f6;
-            margin: 2rem 0;
+            padding: 0.75rem 1rem;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
-        .info-ia h2 {
-            font-family: var(--font-titulo);
-            color: #1e40af;
-            margin-bottom: 1rem;
+        .form-control:focus {
+            outline: none;
+            border-color: #6366f1;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+            background: rgba(255, 255, 255, 0.08);
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+        .btn-login {
+            width: 100%;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 0.875rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
             margin-top: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
         }
 
-        .feature-item {
-            background: white;
-            padding: 1rem;
-            border-radius: 8px;
-            display: flex;
-            align-items: start;
-            gap: 0.75rem;
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.4);
+            filter: brightness(1.1);
         }
 
-        .feature-icon {
-            font-size: 1.5rem;
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            padding: 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            display: none;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 2rem;
+            color: #64748b;
+            font-size: 0.875rem;
         }
     </style>
 </head>
-
 <body>
-    <div class="contenedor-formato" style="max-width: 1200px;">
-        <!-- Botón de Configuración -->
-        <div style="text-align: right; margin-bottom: 1rem;">
-            <button id="btnConfiguracion" class="btn btn-primario"
-                style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); border: none; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);">
-                ⚙️ Configuración Empresa
-            </button>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1>SG-SST</h1>
+            <p>Acceso al Sistema de Formatos</p>
         </div>
 
-        <div class="hero">
-            <h1>🏢 Sistema de Gestión SG-SST</h1>
-            <p>Formatos Estandarizados para Colombia - Ciclo PHVA</p>
-            <p style="font-size: 0.9rem; margin-top: 1rem;">Organizado por Ciclo PHVA | Cumplimiento Normativo
-                Colombiano</p>
+        <div id="loginError" class="error-message">
+            Usuario o contraseña incorrectos
         </div>
 
-        <!-- Información sobre IA -->
-        <div class="info-ia">
-            <h2>🤖 Potenciado con Inteligencia Artificial</h2>
-            <p>Todos los formatos incluyen asistencia inteligente para aumentar tu productividad:</p>
-
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">💡</span>
-                    <div>
-                        <strong>Autocompletado</strong><br>
-                        <small>Sugerencias inteligentes de peligros y controles</small>
-                    </div class>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📊</span>
-                    <div>
-                        <strong>Análisis Automático</strong><br>
-                        <small>Evaluación de riesgos y tendencias</small>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📋</span>
-                    <div>
-                        <strong>Generación de Reportes</strong><br>
-                        <small>Documentos profesionales automáticos</small>
-                    </div>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">✅</span>
-                    <div>
-                        <strong>Verificación Legal</strong><br>
-                        <small>Cumplimiento normativo validado</small>
-                    </div>
-                </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Usuario</label>
+                <input type="text" id="username" class="form-control" placeholder="Ingresa tu usuario" required autocomplete="username">
             </div>
-        </div>
-
-        <!-- Guía PHVA -->
-        <div style="text-align: center; margin: 2rem 0;">
-            <a href="guia-phva.html" class="btn btn-primario" style="text-decoration: none;">
-                📘 Ver Guía Completa del Ciclo PHVA
-            </a>
-        </div>
-
-        <!-- Formatos por Fase -->
-        <div class="grid-fases">
-            <!-- FASE 1: PLANEAR -->
-            <div class="fase-card planear">
-                <div class="fase-numero">P</div>
-                <h2 class="fase-titulo">1. PLANEAR</h2>
-                <p>Establece objetivos, identifica peligros y planifica recursos del SG-SST.</p>
-                <ul class="lista-formatos">
-                    <li><a href="01-PLANEAR/autoevaluacion-inicial.html">📋 Autoevaluación Inicial SG-SST</a></li>
-                    <li><a href="01-PLANEAR/plan-anual-trabajo.html">📅 Plan Anual de Trabajo</a></li>
-                    <li><a href="01-PLANEAR/matriz-responsabilidades.html">👥 Matriz de Responsabilidades RACI</a></li>
-                    <li><a href="01-PLANEAR/perfil-responsable.html">👤 Perfil del Responsable SG-SST</a></li>
-                    <li><a href="01-PLANEAR/presupuesto-anual.html">💰 Presupuesto Anual SG-SST</a></li>
-                    <li><a href="01-PLANEAR/seguimiento-aportes-sociales.html">💳 Seguimiento Aportes Sociales</a></li>
-                    <li><a href="01-PLANEAR/matriz-iper.html">Matriz IPER (con IA)</a></li>
-                    <li><a href="01-PLANEAR/politica-sst.html">Política de SST</a></li>
-                    <li><a href="01-PLANEAR/objetivos-indicadores.html">Objetivos e Indicadores</a></li>
-                    <li><a href="01-PLANEAR/programa-capacitacion.html">Programa de Capacitación Anual</a></li>
-                    <li><a href="01-PLANEAR/induccion-sst.html">📚 Inducción al SG-SST</a></li>
-                    <li><a href="01-PLANEAR/evaluacion-induccion.html">📝 Evaluación de Inducción</a></li>
-                    <li><a href="01-PLANEAR/matriz-legal.html">Matriz Legal (40+ Normas 2025)</a></li>
-                    <li><a href="01-PLANEAR/procedimiento-requisitos-legales.html">📋 Procedimiento Requisitos
-                            Legales</a></li>
-                    <li><a href="01-PLANEAR/procedimiento-compras-sst.html">🛒 Procedimiento Compras SST</a></li>
-                    <li><a href="01-PLANEAR/procedimiento-identificacion-peligros.html">⚠️ Procedimiento Identificación
-                            Peligros (GTC 45)</a></li>
-                    <li><a href="01-PLANEAR/checklist-contratista-persona-natural.html">✅ Checklist Contratista P.
-                            Natural</a></li>
-                    <li><a href="01-PLANEAR/checklist-contratista-persona-juridica.html">✅ Checklist Contratista P.
-                            Jurídica</a></li>
-                </ul>
+            
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" class="form-control" placeholder="••••••••" required autocomplete="current-password">
             </div>
 
-            <!-- FASE 2: HACER -->
-            <div class="fase-card hacer">
-                <div class="fase-numero">H</div>
-                <h2 class="fase-titulo">2. HACER</h2>
-                <p>Ejecuta las actividades planificadas del SG-SST.</p>
-                <ul class="lista-formatos">
-                    <li><a href="02-HACER/inspeccion-general.html">Inspección General (con IA)</a></li>
-                    <li><a href="02-HACER/entrega-epp.html">Entrega de EPP</a></li>
-                    <li><a href="02-HACER/registro-capacitacion.html">Registro de Asistencia a Capacitación</a></li>
-                    <li><a href="02-HACER/registro-asistencia.html">📋 Registro de Asistencia</a></li>
-                    <li><a href="02-HACER/acta-reunion.html">📝 Acta de Reunión SST</a></li>
-                    <li><a href="02-HACER/acta-copasst.html">Acta COPASST</a></li>
-                    <li><a href="02-HACER/reporte-actos-condiciones-inseguras.html">⚠️ Reporte Actos/Condiciones
-                            Inseguras</a></li>
-                    <li><a href="02-HACER/procedimiento-investigacion-accidentes.html">🔍 Procedimiento Investigación
-                            Accidentes</a></li>
-                    <li><a href="02-HACER/encuesta-sociodemografica.html">📊 Encuesta Sociodemográfica</a></li>
-                    <li><a href="02-HACER/programa-medicina-preventiva.html">⚕️ Programa Medicina Preventiva</a></li>
-                    <li><a href="02-HACER/programa-vigilancia-epidemiologica.html">📋 Programa Vigilancia
-                            Epidemiológica</a></li>
-                    <li><a href="02-HACER/plan-emergencias.html">Plan de Emergencias</a></li>
-                    <li><a href="02-HACER/registro-simulacros.html">🚨 Registro de Simulacros</a></li>
-                    <li><a href="02-HACER/control-extintores.html">🧯 Control de Extintores</a></li>
-                    <li><a href="02-HACER/inspeccion-vehiculos.html">🚗 Inspección de Vehículos</a></li>
-                    <li><a href="02-HACER/profesiograma.html">Profesiograma</a></li>
-                    <li><a href="02-HACER/permiso-alturas.html">🔴 Permiso Trabajo en Alturas</a></li>
-                    <li><a href="02-HACER/permiso-espacios-confinados.html">🔴 Permiso Espacios Confinados</a></li>
-                    <li><a href="02-HACER/permiso-trabajo-caliente.html">🔴 Permiso Trabajo en Caliente</a></li>
-                    <li><a href="02-HACER/eleccion-copasst.html">🗳️ Elección Digital COPASST</a></li>
-                    <li><a href="02-HACER/eleccion-cocolab.html">🗳️ Elección Digital COCOLAB</a></li>
-                </ul>
-            </div>
+            <button type="submit" class="btn-login">Ingresar al Sistema</button>
+        </form>
 
-            <!-- FASE 3: VERIFICAR -->
-            <div class="fase-card verificar">
-                <div class="fase-numero">V</div>
-                <h2 class="fase-titulo">3. VERIFICAR</h2>
-                <p>Monitorea, mide y evalúa el desempeño del SG-SST.</p>
-                <ul class="lista-formatos">
-                    <li><a href="03-VERIFICAR/reporte-accidente.html">Reporte de Accidente (con IA)</a></li>
-                    <li><a href="03-VERIFICAR/estadisticas-accidentalidad.html">📊 Estadísticas de Accidentalidad</a>
-                    </li>
-                    <li><a href="03-VERIFICAR/mediciones-higienicas.html">🔬 Mediciones Higiénicas</a></li>
-                    <li><a href="03-VERIFICAR/procedimiento-auditorias-internas.html">📋 Procedimiento Auditorías
-                            Internas</a></li>
-                    <li><a href="03-VERIFICAR/cronograma-auditoria.html">📅 Cronograma de Auditorías</a></li>
-                    <li><a href="03-VERIFICAR/plan-auditoria.html">📝 Plan de Auditoría</a></li>
-                    <li><a href="03-VERIFICAR/lista-chequeo-auditoria.html">✅ Lista Chequeo (60 Estándares)</a></li>
-                    <li><a href="03-VERIFICAR/informe-auditoria.html">📄 Informe de Auditoría</a></li>
-                    <li><a href="03-VERIFICAR/revision-alta-direccion.html">👔 Revisión Alta Dirección</a></li>
-                    <li><a href="03-VERIFICAR/registro-auditorias.html">📊 Registro Histórico Auditorías</a></li>
-                    <li><a href="03-VERIFICAR/auditoria-interna.html">Auditoría Interna del SG-SST</a></li>
-                    <li><a href="03-VERIFICAR/seguimiento-examenes-medicos.html">⚕️ Seguimiento Exámenes Médicos</a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- FASE 4: ACTUAR -->
-            <div class="fase-card actuar">
-                <div class="fase-numero">A</div>
-                <h2 class="fase-titulo">4. ACTUAR</h2>
-                <p>Implementa acciones de mejora continua basadas en los resultados.</p>
-                <ul class="lista-formatos">
-                    <li><a href="04-ACTUAR/plan-mejoramiento.html">Plan de Mejoramiento del SG-SST</a></li>
-                    <li><a href="04-ACTUAR/rendicion-cuentas.html">📊 Rendición de Cuentas Anual</a></li>
-                    <li><a href="04-ACTUAR/procedimiento-rendicion-cuentas.html">📋 Procedimiento Rendición de
-                            Cuentas</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div
-            style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
-            <p style="color: var(--texto-secundario);">
-                <strong>SG-SST Inteligente</strong> | Sistema diseñado según Decreto 1072/2015 y Resolución 0312/2019
-                <br><small>Todos los formatos son editables y personalizables para tu empresa</small>
-            </p>
-        </div>
+        <p class="footer-text">
+            © 2026 SG-SST Inteligente
+        </p>
     </div>
 
-    <!-- Modal de Configuración -->
-    <div id="modalConfiguracionContainer"></div>
-
-    <!-- Scripts del Sistema de Configuración -->
-    <script src="js/config-global.js"></script>
-    <script src="js/ciiu-clasificacion.js"></script>
-    <script src="js/modal-config.js"></script>
-
-    <script>
-        // Cargar modal de configuración
-        fetch('components/modal-configuracion.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('modalConfiguracionContainer').innerHTML = html;
-
-                // Inicializar select de CIIU
-                const select = document.getElementById('actividadEconomica');
-                if (select && typeof ClasificacionCIIU !== 'undefined') {
-                    select.innerHTML = ClasificacionCIIU.generarOpcionesSelect();
-                }
-            })
-            .catch(error => console.error('Error cargando modal:', error));
-    </script>
+    <script src="js/login.js"></script>
 </body>
-
 </html>
