@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Requisitos Legales SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .norma-vigente {
+            background: #d1fae5;
+        }
+
+        .norma-actualizada {
+            background: #fef3c7;
+        }
+
+        .filtros {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filtros select,
+        .filtros input {
+            padding: 0.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <!-- Encabezado -->
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Matriz de Requisitos Legales en SST</div>
+                <div class="subtitulo-documento">Actualizada 2025 - Normatividad Colombiana</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-02"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="2.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <!-- Información -->
+        <div class="alerta alerta-info">
+            <div>
+                <strong>📚 Matriz Legal Actualizada 2025</strong><br>
+                Esta matriz incluye toda la normatividad vigente en Colombia para SST, incluyendo las últimas
+                resoluciones del Ministerio del Trabajo.
+                Las normas resaltadas en <span style="background: #fef3c7; padding: 0 4px;">amarillo</span> son
+                actualizaciones recientes.
+            </div>
+        </div>
+
+        <!-- Datos Empresa -->
+        <div class="datos-empresa">
+            <h3>📋 Información de la Empresa</h3>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Razón Social:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>NIT:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Sector:</label>
+                    <select class="campo-editable">
+                        <option>Servicios</option>
+                        <option>Manufactura</option>
+                        <option>Construcción</option>
+                        <option>Agrícola</option>
+                        <option>Comercio</option>
+                        <option>Minería</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Clase de Riesgo:</label>
+                    <select class="campo-editable">
+                        <option value="1">I - Riesgo Mínimo</option>
+                        <option value="2">II - Riesgo Bajo</option>
+                        <option value="3">III - Riesgo Medio</option>
+                        <option value="4">IV - Riesgo Alto</option>
+                        <option value="5">V - Riesgo Máximo</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="seccion">
+            <h3>🔍 Filtros</h3>
+            <div class="filtros">
+                <select id="filtroTipo" onchange="filtrarNormas()">
+                    <option value="">Todos los tipos</option>
+                    <option value="Ley">Ley</option>
+                    <option value="Decreto">Decreto</option>
+                    <option value="Resolución">Resolución</option>
+                    <option value="Circular">Circular</option>
+                </select>
+                <select id="filtroTema" onchange="filtrarNormas()">
+                    <option value="">Todos los temas</option>
+                    <option value="SG-SST">SG-SST General</option>
+                    <option value="COPASST">COPASST</option>
+                    <option value="Trabajo en Alturas">Trabajo en Alturas</option>
+                    <option value="Teletrabajo">Teletrabajo</option>
+                    <option value="Riesgo Psicosocial">Riesgo Psicosocial</option>
+                    <option value="Emergencias">Emergencias</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <input type="text" id="busqueda" placeholder="Buscar norma..." onkeyup="filtrarNormas()"
+                    style="flex: 1; min-width: 200px;">
+            </div>
+        </div>
+
+        <!-- Matriz -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">⚖️ Normatividad Aplicable</h2>
+
+            <div style="overflow-x: auto;">
+                <table class="tabla-formato" id="tablaLegal">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Número y Fecha</th>
+                            <th>Tema</th>
+                            <th>Descripción / Objeto</th>
+                            <th>Aplica</th>
+                            <th>Cumplimiento</th>
+                            <th>Evidencia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- ==================== NORMATIVIDAD GENERAL SG-SST ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 9 de 1979</td>
+                            <td>SG-SST</td>
+                            <td>Código Sanitario Nacional - Establece normas para preservar, conservar y mejorar la
+                                salud</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Documento/registro"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2400 de 1979</td>
+                            <td>Higiene Industrial</td>
+                            <td>Estatuto de Seguridad Industrial - Disposiciones sobre vivienda, higiene y seguridad
+                            </td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Instalaciones"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Decreto</td>
+                            <td>Decreto 614 de 1984</td>
+                            <td>SG-SST</td>
+                            <td>Bases para la organización y administración de Salud Ocupacional</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 1016 de 1989</td>
+                            <td>SG-SST</td>
+                            <td>Organización, funcionamiento y forma de los Programas de Salud Ocupacional</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Programas SO"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 100 de 1993</td>
+                            <td>Seguridad Social</td>
+                            <td>Sistema de Seguridad Social Integral - Incluye Sistema General de Riesgos Laborales</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Afiliación"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Decreto</td>
+                            <td>Decreto 1295 de 1994</td>
+                            <td>Riesgos Laborales</td>
+                            <td>Organización y administración del Sistema General de Riesgos Profesionales</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Decreto</td>
+                            <td>Decreto 1530 de 1996</td>
+                            <td>ATEL</td>
+                            <td>Accidente de Trabajo y Enfermedad Laboral - Afiliación y reportes</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="FURLAT"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 1562 de 2012</td>
+                            <td>SG-SST</td>
+                            <td>Modifica el Sistema de Riesgos Laborales y dicta disposiciones en Salud Ocupacional</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 1610 de 2013</td>
+                            <td>Sanciones</td>
+                            <td>Sanciones por incumplimiento de normas de SST hasta 1000 SMMLV</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Decreto</td>
+                            <td>Decreto 1072 de 2015</td>
+                            <td>SG-SST</td>
+                            <td>Decreto Único Reglamentario del Sector Trabajo (Libro 2, Parte 2, Título 4, Cap. 6)</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="SG-SST documentado"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 0312 de 2019</td>
+                            <td>SG-SST</td>
+                            <td>Estándares mínimos del SG-SST para empleadores y contratantes</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Autoevaluación"></td>
+                        </tr>
+
+                        <!-- ==================== COPASST Y COMITÉS ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2013 de 1986</td>
+                            <td>COPASST</td>
+                            <td>Reglamento de funcionamiento del Comité Paritario de Seguridad y Salud en el Trabajo
+                            </td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Acta conformación"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 1401 de 2007</td>
+                            <td>COPASST</td>
+                            <td>Investigación de incidentes y accidentes de trabajo</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Investigaciones"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 652 de 2012</td>
+                            <td>Convivencia</td>
+                            <td>Conformación y funcionamiento del Comité de Convivencia Laboral</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Acta CCL"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 1010 de 2006</td>
+                            <td>Acoso Laboral</td>
+                            <td>Adopción de medidas para prevenir, corregir y sancionar el acoso laboral</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Política"></td>
+                        </tr>
+
+                        <!-- ==================== EXÁMENES MÉDICOS Y SVE ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2346 de 2007</td>
+                            <td>Exámenes Médicos</td>
+                            <td>Regula la práctica de evaluaciones médicas ocupacionales (ingreso, periódicos, retiro)
+                            </td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Exámenes al día"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 1918 de 2009</td>
+                            <td>COPASST</td>
+                            <td>Modifica artículos de Res. 2346/2007 sobre evaluaciones médicas</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2844 de 2007</td>
+                            <td>SVE</td>
+                            <td>Guías de Atención Integral de Salud Ocupacional Basadas en Evidencia (GATISO)</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text" placeholder="PVE"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Circular</td>
+                            <td>Circular 070 de 2009</td>
+                            <td>Perfiles Cargo</td>
+                            <td>Profesiogramas y perfiles de cargo con énfasis en SST</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Profesiogramas"></td>
+                        </tr>
+
+                        <!-- ==================== RIESGO PSICOSOCIAL ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2646 de 2008</td>
+                            <td>Riesgo Psicosocial</td>
+                            <td>Factores de riesgo psicosocial en el trabajo y determinación del origen de patologías
+                            </td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2404 de 2019</td>
+                            <td>Riesgo Psicosocial</td>
+                            <td>Adopta la Batería de Instrumentos para Evaluación de Factores de Riesgo Psicosocial</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Batería aplicada"></td>
+                        </tr>
+                        <tr class="norma-actualizada">
+                            <td>Resolución</td>
+                            <td>Resolución 1285 de 2025</td>
+                            <td>Salud Mental</td>
+                            <td><strong>NUEVA 2025:</strong> Protocolo de prevención y atención de afectaciones a la
+                                salud mental</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Protocolo"></td>
+                        </tr>
+
+                        <!-- ==================== TRABAJO EN ALTURAS ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 1409 de 2012</td>
+                            <td>Trabajo Alturas</td>
+                            <td>Reglamento de Seguridad para protección contra caídas en trabajo en alturas</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 1178 de 2017</td>
+                            <td>Trabajo Alturas</td>
+                            <td>Modificación a estándares mínimos de seguridad para trabajo en alturas</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-actualizada">
+                            <td>Resolución</td>
+                            <td>Resolución 4272 de 2021 (Modificada 2025)</td>
+                            <td>Trabajo Alturas</td>
+                            <td>Deroga Res. 1409/2012 y 1178/2017. <strong>ACTUALIZACIÓN 2025: Nuevos requisitos
+                                    certificación</strong></td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Certificados"></td>
+                        </tr>
+
+                        <!-- ==================== SUSTANCIAS QUÍMICAS ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 55 de 1993</td>
+                            <td>Químicos</td>
+                            <td>Convenio 170 OIT sobre seguridad en utilización de productos químicos en el trabajo</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Decreto</td>
+                            <td>Decreto 1609 de 2002</td>
+                            <td>Mercancías Peligrosas</td>
+                            <td>Manejo y transporte terrestre automotor de mercancías peligrosas por carretera</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-actualizada">
+                            <td>Decreto</td>
+                            <td>Decreto 1496 de 2018 (Prórroga 2025)</td>
+                            <td>SGA</td>
+                            <td>Sistema Globalmente Armonizado para clasificación y etiquetado de químicos.
+                                <strong>2025: Prórroga</strong></td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text" placeholder="FDS/SDS"></td>
+                        </tr>
+
+                        <!-- ==================== ESPACIOS CONFINADOS ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 491 de 2020</td>
+                            <td>Espacios Confinados</td>
+                            <td>Lineamientos mínimos para desarrollo de trabajos en espacios confinados</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Permisos"></td>
+                        </tr>
+
+                        <!-- ==================== TELETRABAJO ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 1221 de 2008</td>
+                            <td>Teletrabajo</td>
+                            <td>Normas para promover y regular el Teletrabajo</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2358 de 2019</td>
+                            <td>Teletrabajo</td>
+                            <td>Lineamientos para implementación de trabajo en casa como medida de salud pública</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-actualizada">
+                            <td>Ley</td>
+                            <td>Ley 2191 de 2022 (Reglamentación 2025)</td>
+                            <td>Teletrabajo</td>
+                            <td>Promueve el teletrabajo y trabajo remoto. <strong>NUEVO 2025: Circulares sobre
+                                    inspecciones</strong></td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-actualizada">
+                            <td>Circular</td>
+                            <td>Circular 041 de 2025</td>
+                            <td>Teletrabajo</td>
+                            <td><strong>NUEVA 2025:</strong> Lineamientos para inspecciones de seguridad en modalidad de
+                                teletrabajo</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+
+                        <!-- ==================== EMERGENCIAS ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Ley</td>
+                            <td>Ley 1523 de 2012</td>
+                            <td>Emergencias</td>
+                            <td>Política Nacional de Gestión del Riesgo de Desastres</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Plan emergencias"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 256 de 2014</td>
+                            <td>Emergencias</td>
+                            <td>Reglamento Técnico sobre extintores portátiles</td>
+                            <td style="text-align:center"><input type="checkbox" checked></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Extintores vigentes"></td>
+                        </tr>
+
+                        <!-- ==================== CONTRATISTAS - 2025 ==================== -->
+                        <tr class="norma-actualizada">
+                            <td>Circular</td>
+                            <td>Circular 018 de 2025</td>
+                            <td>Contratistas</td>
+                            <td><strong>NUEVA 2025:</strong> Lineamientos para gestión de SST en contratación de
+                                servicios</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Matriz contratistas"></td>
+                        </tr>
+
+                        <!-- ==================== DIGITALIZACIÓN - 2025 ==================== -->
+                        <tr class="norma-actualizada">
+                            <td>Resolución</td>
+                            <td>Resolución 0892 de 2025</td>
+                            <td>Digitalización</td>
+                            <td><strong>NUEVA 2025:</strong> Directrices para digitalización de documentos SG-SST y
+                                firma electrónica</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Repositorio digital"></td>
+                        </tr>
+
+                        <!-- ==================== CAMBIO CLIMÁTICO - 2025 ==================== -->
+                        <tr class="norma-actualizada">
+                            <td>Circular</td>
+                            <td>Circular 029 de 2025</td>
+                            <td>Estrés Térmico</td>
+                            <td><strong>NUEVA 2025:</strong> Prevención para trabajadores expuestos a altas temperaturas
+                                por cambio climático</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text" placeholder="Protocolo calor"></td>
+                        </tr>
+
+                        <!-- ==================== RIESGOS ESPECÍFICOS ==================== -->
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 1792 de 1990</td>
+                            <td>Conservación Visual</td>
+                            <td>Adopción de valores límites permisibles para exposición ocupacional al ruido</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 8321 de 1983</td>
+                            <td>Ruido</td>
+                            <td>Protección y conservación de la audición, ruido y niveles sonoros</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2400 de 1979</td>
+                            <td>Iluminación</td>
+                            <td>Disposiciones sobre iluminación en lugares de trabajo (Art. 79-90)</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr class="norma-vigente">
+                            <td>Resolución</td>
+                            <td>Resolución 2413 de 1979</td>
+                            <td>Higiene</td>
+                            <td>Reglamento de higiene y seguridad para industria de la construcción</td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+
+                        <!-- Filas adicionales vacías para personalización -->
+                        <tr>
+                            <td><input type="text" placeholder="Tipo"></td>
+                            <td><input type="text" placeholder="Número"></td>
+                            <td><input type="text" placeholder="Tema"></td>
+                            <td><input type="text" placeholder="Descripción"></td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder="Tipo"></td>
+                            <td><input type="text" placeholder="Número"></td>
+                            <td><input type="text" placeholder="Tema"></td>
+                            <td><input type="text" placeholder="Descripción"></td>
+                            <td style="text-align:center"><input type="checkbox"></td>
+                            <td><select>
+                                    <option>Cumple</option>
+                                    <option>No cumple</option>
+                                    <option>Cumple parcialmente</option>
+                                    <option>No aplica</option>
+                                </select></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Resumen de Cumplimiento -->
+        <div class="seccion">
+            <h3>📊 Resumen de Cumplimiento</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div style="background: #d1fae5; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #065f46;">--</div>
+                    <div style="color: #059669;">Normas Cumplidas</div>
+                </div>
+                <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #991b1b;">--</div>
+                    <div style="color: #dc2626;">No Conformidades</div>
+                </div>
+                <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700; color: #92400e;">--</div>
+                    <div style="color: #d97706;">Cumplimiento Parcial</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-secundario"
+                onclick="UtilidadesSST.exportarCSV('Matriz_Legal_' + new Date().toISOString().split('T')[0], document.getElementById('tablaLegal'))">📊
+                Exportar CSV</button>
+            <button class="btn btn-primario"
+                onclick="UtilidadesSST.guardarDatos('matriz_legal', {}); alert('✅ Guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+    <script>
+        function filtrarNormas() {
+            const filtroTipo = document.getElementById('filtroTipo').value.toLowerCase();
+            const filtroTema = document.getElementById('filtroTema').value.toLowerCase();
+            const busqueda = document.getElementById('busqueda').value.toLowerCase();
+            const filas = document.querySelectorAll('#tablaLegal tbody tr');
+
+            filas.forEach(fila => {
+                const tipo = fila.cells[0]?.textContent.toLowerCase() || '';
+                const tema = fila.cells[2]?.textContent.toLowerCase() || '';
+                const textoCompleto = fila.textContent.toLowerCase();
+
+                const cumpleTipo = !filtroTipo || tipo.includes(filtroTipo);
+                const cumpleTema = !filtroTema || tema.includes(filtroTema);
+                const cumpleBusqueda = !busqueda || textoCompleto.includes(busqueda);
+
+                fila.style.display = (cumpleTipo && cumpleTema && cumpleBusqueda) ? '' : 'none';
+            });
+        }
+    </script>
+</body>
+
+</html>

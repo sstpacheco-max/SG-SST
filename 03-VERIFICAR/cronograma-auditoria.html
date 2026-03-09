@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma Anual de Auditorías</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Cronograma Anual de Auditorías</div>
+                <div class="subtitulo-documento">Sistema de Gestión SG-SST</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-40"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Año:</label><input type="number" class="campo-editable"
+                        id="anoAuditoria"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📅 Requisito:</strong> El cronograma debe ser elaborado en el primer trimestre del año y
+                aprobado por la Alta Dirección. Debe incluir MÍNIMO una auditoría completa anual.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información General</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Responsable del Cronograma:</label><input type="text"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha de Elaboración:</label><input type="date"
+                        class="auto-fecha campo-editable"></div>
+                <div class="campo-dato"><label>Fecha de Aprobación:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Aprobado por:</label><input type="text" class="campo-editable"
+                        placeholder="Alta Dirección"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Cronograma de Auditorías Programadas</h2>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 12%;">Tipo de Auditoría</th>
+                        <th style="width: 18%;">Área/Proceso a Auditar</th>
+                        <th style="width: 12%;">Mes Programado</th>
+                        <th style="width: 10%;">Fecha Estimada</th>
+                        <th style="width: 15%;">Auditor Asignado</th>
+                        <th style="width: 13%;">Estado</th>
+                        <th style="width: 15%;">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaAuditorias">
+                    <tr>
+                        <td style="text-align:center;">1</td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Integral SG-SST</option>
+                                <option>Por Procesos</option>
+                                <option>Seguimiento</option>
+                                <option>Extraordinaria</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Todas las áreas"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Enero</option>
+                                <option>Febrero</option>
+                                <option>Marzo</option>
+                                <option>Abril</option>
+                                <option>Mayo</option>
+                                <option>Junio</option>
+                                <option>Julio</option>
+                                <option>Agosto</option>
+                                <option>Septiembre</option>
+                                <option>Octubre</option>
+                                <option>Noviembre</option>
+                                <option>Diciembre</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;" onchange="actualizarEstado(this)">
+                                <option style="color: #f59e0b;">Programada</option>
+                                <option style="color: #3b82f6;">En Ejecución</option>
+                                <option style="color: #10b981;">Completada</option>
+                                <option style="color: #ef4444;">Reprogramada</option>
+                                <option style="color: #6b7280;">Cancelada</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;">2</td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Integral SG-SST</option>
+                                <option>Por Procesos</option>
+                                <option>Seguimiento</option>
+                                <option>Extraordinaria</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Área Operativa"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Enero</option>
+                                <option>Febrero</option>
+                                <option>Marzo</option>
+                                <option>Abril</option>
+                                <option>Mayo</option>
+                                <option>Junio</option>
+                                <option>Julio</option>
+                                <option>Agosto</option>
+                                <option>Septiembre</option>
+                                <option>Octubre</option>
+                                <option>Noviembre</option>
+                                <option>Diciembre</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;" onchange="actualizarEstado(this)">
+                                <option style="color: #f59e0b;">Programada</option>
+                                <option style="color: #3b82f6;">En Ejecución</option>
+                                <option style="color: #10b981;">Completada</option>
+                                <option style="color: #ef4444;">Reprogramada</option>
+                                <option style="color: #6b7280;">Cancelada</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align:center;">3</td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Integral SG-SST</option>
+                                <option>Por Procesos</option>
+                                <option>Seguimiento</option>
+                                <option>Extraordinaria</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Área Administrativa"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Enero</option>
+                                <option>Febrero</option>
+                                <option>Marzo</option>
+                                <option>Abril</option>
+                                <option>Mayo</option>
+                                <option>Junio</option>
+                                <option>Julio</option>
+                                <option>Agosto</option>
+                                <option>Septiembre</option>
+                                <option>Octubre</option>
+                                <option>Noviembre</option>
+                                <option>Diciembre</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;" onchange="actualizarEstado(this)">
+                                <option style="color: #f59e0b;">Programada</option>
+                                <option style="color: #3b82f6;">En Ejecución</option>
+                                <option style="color: #10b981;">Completada</option>
+                                <option style="color: #ef4444;">Reprogramada</option>
+                                <option style="color: #6b7280;">Cancelada</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarAuditoria()">+ Agregar Auditoría</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📈 Resumen del Cronograma</h2>
+            <div style="background: #f1f5f9; padding: 2rem; border-radius: 8px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-primario);">
+                            <span id="totalProgramadas">3</span>
+                        </div>
+                        <div style="color: #64748b;">Total Programadas</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #10b981;">
+                            <span id="totalCompletadas">0</span>
+                        </div>
+                        <div style="color: #64748b;">Completadas</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;">
+                            <span id="totalPendientes">3</span>
+                        </div>
+                        <div style="color: #64748b;">Pendientes</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #3b82f6;">
+                            <span id="porcentajeCumplimiento">0%</span>
+                        </div>
+                        <div style="color: #64748b;">% Cumplimiento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📅 Vista de Calendario (Gantt Visual)</h2>
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                <div
+                    style="display: grid; grid-template-columns: repeat(12, 1fr); gap: 0.5rem; text-align: center; font-size: 0.85rem; font-weight: 600;">
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">ENE</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">FEB</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">MAR</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">ABR</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">MAY</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">JUN</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">JUL</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">AGO</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">SEP</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">OCT</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">NOV</div>
+                    <div style="background: #e0f2fe; padding: 0.5rem; border-radius: 4px;">DIC</div>
+                </div>
+                <div id="ganttContainer" style="margin-top: 1rem;">
+                    <p style="text-align: center; color: #64748b; padding: 2rem;">
+                        📊 Las auditorías programadas se visualizarán aquí automáticamente según el mes seleccionado en
+                        la tabla.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👥 Equipo de Auditores Disponibles</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Nombre del Auditor</th>
+                        <th>Licencia SST</th>
+                        <th>Especialidad</th>
+                        <th>Disponibilidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="# Licencia"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Seguridad Industrial"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Todo el año / Meses específicos"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="# Licencia"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Higiene Industrial"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Todo el año / Meses específicos"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones Generales</h2>
+            <textarea rows="4" style="width:100%;"
+                placeholder="Consideraciones especiales, auditorías extraordinarias previstas, cambios al cronograma, etc."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Elaboró - Responsable SG-SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Aprobó - Alta Dirección</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Cronograma guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarAuditoria() {
+            const tabla = document.getElementById('tablaAuditorias');
+            const numero = tabla.rows.length + 1;
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+
+            nuevaFila.cells[0].textContent = numero;
+            nuevaFila.querySelectorAll('input[type="text"], input[type="date"]').forEach(input => input.value = '');
+            nuevaFila.querySelectorAll('select').forEach(select => select.selectedIndex = 0);
+
+            tabla.appendChild(nuevaFila);
+            calcularResumen();
+        }
+
+        function actualizarEstado(select) {
+            const color = select.options[select.selectedIndex].style.color;
+            select.style.color = color;
+            calcularResumen();
+        }
+
+        function calcularResumen() {
+            const tabla = document.getElementById('tablaAuditorias');
+            const total = tabla.rows.length;
+            let completadas = 0;
+
+            for (let i = 0; i < tabla.rows.length; i++) {
+                const estado = tabla.rows[i].cells[6].querySelector('select').value;
+                if (estado === 'Completada') completadas++;
+            }
+
+            const pendientes = total - completadas;
+            const porcentaje = total > 0 ? ((completadas / total) * 100).toFixed(0) : 0;
+
+            document.getElementById('totalProgramadas').textContent = total;
+            document.getElementById('totalCompletadas').textContent = completadas;
+            document.getElementById('totalPendientes').textContent = pendientes;
+            document.getElementById('porcentajeCumplimiento').textContent = porcentaje + '%';
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+
+            const anoActual = new Date().getFullYear();
+            document.getElementById('anoAuditoria').value = anoActual;
+
+            calcularResumen();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz IPER - Identificación de Peligros y Evaluación de Riesgos</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato" id="formato_matriz_iper">
+        <!-- Navegación -->
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <!-- Encabezado Corporativo -->
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">
+                    LOGO<br>EMPRESA
+                </div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Matriz de Identificación de Peligros y Evaluación de Riesgos (IPER)</div>
+                <div class="subtitulo-documento">Metodología GTC-45</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control">
+                    <label>Código:</label>
+                    <input type="text" value="FO-SST-01" class="campo-editable">
+                </div>
+                <div class="campo-control">
+                    <label>Fecha:</label>
+                    <input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control">
+                    <label>Versión:</label>
+                    <input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos de la Empresa -->
+        <div class="datos-empresa">
+            <h3>📋 Información de la Empresa</h3>
+            <div class="grid-datos">
+                <div class="campo-dato">
+                    <label>Razón Social:</label>
+                    <input type="text" placeholder="Nombre de la empresa" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>NIT:</label>
+                    <input type="text" placeholder="000000000-0" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Actividad Económica:</label>
+                    <input type="text" placeholder="Según CIIU" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Responsable SST:</label>
+                    <input type="text" placeholder="Nombre del responsable" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Área/Proceso Evaluado:</label>
+                    <input type="text" placeholder="Nombre del área" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Fecha de Evaluación:</label>
+                    <input type="date" class="auto-fecha campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <!-- Asistente AI -->
+        <div class="alerta alerta-info">
+            <div>
+                <strong>🤖 Asistente Inteligente Activado</strong><br>
+                <strong>Modo 1:</strong> Escribe la actividad o tarea en la tabla y el sistema suger irá automáticamente
+                los peligros asociados, controles y nivel de riesgo.
+                <br><strong>Modo 2:</strong> Sube fotografías del área de trabajo y la IA detectará peligros visibles
+                automáticamente.
+                <br><small><strong>Ejemplo:</strong> Si escribes "soldadura" o subes una foto de soldadura, el sistema
+                    sugerirá: radiaciones no ionizantes, humos metálicos, quemaduras, etc.</small>
+            </div>
+        </div>
+
+        <!-- Análisis de Imágenes con IA -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">📸 Análisis de Imágenes con Inteligencia Artificial</h2>
+            <div id="cargador-imagenes-iper"></div>
+        </div>
+
+        <!-- Metodología -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">📚 Metodología de Evaluación</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Nivel</th>
+                        <th>Probabilidad</th>
+                        <th>Consecuencia</th>
+                        <th>Valoración del Riesgo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1 - BAJA</strong></td>
+                        <td>Rara vez ocurre</td>
+                        <td>Lesión sin incapacidad</td>
+                        <td style="background: #10b981; color: white;"><strong>BAJO (1-2)</strong> - Mantener controles
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>2 - MEDIA</strong></td>
+                        <td>Ocasionalmente</td>
+                        <td>Lesión con incapacidad temporal</td>
+                        <td style="background: #f59e0b; color: white;"><strong>MEDIO (3-4)</strong> - Mejorar controles
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>3 - ALTA</strong></td>
+                        <td>Frecuentemente</td>
+                        <td>Lesión con incapacidad permanente</td>
+                        <td style="background: #f97316; color: white;"><strong>ALTO (6-8)</strong> - Implementar
+                            controles urgente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>4 - MUY ALTA</strong></td>
+                        <td>Siempre ocurre</td>
+                        <td>Muerte</td>
+                        <td style="background: #dc2626; color: white;"><strong>CRÍTICO (9-16)</strong> - Suspender hasta
+                            control</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem;"><strong>Fórmula:</strong> Nivel de Riesgo = Probabilidad × Consecuencia</p>
+        </div>
+
+        <!-- Matriz IPER -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">🎯 Matriz de Identificación y Evaluación de Riesgos</h2>
+
+            <div style="overflow-x: auto;">
+                <table class="tabla-formato" id="tabla-iper">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">#</th>
+                            <th rowspan="2">Proceso/Área</th>
+                            <th rowspan="2">Actividad/Tarea</th>
+                            <th rowspan="2">Peligro Identificado</th>
+                            <th rowspan="2">Tipo de Peligro</th>
+                            <th colspan="2">Evaluación del Riesgo</th>
+                            <th rowspan="2">Nivel de Riesgo</th>
+                            <th rowspan="2">Controles Existentes</th>
+                            <th rowspan="2">Controles Propuestos</th>
+                            <th rowspan="2">Responsable</th>
+                        </tr>
+                        <tr>
+                            <th>Prob.<br>(1-4)</th>
+                            <th>Consec.<br>(1-4)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Fila 1 - Ejemplo -->
+                        <tr>
+                            <td>1</td>
+                            <td><input type="text" placeholder="Ej: Producción"></td>
+                            <td>
+                                <input type="text" placeholder="Escriba la actividad (Ej: Soldadura)"
+                                    class="actividad-input" onblur="sugerirPeligros(this)">
+                            </td>
+                            <td><input type="text" placeholder="El sistema sugerirá peligros"></td>
+                            <td>
+                                <select>
+                                    <option value="">Seleccione...</option>
+                                    <option value="Físico">Físico</option>
+                                    <option value="Químico">Químico</option>
+                                    <option value="Biológico">Biológico</option>
+                                    <option value="Biomecánico">Biomecánico</option>
+                                    <option value="Psicosocial">Psicosocial</option>
+                                    <option value="Mecánico">Mecánico</option>
+                                    <option value="Eléctrico">Eléctrico</option>
+                                    <option value="Locativo">Locativo</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" min="1" max="4" placeholder="1-4" class="prob-input"
+                                    onchange="calcularRiesgo(this)">
+                            </td>
+                            <td>
+                                <input type="number" min="1" max="4" placeholder="1-4" class="consec-input"
+                                    onchange="calcularRiesgo(this)">
+                            </td>
+                            <td class="nivel-riesgo" style="font-weight: bold; text-align: center;"></td>
+                            <td><textarea placeholder="Controles actuales"></textarea></td>
+                            <td><textarea placeholder="Controles a implementar" class="controles-propuestos"></textarea>
+                            </td>
+                            <td><input type="text" placeholder="Responsable"></td>
+                        </tr>
+                        <!-- Filas adicionales -->
+                        <tr>
+                            <td>2</td>
+                            <td><input type="text"></td>
+                            <td><input type="text" class="actividad-input" onblur="sugerirPeligros(this)"></td>
+                            <td><input type="text"></td>
+                            <td>
+                                <select>
+                                    <option value="">Seleccione...</option>
+                                    <option value="Físico">Físico</option>
+                                    <option value="Químico">Químico</option>
+                                    <option value="Biológico">Biológico</option>
+                                    <option value="Biomecánico">Biomecánico</option>
+                                    <option value="Psicosocial">Psicosocial</option>
+                                    <option value="Mecánico">Mecánico</option>
+                                    <option value="Eléctrico">Eléctrico</option>
+                                    <option value="Locativo">Locativo</option>
+                                </select>
+                            </td>
+                            <td><input type="number" min="1" max="4" class="prob-input" onchange="calcularRiesgo(this)">
+                            </td>
+                            <td><input type="number" min="1" max="4" class="consec-input"
+                                    onchange="calcularRiesgo(this)"></td>
+                            <td class="nivel-riesgo" style="font-weight: bold; text-align: center;"></td>
+                            <td><textarea></textarea></td>
+                            <td><textarea class="controles-propuestos"></textarea></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><input type="text"></td>
+                            <td><input type="text" class="actividad-input" onblur="sugerirPeligros(this)"></td>
+                            <td><input type="text"></td>
+                            <td>
+                                <select>
+                                    <option value="">Seleccione...</option>
+                                    <option value="Físico">Físico</option>
+                                    <option value="Químico">Químico</option>
+                                    <option value="Biológico">Biológico</option>
+                                    <option value="Biomecánico">Biomecánico</option>
+                                    <option value="Psicosocial">Psicosocial</option>
+                                    <option value="Mecánico">Mecánico</option>
+                                    <option value="Eléctrico">Eléctrico</option>
+                                    <option value="Locativo">Locativo</option>
+                                </select>
+                            </td>
+                            <td><input type="number" min="1" max="4" class="prob-input" onchange="calcularRiesgo(this)">
+                            </td>
+                            <td><input type="number" min="1" max="4" class="consec-input"
+                                    onchange="calcularRiesgo(this)"></td>
+                            <td class="nivel-riesgo" style="font-weight: bold; text-align: center;"></td>
+                            <td><textarea></textarea></td>
+                            <td><textarea class="controles-propuestos"></textarea></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><input type="text"></td>
+                            <td><input type="text" class="actividad-input" onblur="sugerirPeligros(this)"></td>
+                            <td><input type="text"></td>
+                            <td>
+                                <select>
+                                    <option value="">Seleccione...</option>
+                                    <option value="Físico">Físico</option>
+                                    <option value="Químico">Químico</option>
+                                    <option value="Biológico">Biológico</option>
+                                    <option value="Biomecánico">Biomecánico</option>
+                                    <option value="Psicosocial">Psicosocial</option>
+                                    <option value="Mecánico">Mecánico</option>
+                                    <option value="Eléctrico">Eléctrico</option>
+                                    <option value="Locativo">Locativo</option>
+                                </select>
+                            </td>
+                            <td><input type="number" min="1" max="4" class="prob-input" onchange="calcularRiesgo(this)">
+                            </td>
+                            <td><input type="number" min="1" max="4" class="consec-input"
+                                    onchange="calcularRiesgo(this)"></td>
+                            <td class="nivel-riesgo" style="font-weight: bold; text-align: center;"></td>
+                            <td><textarea></textarea></td>
+                            <td><textarea class="controles-propuestos"></textarea></td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><input type="text"></td>
+                            <td><input type="text" class="actividad-input" onblur="sugerirPeligros(this)"></td>
+                            <td><input type="text"></td>
+                            <td>
+                                <select>
+                                    <option value="">Seleccione...</option>
+                                    <option value="Físico">Físico</option>
+                                    <option value="Químico">Químico</option>
+                                    <option value="Biológico">Biológico</option>
+                                    <option value="Biomecánico">Biomecánico</option>
+                                    <option value="Psicosocial">Psicosocial</option>
+                                    <option value="Mecánico">Mecánico</option>
+                                    <option value="Eléctrico">Eléctrico</option>
+                                    <option value="Locativo">Locativo</option>
+                                </select>
+                            </td>
+                            <td><input type="number" min="1" max="4" class="prob-input" onchange="calcularRiesgo(this)">
+                            </td>
+                            <td><input type="number" min="1" max="4" class="consec-input"
+                                    onchange="calcularRiesgo(this)"></td>
+                            <td class="nivel-riesgo" style="font-weight: bold; text-align: center;"></td>
+                            <td><textarea></textarea></td>
+                            <td><textarea class="controles-propuestos"></textarea></td>
+                            <td><input type="text"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="botones-accion" style="margin-top: 1rem;">
+                <button class="btn btn-secundario" onclick="agregarFila()">+ Agregar Fila</button>
+            </div>
+        </div>
+
+        <!-- Firmas -->
+        <div class="seccion-firmas">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre">
+                    <input type="text" placeholder="Nombre" style="border: none; text-align: center; font-weight: 600;">
+                </div>
+                <div class="firma-cargo">Elaborado por</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre">
+                    <input type="text" placeholder="Nombre" style="border: none; text-align: center; font-weight: 600;">
+                </div>
+                <div class="firma-cargo">Revisado por</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre">
+                    <input type="text" placeholder="Nombre" style="border: none; text-align: center; font-weight: 600;">
+                </div>
+                <div class="firma-cargo">Aprobado por</div>
+            </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-secundario" onclick="exportarExcel()">📊 Exportar a Excel</button>
+            <button class="btn btn-primario" onclick="guardarFormato()">💾 Guardar Datos</button>
+        </div>
+    </div>
+
+    <!-- JavaScript con IA -->
+    <script src="../js/asistente-ia.js"></script>
+    <script src="../js/analisis-imagenes.js"></script>
+    <script>
+        // Inicializar cargador de imágenes
+        document.addEventListener('DOMContentLoaded', function () {
+            crearCargadorImagenes('cargador-imagenes-iper', function (analisis, archivo) {
+                console.log('Imagen analizada:', archivo.name);
+                console.log('Peligros detectados:', analisis.peligros);
+
+                // Opcional: Auto-agregar peligros detectados a la tabla
+                if (analisis.peligros.length > 0 && confirm('¿Desea agregar los peligros detectados a la matriz?')) {
+                    analisis.peligros.forEach(peligroDetectado => {
+                        agregarFila();
+                        const tabla = document.getElementById('tabla-iper').querySelector('tbody');
+                        const ultimaFila = tabla.querySelector('tr:last-child');
+
+                        // Llenar datos detectados
+                        ultimaFila.querySelector('td:nth-child(4) input').value = peligroDetectado.peligro;
+
+                        // Asignar probabilidad y consecuencia según nivel
+                        let prob = 2, consec = 2;
+                        if (peligroDetectado.nivel === 'CRÍTICO') { prob = 3; consec = 4; }
+                        else if (peligroDetectado.nivel === 'ALTO') { prob = 3; consec = 3; }
+                        else if (peligroDetectado.nivel === 'MEDIO') { prob = 2; consec = 2; }
+
+                        ultimaFila.querySelector('.prob-input').value = prob;
+                        ultimaFila.querySelector('.consec-input').value = consec;
+                        calcularRiesgo(ultimaFila.querySelector('.prob-input'));
+
+                        // Agregar recomendaciones
+                        if (analisis.recomendaciones.length > 0) {
+                            ultimaFila.querySelector('.controles-propuestos').value = analisis.recomendaciones.join('; ');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Función para sugerir peligros basados en actividad (IA)
+        function sugerirPeligros(input) {
+            const actividad = input.value.trim();
+            if (!actividad) return;
+
+            const fila = input.closest('tr');
+            const peligrosInput = fila.querySelector('td:nth-child(4) input');
+            const tipoSelect = fila.querySelector('td:nth-child(5) select');
+            const controlesTextarea = fila.querySelector('.controles-propuestos');
+
+            // Usar el asistente IA
+            const peligrosSugeridos = AsistenteSST.sugerirPeligros(actividad);
+
+            if (peligrosSugeridos.length > 0) {
+                // Llenar primer peligro detectado
+                const primerPeligro = peligrosSugeridos[0];
+                peligrosInput.value = primerPeligro.peligro;
+                tipoSelect.value = primerPeligro.tipo;
+
+                // Sugerir controles
+                const controles = AsistenteSST.sugerirControles(primerPeligro.peligro);
+                if (controles.length > 0) {
+                    controlesTextarea.value = controles.slice(0, 3).join('; ');
+                }
+
+                // Mostrar notificación
+                peligrosInput.style.background = '#d1fae5';
+                setTimeout(() => { peligrosInput.style.background = ''; }, 2000);
+            }
+        }
+
+        // Función para calcular riesgo automáticamente
+        function calcularRiesgo(input) {
+            const fila = input.closest('tr');
+            const prob = parseInt(fila.querySelector('.prob-input').value) || 0;
+            const consec = parseInt(fila.querySelector('.consec-input').value) || 0;
+
+            if (prob > 0 && consec > 0) {
+                const evaluacion = AsistenteSST.evaluarRiesgo(prob, consec);
+                const nivelCell = fila.querySelector('.nivel-riesgo');
+
+                nivelCell.textContent = evaluacion.nivel;
+                nivelCell.style.background = evaluacion.color;
+                nivelCell.style.color = 'white';
+                nivelCell.title = evaluacion.accion;
+            }
+        }
+
+        // Agregar filas dinámicamente
+        function agregarFila() {
+            const tabla = document.getElementById('tabla-iper').querySelector('tbody');
+            const numeroFilas = tabla.querySelectorAll('tr').length;
+            const nuevaFila = tabla.querySelector('tr:last-child').cloneNode(true);
+
+            // Limpiar valores
+            nuevaFila.querySelector('td:first-child').textContent = numeroFilas + 1;
+            nuevaFila.querySelectorAll('input, textarea, select').forEach(campo => {
+                campo.value = '';
+            });
+            nuevaFila.querySelector('.nivel-riesgo').textContent = '';
+            nuevaFila.querySelector('.nivel-riesgo').style.background = '';
+
+            tabla.appendChild(nuevaFila);
+        }
+
+        // Guardar formato
+        function guardarFormato() {
+            if (confirm('¿Desea guardar los datos del formato localmente?')) {
+                const exito = UtilidadesSST.guardarDatos('matriz_iper', {
+                    timestamp: new Date().toISOString(),
+                    mensaje: 'Datos guardados exitosamente'
+                });
+
+                if (exito) {
+                    alert('✅ Datos guardados exitosamente en su navegador');
+                } else {
+                    alert('❌ Error al guardar datos');
+                }
+            }
+        }
+
+        // Exportar a Excel (CSV)
+        function exportarExcel() {
+            const tabla = document.getElementById('tabla-iper');
+            UtilidadesSST.exportarCSV('Matriz_IPER_' + new Date().toISOString().split('T')[0], tabla);
+        }
+    </script>
+</body>
+
+</html>

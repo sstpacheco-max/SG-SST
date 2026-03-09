@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Asistencia a Capacitaciones SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Registro de Asistencia a Capacitación en SST</div>
+                <div class="subtitulo-documento">Control y Evidencia de Formación</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-07"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="datos-empresa">
+            <h3>📚 Datos de la Capacitación</h3>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Tema:</label><input type="text" class="campo-editable"
+                        placeholder="Ej: Trabajo en Alturas"></div>
+                <div class="campo-dato"><label>Fecha:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora Inicio:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora Fin:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Duración Total:</label><input type="number" placeholder="Horas"
+                        class="campo-editable" style="width:80px"> horas</div>
+                <div class="campo-dato"><label>Lugar:</label><input type="text" class="campo-editable"
+                        placeholder="Sala/Auditorio"></div>
+                <div class="campo-dato"><label>Capacitador:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Entidad:</label><input type="text" class="campo-editable"
+                        placeholder="Interna/Externa"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h3>📋 Objetivo y Contenido</h3>
+            <div style="margin-bottom: 1rem;">
+                <label style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Objetivo de la
+                    Capacitación:</label>
+                <textarea rows="2"
+                    style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit;"
+                    placeholder="Describir el objetivo..."></textarea>
+            </div>
+            <div>
+                <label style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Contenido / Temas
+                    Tratados:</label>
+                <textarea rows="4"
+                    style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit;"
+                    placeholder="- Tema 1&#10;- Tema 2&#10;- Tema 3"></textarea>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✍️ Registro de Asistentes</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th>Nombre Completo</th>
+                        <th>Cédula</th>
+                        <th>Cargo</th>
+                        <th>Área/Departamento</th>
+                        <th>Firma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:120px"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text"></td>
+                        <td style="background:#f8fafc;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 1rem; text-align: right; font-weight: 600;">
+                Total Asistentes: <input type="number" value="0" style="width:60px; text-align:center; font-weight:700;"
+                    readonly id="totalAsistentes">
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h3>📝 Observaciones y Compromisos</h3>
+            <textarea rows="4"
+                style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit;"
+                placeholder="Observaciones generales, compromisos adquiridos, material entregado, etc."></textarea>
+        </div>
+
+        <div class="seccion-firmas">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre del Capacitador"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Capacitador / Instructor</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SST</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario"
+                onclick="UtilidadesSST.guardarDatos('registro_capacitacion', {}); alert('✅ Guardado')">💾
+                Guardar</button>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+</body>
+
+</html>

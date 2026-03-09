@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Ciclo PHVA - SG-SST</title>
+    <link rel="stylesheet" href="css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .ciclo-phva {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .fase-detalle {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border-left: 6px solid;
+        }
+
+        .fase-detalle.planear {
+            border-color: #3b82f6;
+        }
+
+        .fase-detalle.hacer {
+            border-color: #10b981;
+        }
+
+        .fase-detalle.verificar {
+            border-color: #f59e0b;
+        }
+
+        .fase-detalle.actuar {
+            border-color: #8b5cf6;
+        }
+
+        .fase-detalle h3 {
+            font-family: var(--font-titulo);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .fase-detalle.planear h3 {
+            color: #3b82f6;
+        }
+
+        .fase-detalle.hacer h3 {
+            color: #10b981;
+        }
+
+        .fase-detalle.verificar h3 {
+            color: #f59e0b;
+        }
+
+        .fase-detalle.actuar h3 {
+            color: #8b5cf6;
+        }
+
+        @media (max-width: 768px) {
+            .ciclo-phva {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="text-align: center; margin-bottom: 2rem;">
+            <a href="index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <h1
+            style="font-family: var(--font-titulo); font-size: 2.5rem; text-align: center; color: var(--color-primario); margin-bottom: 1rem;">
+            Ciclo PHVA en el SG-SST
+        </h1>
+
+        <p style="text-align: center; font-size: 1.1rem; color: var(--texto-secundario); margin-bottom: 3rem;">
+            El ciclo PHVA (Planear-Hacer-Verificar-Actuar) es la metodología de mejora continua en el Sistema de Gestión
+            de Seguridad y Salud en el Trabajo
+        </p>
+
+        <!-- Fases del Ciclo -->
+        <div class="ciclo-phva">
+            <!-- PLANEAR -->
+            <div class="fase-detalle planear">
+                <h3>🔵 1. PLANEAR (P)</h3>
+                <p><strong>Objetivo:</strong> Establecer los objetivos y procesos necesarios para conseguir resultados
+                    de acuerdo con la política de SST.</p>
+
+                <h4>Actividades Clave:</h4>
+                <ul>
+                    <li>Definir la política de SST</li>
+                    <li>Identificar peligros, evaluar y valorar riesgos</li>
+                    <li>Establecer objetivos e indicadores</li>
+                    <li>Identificar requisitos legales</li>
+                    <li>Asignar recursos (humanos, técnicos, financieros)</li>
+                    <li>Planificar capacitaciones</li>
+                </ul>
+
+                <h4>Formatos a Utilizar:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✅ Matriz de Identificación de Peligros y Evaluación de Riesgos (IPER)</li>
+                    <li>✅ Política de SST</li>
+                    <li>✅ Objetivos e Indicadores</li>
+                    <li>✅ Programa de Capacitación Anual</li>
+                    <li>✅ Matriz de Requisitos Legales</li>
+                    <li>✅ Asignación de Recursos</li>
+                </ul>
+
+                <div class="alerta alerta-info" style="margin-top: 1rem;">
+                    <div>
+                        <strong>💡 Recuerda:</strong> La planificación debe ser coherente con la realidad de tu empresa
+                        y basarse en datos objetivos.
+                    </div>
+                </div>
+            </div>
+
+            <!-- HACER -->
+            <div class="fase-detalle hacer">
+                <h3>🟢 2. HACER (H)</h3>
+                <p><strong>Objetivo:</strong> Implementar los procesos planificados y ejecutar las actividades del
+                    SG-SST.</p>
+
+                <h4>Actividades Clave:</h4>
+                <ul>
+                    <li>Realizar capacitaciones planificadas</li>
+                    <li>Ejecutar inspecciones de seguridad</li>
+                    <li>Entregar elementos de protección personal (EPP)</li>
+                    <li>Implementar controles de riesgos</li>
+                    <li>Realizar exámenes médicos ocupacionales</li>
+                    <li>Mantener documentación actualizada</li>
+                </ul>
+
+                <h4>Formatos a Utilizar:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✅ Inspecciones de Seguridad (General y Equipos)</li>
+                    <li>✅ Entrega de EPP</li>
+                    <li>✅ Registro de Asistencia a Capacitaciones</li>
+                    <li>✅ Actas de Reuniones COPASST</li>
+                    <li>✅ Profesiogramas</li>
+                    <li>✅ Permisos de Trabajo (Alturas, Espacios Confinados, Trabajo en Caliente)</li>
+                </ul>
+
+                <div class="alerta alerta-exito" style="margin-top: 1rem;">
+                    <div>
+                        <strong>✅ Importante:</strong> Documenta todas las actividades ejecutadas, son evidencia de
+                        cumplimiento.
+                    </div>
+                </div>
+            </div>
+
+            <!-- VERIFICAR -->
+            <div class="fase-detalle verificar">
+                <h3>🟠 3. VERIFICAR (V)</h3>
+                <p><strong>Objetivo:</strong> Realizar seguimiento y medición de los procesos respecto a la política,
+                    objetivos y requisitos legales.</p>
+
+                <h4>Actividades Clave:</h4>
+                <ul>
+                    <li>Investigar incidentes y accidentes</li>
+                    <li>Realizar auditorías internas</li>
+                    <li>Medir y analizar indicadores de SST</li>
+                    <li>Revisar cumplimiento de requisitos legales</li>
+                    <li>Hacer seguimiento a acciones correctivas</li>
+                    <li>Evaluar la eficacia de controles</li>
+                </ul>
+
+                <h4>Formatos a Utilizar:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✅ Reporte de Incidentes</li>
+                    <li>✅ Reporte e Investigación de Accidentes</li>
+                    <li>✅ Auditoría Interna del SG-SST</li>
+                    <li>✅ Seguimiento a Indicadores (Estructura, Proceso, Resultado)</li>
+                    <li>✅ Inspección de Botiquines</li>
+                    <li>✅ Seguimiento a Recomendaciones</li>
+                </ul>
+
+                <div class="alerta alerta-advertencia" style="margin-top: 1rem;">
+                    <div>
+                        <strong>⚠️ Atención:</strong> Los indicadores deben medirse con periodicidad definida para
+                        detectar tendencias.
+                    </div>
+                </div>
+            </div>
+
+            <!-- ACTUAR -->
+            <div class="fase-detalle actuar">
+                <h3>🟣 4. ACTUAR (A)</h3>
+                <p><strong>Objetivo:</strong> Tomar acciones para mejorar continuamente el desempeño del SG-SST.</p>
+
+                <h4>Actividades Clave:</h4>
+                <ul>
+                    <li>Implementar acciones correctivas y preventivas</li>
+                    <li>Actualizar la identificación de peligros</li>
+                    <li>Revisar y actualizar la política y objetivos</li>
+                    <li>Realizar revisión por la dirección</li>
+                    <li>Mejorar procedimientos y controles</li>
+                    <li>Ajustar la planificación según resultados</li>
+                </ul>
+
+                <h4>Formatos a Utilizar:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✅ Plan de Mejora Continua</li>
+                    <li>✅ Acciones Correctivas y Preventivas</li>
+                    <li>✅ Revisión por la Dirección</li>
+                    <li>✅ Actualización de la Matriz IPER</li>
+                </ul>
+
+                <div class="alerta alerta-info" style="margin-top: 1rem;">
+                    <div>
+                        <strong>🔄 Ciclo Continuo:</strong> Al finalizar esta fase, se reinicia el ciclo PHVA con nuevos
+                        objetivos de mejora.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flujo de Trabajo Sugerido -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Flujo de Trabajo Recomendado</h2>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fase</th>
+                        <th>Periodicidad</th>
+                        <th>Responsable</th>
+                        <th>Formatos Clave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PLANEAR</strong></td>
+                        <td>Anual (o al inicio)</td>
+                        <td>Alta Dirección + Responsable SST</td>
+                        <td>Matriz IPER, Política, Objetivos, Programa Capacitación</td>
+                    </tr>
+                    <tr>
+                        <td><strong>HACER</strong></td>
+                        <td>Continua (diaria/semanal/mensual)</td>
+                        <td>Responsable SST + Trabajadores</td>
+                        <td>Inspecciones, EPP, Capacitaciones, Actas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VERIFICAR</strong></td>
+                        <td>Mensual/Trimestral</td>
+                        <td>Responsable SST + Auditor</td>
+                        <td>Indicadores, Auditorías, Investigaciones</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ACTUAR</strong></td>
+                        <td>Trimestral/Anual</td>
+                        <td>Alta Dirección + Responsable SST</td>
+                        <td>Plan de Mejora, Acciones Correctivas, Revisión Dirección</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Relación entre formatos -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔗 Relación entre Formatos</h2>
+
+            <div class="alerta alerta-info">
+                <div>
+                    <p><strong>Los formatos están interrelacionados:</strong></p>
+                    <ul style="margin-top: 0.5rem;">
+                        <li>La <strong>Matriz IPER</strong> alimenta los <strong>Permisos de Trabajo</strong> y las
+                            <strong>Inspecciones</strong></li>
+                        <li>Los <strong>Reportes de Accidentes</strong> se investigan con el formato de
+                            <strong>Investigación</strong></li>
+                        <li>Las <strong>Investigaciones</strong> generan <strong>Acciones Correctivas</strong></li>
+                        <li>Las <strong>Acciones Correctivas</strong> se integran al <strong>Plan de Mejora</strong>
+                        </li>
+                        <li>El <strong>Plan de Mejora</strong> actualiza la <strong>Matriz IPER</strong> y la
+                            <strong>Planificación</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="index.html" class="btn btn-primario" style="text-decoration: none;">🏠 Ir al Portal Principal</a>
+        </div>
+    </div>
+</body>
+
+</html>

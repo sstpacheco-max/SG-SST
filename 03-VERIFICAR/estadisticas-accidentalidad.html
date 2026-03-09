@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas de Accidentalidad</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Estadísticas de Accidentalidad</div>
+                <div class="subtitulo-documento">Indicadores IFI, ILI, IAI - Análisis de Tendencias</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-26"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Periodo:</label><input type="month" class="campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📊 Indicadores Legales:</strong> Cálculo de índices de accidentalidad según fórmulas
+                establecidas por el Ministerio del Trabajo. Estos indicadores son obligatorios para la medición del
+                SG-SST (Res. 0312/2019).</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Datos Base del Periodo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Número de Trabajadores:</label><input type="number" id="numTrabajadores"
+                        class="campo-editable" value="50" onchange="calcularIndicadores()"></div>
+                <div class="campo-dato"><label>Horas Hombre Trabajadas (HHT):</label><input type="number" id="hht"
+                        class="campo-editable" placeholder="Ej: 100000" onchange="calcularIndicadores()"></div>
+                <div class="campo-dato"><label>Días Trabajados en el Periodo:</label><input type="number"
+                        id="diasTrabajados" class="campo-editable" value="30" onchange="calcularIndicadores()"></div>
+                <div class="campo-dato"><label>Número de Accidentes de Trabajo:</label><input type="number" id="numAT"
+                        class="campo-editable" value="0" onchange="calcularIndicadores()"></div>
+                <div class="campo-dato"><label>Días Perdidos por AT:</label><input type="number" id="diasPerdidos"
+                        class="campo-editable" value="0" onchange="calcularIndicadores()"></div>
+                <div class="campo-dato"><label>Días de Ausentismo (Total):</label><input type="number"
+                        id="diasAusentismo" class="campo-editable" value="0" onchange="calcularIndicadores()"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📈 Indicadores Calculados</h2>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                <!-- IFI -->
+                <div
+                    style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.5rem;">ÍNDICE DE FRECUENCIA (IFI)
+                    </div>
+                    <div style="font-size: 3rem; font-weight: 700; margin: 1rem 0;" id="ifi">0</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">AT por cada 240,000 HHT</div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                        <strong>Fórmula:</strong><br>
+                        <code style="font-size: 0.8rem;">(# AT × 240,000) / HHT</code>
+                    </div>
+                </div>
+
+                <!-- ILI -->
+                <div
+                    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.5rem;">ÍNDICE DE LESIONES
+                        INCAPACITANTES (ILI)</div>
+                    <div style="font-size: 3rem; font-weight: 700; margin: 1rem 0;" id="ili">0</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">Gravedad de lesiones</div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                        <strong>Fórmula:</strong><br>
+                        <code style="font-size: 0.8rem;">IFI × ISI / 1000</code>
+                    </div>
+                </div>
+
+                <!-- ISI -->
+                <div
+                    style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.5rem;">ÍNDICE DE SEVERIDAD (ISI)</div>
+                    <div style="font-size: 3rem; font-weight: 700; margin: 1rem 0;" id="isi">0</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">Días perdidos por cada 240,000 HHT</div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                        <strong>Fórmula:</strong><br>
+                        <code style="font-size: 0.8rem;">(Días perdidos × 240,000) / HHT</code>
+                    </div>
+                </div>
+
+                <!-- IAI -->
+                <div
+                    style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 0.5rem;">ÍNDICE DE AUSENTISMO (IAI)
+                    </div>
+                    <div style="font-size: 3rem; font-weight: 700; margin: 1rem 0;" id="iai">0%</div>
+                    <div style="font-size: 0.85rem; opacity: 0.8;">Porcentaje de tiempo perdido</div>
+                    <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.3);">
+                        <strong>Fórmula:</strong><br>
+                        <code style="font-size: 0.8rem;">(Días ausentes / Días trabajados) × 100</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alerta alerta-advertencia">
+                <strong>📌 Interpretación de Resultados:</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li><strong>IFI bajo (<10):< /strong> Buena gestión preventiva</li>
+                    <li><strong>ISI bajo (<500):< /strong> Accidentes de baja gravedad</li>
+                    <li><strong>ILI bajo (<1):< /strong> Sistema de control efectivo</li>
+                    <li><strong>IAI bajo (<5%):< /strong> Buen clima laboral y salud ocupacional</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Desglose de Accidentes del Periodo</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Trabajador</th>
+                        <th>Área</th>
+                        <th>Tipo de Lesión</th>
+                        <th>Parte del Cuerpo</th>
+                        <th>Días Perdidos</th>
+                        <th>Clasificación</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaAccidentes">
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Nombre"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Producción"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Contusión</option>
+                                <option>Herida</option>
+                                <option>Fractura</option>
+                                <option>Quemadura</option>
+                                <option>Esguince</option>
+                                <option>Amputación</option>
+                                <option>Otro</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Mano derecha"></td>
+                        <td><input type="number" style="width:80px;" value="0"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Incapacitante</option>
+                                <option>No incapacitante</option>
+                                <option>Mortal</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarAccidente()">+ Agregar Accidente</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📉 Tendencias (Últimos 12 Meses)</h2>
+            <canvas id="graficoTendencias" style="max-height: 400px;"></canvas>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🎯 Análisis por Categorías</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h4>Por Tipo de Lesión</h4>
+                    <canvas id="graficoPorTipo" style="max-height: 300px;"></canvas>
+                </div>
+                <div>
+                    <h4>Por Área de Trabajo</h4>
+                    <canvas id="graficoPorArea" style="max-height: 300px;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Análisis y Observaciones</h2>
+            <textarea rows="5" style="width:100%;" placeholder="Describa las tendencias observadas, causas identificadas y acciones tomadas o propuestas...
+
+Ejemplo:
+- Se observa disminución del 20% en accidentalidad vs trimestre anterior
+- Principal causa: golpes y contusiones en área de producción
+- Acciones: Reforzar capacitación en manejo de herramientas y aumentar inspecciones"></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Gerente General</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Estadísticas guardadas')">💾 Guardar
+                Estadísticas</button>
+            <button class="btn btn-secundario" onclick="exportarExcel()">📊 Exportar Excel</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularIndicadores() {
+            const hht = parseFloat(document.getElementById('hht').value) || 0;
+            const numAT = parseFloat(document.getElementById('numAT').value) || 0;
+            const diasPerdidos = parseFloat(document.getElementById('diasPerdidos').value) || 0;
+            const numTrabajadores = parseFloat(document.getElementById('numTrabajadores').value) || 1;
+            const diasTrabajados = parseFloat(document.getElementById('diasTrabajados').value) || 1;
+            const diasAusentismo = parseFloat(document.getElementById('diasAusentismo').value) || 0;
+
+            // IFI = (# AT × 240,000) / HHT
+            const ifi = hht > 0 ? ((numAT * 240000) / hht).toFixed(2) : 0;
+            document.getElementById('ifi').textContent = ifi;
+
+            // ISI = (Días perdidos × 240,000) / HHT
+            const isi = hht > 0 ? ((diasPerdidos * 240000) / hht).toFixed(2) : 0;
+            document.getElementById('isi').textContent = isi;
+
+            // ILI = (IFI × ISI) / 1000
+            const ili = ((parseFloat(ifi) * parseFloat(isi)) / 1000).toFixed(2);
+            document.getElementById('ili').textContent = ili;
+
+            // IAI = (Días de ausentismo / (# trabajadores × días trabajados)) × 100
+            const iai = ((diasAusentismo / (numTrabajadores * diasTrabajados)) * 100).toFixed(2);
+            document.getElementById('iai').textContent = iai + '%';
+        }
+
+        function agregarAccidente() {
+            const tabla = document.getElementById('tablaAccidentes');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function exportarExcel() {
+            alert('📊 Función de exportación en desarrollo');
+        }
+
+        // Gráfico de tendencias
+        const ctxTendencias = document.getElementById('graficoTendencias').getContext('2d');
+        new Chart(ctxTendencias, {
+            type: 'line',
+            data: {
+                labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                datasets: [{
+                    label: 'IFI',
+                    data: [12, 10, 8, 15, 7, 9, 6, 8, 5, 7, 4, 0],
+                    borderColor: '#3b82f6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Núm. Accidentes',
+                    data: [2, 1, 1, 2, 1, 1, 1, 1, 0, 1, 0, 0],
+                    borderColor: '#dc2626',
+                    backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { position: 'top' }
+                }
+            }
+        });
+
+        // Gráfico por tipo
+        const ctxTipo = document.getElementById('graficoPorTipo').getContext('2d');
+        new Chart(ctxTipo, {
+            type: 'pie',
+            data: {
+                labels: ['Contusión', 'Herida', 'Esguince', 'Fractura', 'Otros'],
+                datasets: [{
+                    data: [40, 25, 20, 10, 5],
+                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+                }]
+            }
+        });
+
+        // Gráfico por área
+        const ctxArea = document.getElementById('graficoPorArea').getContext('2d');
+        new Chart(ctxArea, {
+            type: 'bar',
+            data: {
+                labels: ['Producción', 'Mantenimiento', 'Almacén', 'Administración'],
+                datasets: [{
+                    label: 'Accidentes',
+                    data: [8, 4, 2, 1],
+                    backgroundColor: '#3b82f6'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // Calcular al cargar
+        window.onload = function () {
+            calcularIndicadores();
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Emergencias y Contingencias</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Plan de Prevención, Preparación y Respuesta ante Emergencias</div>
+                <div class="subtitulo-documento">Gestión de Riesgos de Emergencia</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-09"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="datos-empresa">
+            <h3>🏢 Información General</h3>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Empresa:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Dirección:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Teléfono:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>N° Total Trabajadores:</label><input type="number"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>N° Visitantes Promedio:</label><input type="number"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Horario de Operación:</label><input type="text" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>⚠️ Importante:</strong> Este plan debe ser conocido por todos los trabajadores, revisado mínimo
+                una vez al año y actualizado ante cambios en las instalaciones o identificación de nuevos riesgos.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🎯 Objetivo y Alcance</h2>
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h4>Objetivo:</h4>
+                <p>Establecer los procedimientos, recursos y responsabilidades para prevenir, preparar y responder ante
+                    situaciones de emergencia que puedan afectar la integridad de las personas, las instalaciones y el
+                    medio ambiente.</p>
+
+                <h4 style="margin-top: 1.5rem;">Alcance:</h4>
+                <p>Aplica a todos los trabajadores, contratistas, visitantes y partes interesadas que se encuentren en
+                    las instalaciones de la empresa.</p>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔥 Análisis de Amenazas</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Amenaza</th>
+                        <th>Descripción</th>
+                        <th>Probabilidad</th>
+                        <th>Impacto</th>
+                        <th>Nivel de Riesgo</th>
+                        <th>Medidas Preventivas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>Incendio</strong></td>
+                        <td><input type="text" value="Fuego descontrolado" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Baja</option>
+                                <option selected>Media</option>
+                                <option>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option selected>Alto</option>
+                            </select>
+                        </td>
+                        <td style="background:#fef3c7; font-weight:700;">MEDIO-ALTO</td>
+                        <td><input type="text" value="Extintores, detectores humo" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sismo</strong></td>
+                        <td><input type="text" value="Movimiento telúrico" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Baja</option>
+                                <option selected>Media</option>
+                                <option>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option selected>Alto</option>
+                            </select>
+                        </td>
+                        <td style="background:#fef3c7; font-weight:700;">MEDIO-ALTO</td>
+                        <td><input type="text" value="Señalización, rutas evacuación" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Explosión</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Baja</option>
+                                <option>Media</option>
+                                <option>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option selected>Alto</option>
+                            </select>
+                        </td>
+                        <td style="background:#d1fae5; font-weight:700;">BAJO-ALTO</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Inundación</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Baja</option>
+                                <option>Media</option>
+                                <option>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Bajo</option>
+                                <option selected>Medio</option>
+                                <option>Alto</option>
+                            </select>
+                        </td>
+                        <td style="background:#d1fae5; font-weight:700;">BAJO-MEDIO</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amenaza Terrorista</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Baja</option>
+                                <option>Media</option>
+                                <option>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option selected>Alto</option>
+                            </select>
+                        </td>
+                        <td style="background:#d1fae5; font-weight:700;">BAJO-ALTO</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Derrame Químico</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Baja</option>
+                                <option>Media</option>
+                                <option>Alta</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select>
+                        </td>
+                        <td style="font-weight:700;">--</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👥 Organización para Emergencias</h2>
+
+            <h4 style="color: var(--color-primario);">Brigada de Emergencias</h4>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Rol</th>
+                        <th>Nombre</th>
+                        <th>Cargo</th>
+                        <th>Teléfono</th>
+                        <th>Funciones Principales</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fef3c7;">
+                        <td><strong>Jefe de Brigada</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="tel" style="width:100%;"></td>
+                        <td>Coordinar y tomar decisiones durante la emergencia</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brigada Contraincendios</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="tel" style="width:100%;"></td>
+                        <td>Control de conatos de incendio</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brigada Evacuación</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="tel" style="width:100%;"></td>
+                        <td>Guiar evacuación ordenada</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brigada Primeros Auxilios</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="tel" style="width:100%;"></td>
+                        <td>Atención básica heridos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Brigada Comunicaciones</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="tel" style="width:100%;"></td>
+                        <td>Contacto con autoridades externas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📞 Directorio de Emergencias</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <div style="background: #fee2e2; padding: 1rem; border-radius: 8px;">
+                    <div style="font-weight: 700; color: #991b1b; margin-bottom: 0.5rem;">🚒 Bomberos</div>
+                    <div style="font-size: 1.5rem; font-weight: 700;">119</div>
+                </div>
+                <div style="background: #dbeafe; padding: 1rem; border-radius: 8px;">
+                    <div style="font-weight: 700; color: #1e40af; margin-bottom: 0.5rem;">👮 Policía</div>
+                    <div style="font-size: 1.5rem; font-weight: 700;">123</div>
+                </div>
+                <div style="background: #fef3c7; padding: 1rem; border-radius: 8px;">
+                    <div style="font-weight: 700; color: #92400e; margin-bottom: 0.5rem;">🚑 Ambulancia/Cruz Roja</div>
+                    <div style="font-size: 1.5rem; font-weight: 700;">132</div>
+                </div>
+                <div style="background: #e0e7ff; padding: 1rem; border-radius: 8px;">
+                    <div style="font-weight: 700; color: #3730a3; margin-bottom: 0.5rem;">⚡ Defensa Civil</div>
+                    <div style="font-size: 1.5rem; font-weight: 700;">144</div>
+                </div>
+                <div style="background: #f3e8ff; padding: 1rem; border-radius: 8px;">
+                    <div style="font-weight: 700; color: #581c87; margin-bottom: 0.5rem;">🏥 ARL</div>
+                    <div><input type="tel" placeholder="Teléfono"
+                            style="width:100%; font-size:1.2rem; text-align:center;"></div>
+                </div>
+                <div style="background: #d1fae5; padding: 1rem; border-radius: 8px;">
+                    <div style="font-weight: 700; color: #065f46; margin-bottom: 0.5rem;">⚠️ Línea Emergencia Empresa
+                    </div>
+                    <div><input type="tel" placeholder="Teléfono"
+                            style="width:100%; font-size:1.2rem; text-align:center;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🗺️ Recursos para Emergencias</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Recurso</th>
+                        <th>Cantidad</th>
+                        <th>Ubicación</th>
+                        <th>Estado</th>
+                        <th>Última Inspección</th>
+                        <th>Próximo Mantenimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Extintores PQS</td>
+                        <td><input type="number" style="width:70px;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Operativo</option>
+                                <option>Requiere Mantenimiento</option>
+                                <option>Inoperativo</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Extintores CO2</td>
+                        <td><input type="number" style="width:70px;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Operativo</option>
+                                <option>Requiere Mantenimiento</option>
+                                <option>Inoperativo</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Botiquines</td>
+                        <td><input type="number" style="width:70px;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Operativo</option>
+                                <option>Requiere Mantenimiento</option>
+                                <option>Inoperativo</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Camillas</td>
+                        <td><input type="number" style="width:70px;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Operativo</option>
+                                <option>Requiere Mantenimiento</option>
+                                <option>Inoperativo</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Alarmas</td>
+                        <td><input type="number" style="width:70px;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Operativo</option>
+                                <option>Requiere Mantenimiento</option>
+                                <option>Inoperativo</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Lámparas de emergencia</td>
+                        <td><input type="number" style="width:70px;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option selected>Operativo</option>
+                                <option>Requiere Mantenimiento</option>
+                                <option>Inoperativo</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🚪 Procedimiento de Evacuación</h2>
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; line-height: 2;">
+                <h4 style="color: var(--color-primario);">Antes de la Evacuación:</h4>
+                <ol>
+                    <li>Conocer las rutas de evacuación y puntos de encuentro</li>
+                    <li>Identificar las salidas de emergencia más cercanas</li>
+                    <li>Participar en simulacros programados</li>
+                </ol>
+
+                <h4 style="color: var(--color-primario); margin-top: 1.5rem;">Durante la Evacuación:</h4>
+                <ol>
+                    <li>Mantener la calma y no correr</li>
+                    <li>Seguir las rutas de evacuación señalizadas</li>
+                    <li>No devolverse a recoger objetos personales</li>
+                    <li>Ayudar a personas con movilidad reducida</li>
+                    <li>No usar ascensores</li>
+                    <li>Dirigirse al punto de encuentro establecido</li>
+                </ol>
+
+                <h4 style="color: var(--color-primario); margin-top: 1.5rem;">Después de la Evacuación:</h4>
+                <ol>
+                    <li>Reportarse en el punto de encuentro</li>
+                    <li>Esperar indicaciones del Jefe de Brigada</li>
+                    <li>No regresar hasta que se autorice</li>
+                    <li>Reportar personas desaparecidas o lesionadas</li>
+                </ol>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h4 style="color: var(--color-primario);">Puntos de Encuentro:</h4>
+                <table class="tabla-formato">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Descripción</th>
+                            <th>Ubicación</th>
+                            <th>Capacidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><input type="text" placeholder="Punto Encuentro Principal" style="width:100%;"></td>
+                            <td><input type="text" placeholder="Dirección o referencia" style="width:100%;"></td>
+                            <td><input type="number" placeholder="Personas" style="width:100px;"></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><input type="text" placeholder="Punto Encuentro Alternativo" style="width:100%;"></td>
+                            <td><input type="text" placeholder="Dirección o referencia" style="width:100%;"></td>
+                            <td><input type="number" placeholder="Personas" style="width:100px;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📅 Programa de Capacitación y Simulacros</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fecha Programada</th>
+                        <th>Tipo de Simulacro</th>
+                        <th>Alcance</th>
+                        <th>Responsable</th>
+                        <th>Fecha Ejecución</th>
+                        <th>Resultados</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Incendio</option>
+                                <option>Sismo</option>
+                                <option>Evacuación General</option>
+                                <option>Primeros Auxilios</option>
+                            </select>
+                        </td>
+                        <td><input type="text" placeholder="Toda la empresa" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Exitoso/Mejorar" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Incendio</option>
+                                <option selected>Sismo</option>
+                                <option>Evacuación General</option>
+                                <option>Primeros Auxilios</option>
+                            </select>
+                        </td>
+                        <td><input type="text" placeholder="Toda la empresa" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Exitoso/Mejorar" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📅 Recordatorio:</strong> Realizar mínimo un (1) simulacro de evacuación al año con
+                participación del personal. Documento evidencia con acta y registro fotográfico.</div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Gerente General</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario"
+                onclick="UtilidadesSST.guardarDatos('plan_emergencias', {}); alert('✅ Guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+</body>
+
+</html>

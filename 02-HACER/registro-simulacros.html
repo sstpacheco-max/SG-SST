@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Simulacros de Emergencia</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Registro de Simulacro de Emergencia</div>
+                <div class="subtitulo-documento">Evaluación de Preparación y Respuesta</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Simulacro #:</label><input type="text" class="campo-editable"
+                        value="SIM-001"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Hora:</label><input type="time" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>🚨 Simulacro de Emergencia:</strong> Ejercicio práctico para evaluar la capacidad de respuesta
+                ante emergencias. Se recomienda realizar mínimo 1 simulacro al año (2 para empresas de alto riesgo).
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información del Simulacro</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Tipo de Emergencia Simulada: *</label>
+                    <select class="campo-editable">
+                        <option>Incendio</option>
+                        <option>Sismo</option>
+                        <option>Evacuación general</option>
+                        <option>Derrame químico</option>
+                        <option>Amenaza de bomba</option>
+                        <option>Emergencia médica</option>
+                        <option>Fuga de gas</option>
+                        <option>Inundación</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Alcance:</label>
+                    <select class="campo-editable">
+                        <option>Toda la empresa</option>
+                        <option>Un área específica</option>
+                        <option>Un piso/planta</option>
+                        <option>Brigada únicamente</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Área/Piso Involucrado:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Coordinador del Simulacro:</label><input type="text"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>¿Fue Anunciado?:</label>
+                    <select class="campo-editable">
+                        <option>No - Sorpresivo</option>
+                        <option>Sí - Programado</option>
+                        <option>Parcial - Solo brigada</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Condiciones Climáticas:</label><input type="text" class="campo-editable"
+                        placeholder="Despejado, nublado, lluvia"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👥 Participantes</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Total de Personas en Instalaciones:</label><input type="number"
+                        id="totalPersonas" class="campo-editable"></div>
+                <div class="campo-dato"><label>Personas Evacuadas:</label><input type="number" id="personasEvacuadas"
+                        class="campo-editable" onchange="calcularEfectividad()"></div>
+                <div class="campo-dato"><label>Brigadistas Participantes:</label><input type="number"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Observadores Externos:</label><input type="text" class="campo-editable"
+                        placeholder="ARL, Bomberos, etc."></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⏱️ Tiempos de Respuesta</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Tiempo Esperado</th>
+                        <th>Tiempo Real</th>
+                        <th>Cumple</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Activación de alarma desde detección</td>
+                        <td>
+                            < 1 minuto</td>
+                        <td><input type="text" style="width:100px;" placeholder="mm:ss"> min</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Inicio de evacuación</td>
+                        <td>
+                            < 2 minutos</td>
+                        <td><input type="text" style="width:100px;" placeholder="mm:ss"> min</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Llegada brigada al punto de encuentro</td>
+                        <td>
+                            < 3 minutos</td>
+                        <td><input type="text" style="width:100px;" placeholder="mm:ss"> min</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr style="background: #fef3c7;">
+                        <td><strong>Tiempo total de evacuación</strong></td>
+                        <td><strong>
+                                < 5 minutos</strong>
+                        </td>
+                        <td><strong><input type="text" id="tiempoTotal" style="width:100px; font-weight:600;"
+                                    placeholder="mm:ss"> min</strong></td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Conteo de personas en punto de encuentro</td>
+                        <td>
+                            < 8 minutos total</td>
+                        <td><input type="text" style="width:100px;" placeholder="mm:ss"> min</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Evaluación del Desempeño</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="60%">Aspecto a Evaluar</th>
+                        <th width="10%">Excelente</th>
+                        <th width="10%">Bueno</th>
+                        <th width="10%">Regular</th>
+                        <th width="10%">Deficiente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Funcionamiento de la alarma</td>
+                        <td><input type="radio" name="alarma"></td>
+                        <td><input type="radio" name="alarma"></td>
+                        <td><input type="radio" name="alarma"></td>
+                        <td><input type="radio" name="alarma"></td>
+                    </tr>
+                    <tr>
+                        <td>Audibilidad de la alarma en toda la instalación</td>
+                        <td><input type="radio" name="audibilidad"></td>
+                        <td><input type="radio" name="audibilidad"></td>
+                        <td><input type="radio" name="audibilidad"></td>
+                        <td><input type="radio" name="audibilidad"></td>
+                    </tr>
+                    <tr>
+                        <td>Señalización de rutas de evacuación</td>
+                        <td><input type="radio" name="señalizacion"></td>
+                        <td><input type="radio" name="señalizacion"></td>
+                        <td><input type="radio" name="señalizacion"></td>
+                        <td><input type="radio" name="señalizacion"></td>
+                    </tr>
+                    <tr>
+                        <td>Iluminación de emergencia</td>
+                        <td><input type="radio" name="ilumin"></td>
+                        <td><input type="radio" name="ilumin"></td>
+                        <td><input type="radio" name="ilumin"></td>
+                        <td><input type="radio" name="ilumin"></td>
+                    </tr>
+                    <tr>
+                        <td>Estado de las salidas de emergencia (libres, operativas)</td>
+                        <td><input type="radio" name="salidas"></td>
+                        <td><input type="radio" name="salidas"></td>
+                        <td><input type="radio" name="salidas"></td>
+                        <td><input type="radio" name="salidas"></td>
+                    </tr>
+                    <tr>
+                        <td>Comportamiento del personal (calma, orden)</td>
+                        <td><input type="radio" name="comportamiento"></td>
+                        <td><input type="radio" name="comportamiento"></td>
+                        <td><input type="radio" name="comportamiento"></td>
+                        <td><input type="radio" name="comportamiento"></td>
+                    </tr>
+                    <tr>
+                        <td>Conocimiento de rutas por parte del personal</td>
+                        <td><input type="radio" name="conocimiento"></td>
+                        <td><input type="radio" name="conocimiento"></td>
+                        <td><input type="radio" name="conocimiento"></td>
+                        <td><input type="radio" name="conocimiento"></td>
+                    </tr>
+                    <tr>
+                        <td>Desempeño de la brigada de emergencias</td>
+                        <td><input type="radio" name="brigada"></td>
+                        <td><input type="radio" name="brigada"></td>
+                        <td><input type="radio" name="brigada"></td>
+                        <td><input type="radio" name="brigada"></td>
+                    </tr>
+                    <tr>
+                        <td>Coordinación y comunicación</td>
+                        <td><input type="radio" name="coordinacion"></td>
+                        <td><input type="radio" name="coordinacion"></td>
+                        <td><input type="radio" name="coordinacion"></td>
+                        <td><input type="radio" name="coordinacion"></td>
+                    </tr>
+                    <tr>
+                        <td>Punto de encuentro (ubicación, capacidad, seguridad)</td>
+                        <td><input type="radio" name="puntoEncuentro"></td>
+                        <td><input type="radio" name="puntoEncuentro"></td>
+                        <td><input type="radio" name="puntoEncuentro"></td>
+                        <td><input type="radio" name="puntoEncuentro"></td>
+                    </tr>
+                    <tr>
+                        <td>Conteo y verificación de personas</td>
+                        <td><input type="radio" name="conteo"></td>
+                        <td><input type="radio" name="conteo"></td>
+                        <td><input type="radio" name="conteo"></td>
+                        <td><input type="radio" name="conteo"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🎯 Resultados y Hallazgos</h2>
+            <div style="background: #dcfce7; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                <strong style="color: #065f46;">✓ Aspectos Positivos:</strong>
+                <textarea rows="3" style="width:100%; margin-top: 0.5rem;"
+                    placeholder="Describa lo que funcionó bien durante el simulacro..."></textarea>
+            </div>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                <strong style="color: #92400e;">⚠️ Oportunidades de Mejora:</strong>
+                <textarea rows="3" style="width:100%; margin-top: 0.5rem;"
+                    placeholder="Identifique áreas que requieren mejora..."></textarea>
+            </div>
+
+            <div style="background: #fee2e2; padding: 1rem; border-radius: 6px;">
+                <strong style="color: #991b1b;">✗ Situaciones Críticas o No Conformidades:</strong>
+                <textarea rows="3" style="width:100%; margin-top: 0.5rem;"
+                    placeholder="Problemas graves que deben corregirse inmediatamente..."></textarea>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Indicadores del Simulacro</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Resultado</th>
+                        <th>Meta</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>% de Evacuación</td>
+                        <td id="porcEvacuacion">0%</td>
+                        <td>100%</td>
+                        <td id="estadoEvac">-</td>
+                    </tr>
+                    <tr>
+                        <td>Cumplimiento de Tiempos</td>
+                        <td><input type="text" placeholder="% cumplimiento"></td>
+                        <td>>80%</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Calificación General</td>
+                        <td><select style="width:150px;">
+                                <option>Excelente (>90%)</option>
+                                <option>Bueno (70-90%)</option>
+                                <option>Regular (50-69%)</option>
+                                <option>Deficiente (<50%)< /option>
+                            </select></td>
+                        <td>Bueno mínimo</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Plan de Acción Post-Simulacro</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Acción Correctiva/Mejora</th>
+                        <th>Responsable</th>
+                        <th>Fecha Límite</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaAcciones">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Reparar alarma del 3er piso"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><select style="width:100%;">
+                                <option>Pendiente</option>
+                                <option>En proceso</option>
+                                <option>Completado</option>
+                            </select></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarAccion()">+ Agregar Acción</button>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Coordinador del Simulacro</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Líder de Brigada</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Simulacro guardado')">💾 Guardar Simulacro</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarAccion() {
+            const tabla = document.getElementById('tablaAcciones');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function calcularEfectividad() {
+            const total = parseFloat(document.getElementById('totalPersonas').value) || 0;
+            const evacuadas = parseFloat(document.getElementById('personasEvacuadas').value) || 0;
+
+            if (total > 0) {
+                const porc = ((evacuadas / total) * 100).toFixed(1);
+                document.getElementById('porcEvacuacion').textContent = porc + '%';
+                document.getElementById('estadoEvac').textContent = porc >= 95 ? '✓ Exitoso' : '✗ Mejorar';
+            }
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

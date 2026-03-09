@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoevaluación Inicial SG-SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Evaluación Inicial del SG-SST</div>
+                <div class="subtitulo-documento">Resolución 0312 de 2019 - Estándares Mínimos</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-21"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📋 Evaluación Inicial SG-SST:</strong> Diagnóstico del estado actual del Sistema de Gestión
+                basado en los estándares mínimos de la Res. 0312/2019. Esta evaluación es obligatoria y debe
+                actualizarse anualmente.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🏢 Información de la Empresa</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Razón Social:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>NIT:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Número de Trabajadores:</label><input type="number" id="numTrabajadores"
+                        class="campo-editable" onchange="determinarTamaño()"></div>
+                <div class="campo-dato"><label>Clase de Riesgo:</label>
+                    <select id="claseRiesgo" class="campo-editable" onchange="calcularPuntajeMaximo()">
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                        <option value="3">III</option>
+                        <option value="4">IV</option>
+                        <option value="5">V</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Clasificación Empresa:</label>
+                    <input type="text" id="tamañoEmpresa" class="campo-editable" readonly>
+                </div>
+                <div class="campo-dato"><label>Actividad Económica:</label><input type="text" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Autoevaluación por Estándares</h2>
+
+            <h3 style="color: var(--color-primario); margin-top: 2rem;">I. PLANEAR (25 puntos)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="60%">Estándar</th>
+                        <th width="15%">Puntaje Máximo</th>
+                        <th width="15%">Cumple</th>
+                        <th width="10%">Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.1.1 Responsable del SG-SST con curso de 50 horas</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.1.2 Responsabilidades en SST definidas y comunicadas</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.1.3 Asignación de recursos (financieros, técnicos, humanos)</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.1.4 Afiliación al Sistema de Riesgos Laborales</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.1.5 Pago de pensión trabajadores alto riesgo</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.1.6 Conformación COPASST / Vigía SST</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.1.7 Capacitación COPASST (20 horas)</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.1.8 Conformación Comité de Convivencia</td>
+                        <td>0.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.2.1 Programa de Capacitación anual</td>
+                        <td>2</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.2.2 Capacitación en SST (mínimo 2 horas/año)</td>
+                        <td>2</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>1.2.3 Inducción y reinducción en SST</td>
+                        <td>2</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.1.1 Política de SST firmada, fechada y comunicada</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.2.1 Objetivos del SG-SST definidos y medibles</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.3.1 Evaluación inicial del SG-SST</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.4.1 Plan Anual de Trabajo</td>
+                        <td>2</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.5.1 Conservación documentos (20 años)</td>
+                        <td>2</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.6.1 Rendición de cuentas anual</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.7.1 Matriz legal actualizada</td>
+                        <td>2</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.8.1 Mecanismos de comunicación</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.9.1 Identificación de peligros y evaluación de riesgos</td>
+                        <td>4</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>2.10.1 Medidas de prevención y control</td>
+                        <td>2.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr style="background: #dbeafe; font-weight: 600;">
+                        <td><strong>SUBTOTAL I - PLANEAR</strong></td>
+                        <td><strong>25</strong></td>
+                        <td>-</td>
+                        <td id="subtotalPlanear"><strong>0</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--color-primario); margin-top: 2rem;">II. HACER (60 puntos)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="60%">Estándar</th>
+                        <th width="15%">Puntaje Máximo</th>
+                        <th width="15%">Cumple</th>
+                        <th width="10%">Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3.1.1 Evaluaciones médicas ocupacionales</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.1.2 Profesiogramas para cargos críticos</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.1.3 Actividades de Promoción y Prevención</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.1.4 Información al médico sobre peligros</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.1.5 Reporte de AT y EL a ARL y Ministerio</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.1.6 Investigación de AT, EL e incidentes</td>
+                        <td>2</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.1.7 Registro y análisis estadístico de AT y EL</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.1.8 Mecanismos de vigilancia epidemiológica</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.2.1 Identificación y evaluación para compra de EPP</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.2.2 Mantenimiento instalaciones, equipos y herramientas</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.3.1 Plan de Prevención, Preparación y Respuesta ante Emergencias</td>
+                        <td>5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>3.3.2 Brigada de emergencias (empresas con más de 10 trabajadores)</td>
+                        <td>1</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr style="background: #dcfce7; font-weight: 600;">
+                        <td><strong>SUBTOTAL II - HACER</strong></td>
+                        <td><strong>17</strong></td>
+                        <td>-</td>
+                        <td id="subtotalHacer"><strong>0</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--color-primario); margin-top: 2rem;">III. VERIFICAR (5 puntos)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="60%">Estándar</th>
+                        <th width="15%">Puntaje Máximo</th>
+                        <th width="15%">Cumple</th>
+                        <th width="10%">Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>4.1.1 Indicadores de estructura, proceso y resultado</td>
+                        <td>1.25</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>4.1.2 Auditoría anual del SG-SST</td>
+                        <td>1.25</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>4.1.3 Revisión por la alta dirección (anual)</td>
+                        <td>1.25</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>4.1.4 Planificación auditoría con el COPASST</td>
+                        <td>1.25</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr style="background: #fef3c7; font-weight: 600;">
+                        <td><strong>SUBTOTAL III - VERIFICAR</strong></td>
+                        <td><strong>5</strong></td>
+                        <td>-</td>
+                        <td id="subtotalVerificar"><strong>0</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="color: var(--color-primario); margin-top: 2rem;">IV. ACTUAR (10 puntos)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="60%">Estándar</th>
+                        <th width="15%">Puntaje Máximo</th>
+                        <th width="15%">Cumple</th>
+                        <th width="10%">Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5.1.1 Acciones preventivas y correctivas basadas en investigaciones</td>
+                        <td>2.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>5.1.2 Acciones de mejora conforme revisión de la dirección</td>
+                        <td>2.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>5.1.3 Plan de mejoramiento suscrito</td>
+                        <td>2.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr>
+                        <td>5.1.4 Mejora continua documentada</td>
+                        <td>2.5</td>
+                        <td><input type="checkbox" onchange="calcularCumplimiento()"></td>
+                        <td class="puntos">0</td>
+                    </tr>
+                    <tr style="background: #fee2e2; font-weight: 600;">
+                        <td><strong>SUBTOTAL IV - ACTUAR</strong></td>
+                        <td><strong>10</strong></td>
+                        <td>-</td>
+                        <td id="subtotalActuar"><strong>0</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📈 Resultados de la Evaluación</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Ciclo PHVA</th>
+                        <th>Puntaje Obtenido</th>
+                        <th>Puntaje Máximo</th>
+                        <th>% Cumplimiento</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>PLANEAR</strong></td>
+                        <td id="resPlanear">0</td>
+                        <td>25</td>
+                        <td id="porcPlanear">0%</td>
+                        <td id="estadoPlanear">- </td>
+                    </tr>
+                    <tr>
+                        <td><strong>HACER</strong></td>
+                        <td id="resHacer">0</td>
+                        <td>17</td>
+                        <td id="porcHacer">0%</td>
+                        <td id="estadoHacer">-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>VERIFICAR</strong></td>
+                        <td id="resVerificar">0</td>
+                        <td>5</td>
+                        <td id="porcVerificar">0%</td>
+                        <td id="estadoVerificar">-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ACTUAR</strong></td>
+                        <td id="resActuar">0</td>
+                        <td>10</td>
+                        <td id="porcActuar">0%</td>
+                        <td id="estadoActuar">-</td>
+                    </tr>
+                    <tr
+                        style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); color: white; font-size: 1.2rem;">
+                        <td><strong>TOTAL SG-SST</strong></td>
+                        <td id="totalPuntaje"><strong>0</strong></td>
+                        <td><strong>57</strong></td>
+                        <td id="totalPorcentaje"><strong>0%</strong></td>
+                        <td id="nivelCumplimiento"><strong>-</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 8px;">
+                <h4 style="color: #1e40af;">Niveles de Cumplimiento:</h4>
+                <ul>
+                    <li>🟢 <strong>Cumplimiento Crítico (>86%):</strong> Sistema implementado satisfactoriamente</li>
+                    <li>🟡 <strong>Moderadamente Aceptable (61-85%):</strong> Requiere plan de mejora</li>
+                    <li>🟠 <strong>Moderado (41-60%):</strong> Sistema con deficiencias importantes</li>
+                    <li>🔴 <strong>Crítico (<40%):< /strong> Sistema deficiente - intervención urgente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Evaluación guardada')">💾 Guardar Evaluación</button>
+        </div>
+    </div>
+
+    <script>
+        function determinarTamaño() {
+            const num = parseInt(document.getElementById('numTrabajadores').value) || 0;
+            let tamaño = '';
+            if (num <= 10) tamaño = 'Menos de 10 trabajadores';
+            else if (num <= 50) tamaño = 'De 11 a 50 trabajadores';
+            else tamaño = 'Más de 50 trabajadores';
+            document.getElementById('tamañoEmpresa').value = tamaño;
+            calcularPuntajeMaximo();
+        }
+
+        function calcularPuntajeMaximo() {
+            // Aquí se ajustaría el puntaje según el tamaño de la empresa
+            calcularCumplimiento();
+        }
+
+        function calcularCumplimiento() {
+            const filas = document.querySelectorAll('.tabla-formato tbody tr');
+            let planear = 0, hacer = 0, verificar = 0, actuar = 0;
+
+            filas.forEach(fila => {
+                const checkbox = fila.querySelector('input[type="checkbox"]');
+                const puntajeCell = fila.querySelector('.puntos');
+
+                if (checkbox && puntajeCell) {
+                    const puntajeMax = parseFloat(fila.cells[1].textContent);
+                    const puntaje = checkbox.checked ? puntajeMax : 0;
+                    puntajeCell.textContent = puntaje.toFixed(2);
+                }
+            });
+
+            // Calcular subtotales por sección
+            document.querySelectorAll('.tabla-formato tbody').forEach((tbody, index) => {
+                let subtotal = 0;
+                tbody.querySelectorAll('.puntos').forEach(cell => {
+                    const val = parseFloat(cell.textContent) || 0;
+                    subtotal += val;
+                });
+
+                // Asignar a subtotales
+                if (index === 0) {
+                    document.getElementById('subtotalPlanear').textContent = subtotal.toFixed(2);
+                    planear = subtotal;
+                } else if (index === 1) {
+                    document.getElementById('subtotalHacer').textContent = subtotal.toFixed(2);
+                    hacer = subtotal;
+                } else if (index === 2) {
+                    document.getElementById('subtotalVerificar').textContent = subtotal.toFixed(2);
+                    verificar = subtotal;
+                } else if (index === 3) {
+                    document.getElementById('subtotalActuar').textContent = subtotal.toFixed(2);
+                    actuar = subtotal;
+                }
+            });
+
+            // Actualizar resultados
+            document.getElementById('resPlanear').textContent = planear.toFixed(2);
+            document.getElementById('resHacer').textContent = hacer.toFixed(2);
+            document.getElementById('resVerificar').textContent = verificar.toFixed(2);
+            document.getElementById('resActuar').textContent = actuar.toFixed(2);
+
+            document.getElementById('porcPlanear').textContent = ((planear / 25) * 100).toFixed(1) + '%';
+            document.getElementById('porcHacer').textContent = ((hacer / 17) * 100).toFixed(1) + '%';
+            document.getElementById('porcVerificar').textContent = ((verificar / 5) * 100).toFixed(1) + '%';
+            document.getElementById('porcActuar').textContent = ((actuar / 10) * 100).toFixed(1) + '%';
+
+            const total = planear + hacer + verificar + actuar;
+            document.getElementById('totalPuntaje').textContent = total.toFixed(2);
+            document.getElementById('totalPorcentaje').textContent = ((total / 57) * 100).toFixed(1) + '%';
+
+            // Nivel de cumplimiento
+            const porcentaje = (total / 57) * 100;
+            let nivel = '';
+            if (porcentaje > 86) nivel = '🟢 Crítico';
+            else if (porcentaje > 60) nivel = '🟡 Moderadamente Aceptable';
+            else if (porcentaje > 40) nivel = '🟠 Moderado';
+            else nivel = '🔴 Crítico';
+            document.getElementById('nivelCumplimiento').textContent = nivel;
+
+            // Estados individuales
+            ['Planear', 'Hacer', 'Verificar', 'Actuar'].forEach(fase => {
+                const porc = parseFloat(document.getElementById(`porc${fase}`).textContent);
+                const estado = porc >= 70 ? '✓ Aceptable' : '✗ Requiere mejora';
+                document.getElementById(`estado${fase}`).textContent = estado;
+            });
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

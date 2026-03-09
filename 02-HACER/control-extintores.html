@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Extintores y Equipos Contraincendios</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Control de Extintores y Equipos Contraincendios</div>
+                <div class="subtitulo-documento">Inspección y Mantenimiento</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-24"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Mes/Año:</label><input type="month" class="campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>🧯 Control de Equipos:</strong> Inspección mensual de extintores y revisión anual de sistemas
+                contraincendios según NTC 2885 y normativa vigente.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🧯 Registro de Extintores</h2>
+            <table class="tabla-formato" style="font-size: 0.85rem;">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Ubicación</th>
+                        <th>Tipo</th>
+                        <th>Capacidad</th>
+                        <th>Última Recarga</th>
+                        <th>Próxima Recarga</th>
+                        <th>Presión OK</th>
+                        <th>Señalización</th>
+                        <th>Acceso Libre</th>
+                        <th>Seguro/Precinto</th>
+                        <th>Estado General</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaExtintores">
+                    <tr>
+                        <td><input type="text" style="width:60px;" placeholder="EXT-01"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Recepción"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>PQS (ABC)</option>
+                                <option>CO₂</option>
+                                <option>Agua Presurizada</option>
+                                <option>Espuma (AFFF)</option>
+                                <option>K (Cocina)</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:60px;" placeholder="20 lb"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option style="color:green;">✓ Operativo</option>
+                                <option style="color:orange;">⚠ Requiere atención</option>
+                                <option style="color:red;">✗ Fuera de servicio</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarExtintor()">+ Agregar Extintor</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🚨 Sistema de Detección y Alarma</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Equipo/Sistema</th>
+                        <th>Ubicación</th>
+                        <th>Fecha Última Prueba</th>
+                        <th>Funciona Correctamente</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Panel de control de alarma</td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Detectores de humo</td>
+                        <td><input type="text" style="width:100%;" placeholder="Cantidad y ubicaciones"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Pulsadores de alarma manual</td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Sirenas/Campanas de alarma</td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Luces estroboscópicas</td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🚿 Sistema de Rociadores Automáticos</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>¿Cuenta con sistema de rociadores?:</label>
+                    <select class="campo-editable">
+                        <option>Sí</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Última prueba hidrostática:</label><input type="date"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Presión del sistema:</label><input type="text" class="campo-editable"
+                        placeholder="PSI"></div>
+                <div class="campo-dato"><label>Empresa mantenimiento:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Próximo mantenimiento:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Estado general:</label>
+                    <select class="campo-editable">
+                        <option>Operativo</option>
+                        <option>Requiere revisión</option>
+                        <option>Fuera de servicio</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔥 Hidrantes y Gabinetes Contraincendios</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Tipo</th>
+                        <th>Ubicación</th>
+                        <th>Manguera Completa</th>
+                        <th>Pitón Funcional</th>
+                        <th>Llave Spanner</th>
+                        <th>Señalización</th>
+                        <th>Acceso Libre</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaHidrantes">
+                    <tr>
+                        <td><input type="text" style="width:60px;" placeholder="GAB-01"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Gabinete contraincendios</option>
+                                <option>Hidrante exterior</option>
+                                <option>Hidrante interior</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Operativo</option>
+                                <option>Con fallas</option>
+                                <option>Fuera de servicio</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarHidrante()">+ Agregar Gabinete/Hidrante</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💡 Iluminación de Emergencia</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Ubicación</th>
+                        <th>Tipo</th>
+                        <th>Funciona</th>
+                        <th>Tiempo Autonomía</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaIluminacion">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Pasillo principal"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Luz emergencia LED</option>
+                                <option>Señal salida iluminada</option>
+                                <option>Lámpara autónoma</option>
+                            </select>
+                        </td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;" placeholder="90 min"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarIluminacion()">+ Agregar Equipo</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Resumen del Estado</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Total</th>
+                        <th>Operativos</th>
+                        <th>Con Fallas</th>
+                        <th>Fuera de Servicio</th>
+                        <th>% Operatividad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Extintores</td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td>-%</td>
+                    </tr>
+                    <tr>
+                        <td>Detectores de Humo</td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td>-%</td>
+                    </tr>
+                    <tr>
+                        <td>Gabinetes/Hidrantes</td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td>-%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⚠️ No Conformidades y Acciones</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Problema Identificado</th>
+                        <th>Equipo Afectado</th>
+                        <th>Acción Correctiva</th>
+                        <th>Responsable</th>
+                        <th>Fecha Límite</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaAcciones">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Extintor con baja presión"></td>
+                        <td><input type="text" style="width:100%;" placeholder="EXT-05"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Recarga inmediata"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarAccion()">+ Agregar Acción</button>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Inspector/Responsable SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Jefe de Mantenimiento</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Inspección guardada')">💾 Guardar Inspección</button>
+            <button class="btn btn-secundario" onclick="alert('📊 Exportar')">📊 Exportar Excel</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarExtintor() {
+            const tabla = document.getElementById('tablaExtintores');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarHidrante() {
+            const tabla = document.getElementById('tablaHidrantes');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarIluminacion() {
+            const tabla = document.getElementById('tablaIluminacion');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarAccion() {
+            const tabla = document.getElementById('tablaAcciones');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+    </script>
+</body>
+
+</html>

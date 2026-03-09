@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Histórico de Auditorías</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .filtro-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Registro Histórico de Auditorías</div>
+                <div class="subtitulo-documento">Sistema de Gestión SG-SST</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-45"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Panel de Control de Auditorías</h2>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
+                <div
+                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 1.5rem; border-radius: 12px; color: white; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700;" id="totalAuditorias">0</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">Total Auditorías</div>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 1.5rem; border-radius: 12px; color: white; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700;" id="promedioCompliance">0%</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">Promedio Cumplimiento</div>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); padding: 1.5rem; border-radius: 12px; color: white; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700;" id="totalNC">0</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">Total No Conformidades</div>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); padding: 1.5rem; border-radius: 12px; color: white; text-align: center;">
+                    <div style="font-size: 2.5rem; font-weight: 700;" id="ncAbiertas">0</div>
+                    <div style="font-size: 0.9rem; opacity: 0.9;">NC Abiertas</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔍 Filtros de Búsqueda</h2>
+            <div class="filtro-container">
+                <div>
+                    <label>Año:</label>
+                    <select id="filtroAno" onchange="filtrarTabla()" style="width: 100%; padding: 0.5rem;">
+                        <option value="">Todos</option>
+                        <option value="2026">2026</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Tipo de Auditoría:</label>
+                    <select id="filtroTipo" onchange="filtrarTabla()" style="width: 100%; padding: 0.5rem;">
+                        <option value="">Todos</option>
+                        <option value="Integral">Integral</option>
+                        <option value="Procesos">Por Procesos</option>
+                        <option value="Seguimiento">Seguimiento</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Estado NC:</label>
+                    <select id="filtroEstado" onchange="filtrarTabla()" style="width: 100%; padding: 0.5rem;">
+                        <option value="">Todos</option>
+                        <option value="Cerradas">100% Cerradas</option>
+                        <option value="Parcial">Parcialmente Cerradas</option>
+                        <option value="Abiertas">Abiertas</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Buscar:</label>
+                    <input type="text" id="buscarTexto" oninput="filtrarTabla()" placeholder="Buscar..."
+                        style="width: 100%; padding: 0.5rem;">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Registro de Auditorías Realizadas</h2>
+            <table class="tabla-formato" id="tablaAuditorias">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 3%;">#</th>
+                        <th style="width: 10%;">Fecha</th>
+                        <th style="width: 12%;">Tipo</th>
+                        <th style="width: 18%;">Auditor(es)</th>
+                        <th style="width: 15%;">Áreas Auditadas</th>
+                        <th style="width: 8%;">% Cumplim.</th>
+                        <th style="width: 6%;">NC Total</th>
+                        <th style="width: 6%;">NC Cerr.</th>
+                        <th style="width: 10%;">Estado NC</th>
+                        <th style="width: 12%;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Integral</option>
+                                <option>Por Procesos</option>
+                                <option>Seguimiento</option>
+                                <option>Extraordinaria</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Nombre auditor"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Áreas"></td>
+                        <td><input type="number" min="0" max="100" class="campo-cumplimiento"
+                                oninput="actualizarEstadisticas()" style="width:70px;"> %</td>
+                        <td><input type="number" min="0" class="campo-nc-total" oninput="actualizarEstadisticas()"
+                                style="width:60px;"></td>
+                        <td><input type="number" min="0" class="campo-nc-cerradas" oninput="actualizarEstadisticas()"
+                                style="width:60px;"></td>
+                        <td>
+                            <select class="estado-select" style="width:100%;">
+                                <option style="background: #dcfce7; color: #166534;">✅ 100% Cerradas</option>
+                                <option style="background: #fef3c7; color: #92400e;">⚠️ Parcialmente</option>
+                                <option style="background: #fee2e2; color: #991b1b;">❌ Abiertas</option>
+                            </select>
+                        </td>
+                        <td style="text-align: center;">
+                            <button class="btn btn-secundario" style="padding: 0.3rem 0.6rem; font-size: 0.85rem;"
+                                onclick="verDetalle(this)">📄 Ver</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primario" onclick="agregarAuditoria()" style="margin-top: 1rem;">+ Agregar
+                Auditoría</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📈 Evolución del Cumplimiento</h2>
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px;">
+                <p><strong>Tendencia de Cumplimiento por Año:</strong></p>
+                <table class="tabla-formato">
+                    <thead>
+                        <tr>
+                            <th>Año</th>
+                            <th>Auditorías Realizadas</th>
+                            <th>% Promedio</th>
+                            <th>NC Generadas</th>
+                            <th>NC Cerradas</th>
+                            <th>% Cierre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2026</strong></td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"> %</td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"> %</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2025</strong></td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"> %</td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"> %</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2024</strong></td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"> %</td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"></td>
+                            <td><input type="number" style="width:80px;"> %</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📌 Hallazgos Recurrentes</h2>
+            <textarea rows="5" style="width:100%;"
+                placeholder="Registre aquí los hallazgos que se repiten en múltiples auditorías para implementar acciones de mejora sistémicas..."></textarea>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="exportarExcel()">📊 Exportar Excel</button>
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Registro guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarAuditoria() {
+            const tabla = document.getElementById('tablaAuditorias').getElementsByTagName('tbody')[0];
+            const numeroFilas = tabla.rows.length;
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.cells[0].textContent = numeroFilas + 1;
+            nuevaFila.querySelectorAll('input').forEach(el => el.value = '');
+            tabla.appendChild(nuevaFila);
+            actualizarEstadisticas();
+        }
+
+        function actualizarEstadisticas() {
+            const tabla = document.getElementById('tablaAuditorias').getElementsByTagName('tbody')[0];
+            let totalAuditorias = tabla.rows.length;
+            let sumaCumplimiento = 0;
+            let totalNC = 0;
+            let ncAbiertas = 0;
+            let contador = 0;
+
+            for (let i = 0; i < tabla.rows.length; i++) {
+                const cumplimiento = parseFloat(tabla.rows[i].querySelector('.campo-cumplimiento').value) || 0;
+                const nc = parseInt(tabla.rows[i].querySelector('.campo-nc-total').value) || 0;
+                const cerradas = parseInt(tabla.rows[i].querySelector('.campo-nc-cerradas').value) || 0;
+
+                if (cumplimiento > 0) {
+                    sumaCumplimiento += cumplimiento;
+                    contador++;
+                }
+                totalNC += nc;
+                ncAbiertas += (nc - cerradas);
+            }
+
+            document.getElementById('totalAuditorias').textContent = totalAuditorias;
+            document.getElementById('promedioCompliance').textContent = contador > 0 ? (sumaCumplimiento / contador).toFixed(1) + '%' : '0%';
+            document.getElementById('totalNC').textContent = totalNC;
+            document.getElementById('ncAbiertas').textContent = ncAbiertas;
+        }
+
+        function filtrarTabla() {
+            const filtroAno = document.getElementById('filtroAno').value.toLowerCase();
+            const filtroTipo = document.getElementById('filtroTipo').value.toLowerCase();
+            const filtroEstado = document.getElementById('filtroEstado').value.toLowerCase();
+            const buscarTexto = document.getElementById('buscarTexto').value.toLowerCase();
+
+            const tabla = document.getElementById('tablaAuditorias').getElementsByTagName('tbody')[0];
+
+            for (let i = 0; i < tabla.rows.length; i++) {
+                let mostrar = true;
+                const fila = tabla.rows[i];
+
+                const fecha = fila.cells[1].querySelector('input').value;
+                const tipo = fila.cells[2].querySelector('select').value.toLowerCase();
+                const auditor = fila.cells[3].querySelector('input').value.toLowerCase();
+                const areas = fila.cells[4].querySelector('input').value.toLowerCase();
+                const estado = fila.cells[8].querySelector('select').value.toLowerCase();
+
+                if (filtroAno && !fecha.includes(filtroAno)) mostrar = false;
+                if (filtroTipo && !tipo.includes(filtroTipo.toLowerCase())) mostrar = false;
+                if (filtroEstado && !estado.includes(filtroEstado.toLowerCase())) mostrar = false;
+                if (buscarTexto && !auditor.includes(buscarTexto) && !areas.includes(buscarTexto)) mostrar = false;
+
+                fila.style.display = mostrar ? '' : 'none';
+            }
+        }
+
+        function verDetalle(btn) {
+            alert('Aquí se abrirá el informe completo de auditoría (funcionalidad a implementar)');
+        }
+
+        function exportarExcel() {
+            alert('Exportando a Excel... (funcionalidad a implementar)');
+        }
+
+        window.onload = function () {
+            actualizarEstadisticas();
+        };
+    </script>
+</body>
+
+</html>

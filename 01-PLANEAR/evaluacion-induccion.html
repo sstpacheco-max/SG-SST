@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Inducción SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Evaluación de Inducción al SG-SST</div>
+                <div class="subtitulo-documento">Verificación de Conocimientos</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-34"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>✅ Evaluación Obligatoria:</strong> Se debe verificar que el trabajador comprendió los conceptos
+                de la inducción SST. Nota mínima aprobatoria: 70%.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👤 Datos del Evaluado</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nombre Completo:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Identificación:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Cargo:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Área:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha de Evaluación:</label><input type="date"
+                        class="auto-fecha campo-editable"></div>
+                <div class="campo-dato"><label>Evaluador:</label><input type="text" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Cuestionario de Evaluación</h2>
+
+            <div class="pregunta">
+                <p><strong>1. ¿Qué significa SG-SST?</strong></p>
+                <label><input type="radio" name="p1" value="a" onchange="calcularNota()"> a) Sistema General de Salud y
+                    Seguridad en el Trabajo</label><br>
+                <label><input type="radio" name="p1" value="b" onchange="calcularNota()"> b) Sistema de Gestión de
+                    Seguridad y Salud en el Trabajo ✓</label><br>
+                <label><input type="radio" name="p1" value="c" onchange="calcularNota()"> c) Servicio de Gestión de
+                    Supervisión y Trabajo</label><br>
+                <label><input type="radio" name="p1" value="d" onchange="calcularNota()"> d) Sistema de Garantías en
+                    Seguridad Social</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>2. El principal objetivo del SG-SST es:</strong></p>
+                <label><input type="radio" name="p2" value="a" onchange="calcularNota()"> a) Aumentar la
+                    productividad</label><br>
+                <label><input type="radio" name="p2" value="b" onchange="calcularNota()"> b) Prevenir accidentes y
+                    enfermedades laborales ✓</label><br>
+                <label><input type="radio" name="p2" value="c" onchange="calcularNota()"> c) Cumplir con trámites del
+                    Ministerio</label><br>
+                <label><input type="radio" name="p2" value="d" onchange="calcularNota()"> d) Sancionar a los
+                    trabajadores</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>3. ¿Cuál de los siguientes es un DEBER del trabajador en SST?</strong></p>
+                <label><input type="radio" name="p3" value="a" onchange="calcularNota()"> a) Recibir EPP
+                    gratis</label><br>
+                <label><input type="radio" name="p3" value="b" onchange="calcularNota()"> b) Trabajar en ambiente
+                    seguro</label><br>
+                <label><input type="radio" name="p3" value="c" onchange="calcularNota()"> c) Usar correctamente los EPP
+                    entregados ✓</label><br>
+                <label><input type="radio" name="p3" value="d" onchange="calcularNota()"> d) Elegir su horario de
+                    trabajo</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>4. Si ocurre un accidente de trabajo, lo primero que debo hacer es:</strong></p>
+                <label><input type="radio" name="p4" value="a" onchange="calcularNota()"> a) Terminar mi turno y luego
+                    reportar</label><br>
+                <label><input type="radio" name="p4" value="b" onchange="calcularNota()"> b) Notificar INMEDIATAMENTE al
+                    jefe directo ✓</label><br>
+                <label><input type="radio" name="p4" value="c" onchange="calcularNota()"> c) Esperar a ver si el dolor
+                    pasa</label><br>
+                <label><input type="radio" name="p4" value="d" onchange="calcularNota()"> d) Ir a mi EPS
+                    particular</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>5. El COPASST es:</strong></p>
+                <label><input type="radio" name="p5" value="a" onchange="calcularNota()"> a) Un comité de
+                    productividad</label><br>
+                <label><input type="radio" name="p5" value="b" onchange="calcularNota()"> b) Comité Paritario de
+                    Seguridad y Salud en el Trabajo ✓</label><br>
+                <label><input type="radio" name="p5" value="c" onchange="calcularNota()"> c) Una entidad del
+                    gobierno</label><br>
+                <label><input type="radio" name="p5" value="d" onchange="calcularNota()"> d) Un sindicato</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>6. Los Elementos de Protección Personal (EPP) son:</strong></p>
+                <label><input type="radio" name="p6" value="a" onchange="calcularNota()"> a) Opcionales según el
+                    trabajador decida</label><br>
+                <label><input type="radio" name="p6" value="b" onchange="calcularNota()"> b) De uso OBLIGATORIO cuando
+                    se requieren ✓</label><br>
+                <label><input type="radio" name="p6" value="c" onchange="calcularNota ()"> c) Solo necesarios para
+                    visitantes</label><br>
+                <label><input type="radio" name="p6" value="d" onchange="calcularNota()"> d) Se usan solo cuando hay
+                    auditoría</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>7. En caso de emergencia, NO debo:</strong></p>
+                <label><input type="radio" name="p7" value="a" onchange="calcularNota()"> a) Conservar la
+                    calma</label><br>
+                <label><input type="radio" name="p7" value="b" onchange="calcularNota()"> b) Seguir rutas de
+                    evacuación</label><br>
+                <label><input type="radio" name="p7" value="c" onchange="calcularNota()"> c) Regresar por objetos
+                    personales ✓</label><br>
+                <label><input type="radio" name="p7" value="d" onchange="calcularNota()"> d) Seguir instrucciones de
+                    brigadistas</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>8. Un acto inseguro es:</strong></p>
+                <label><input type="radio" name="p8" value="a" onchange="calcularNota()"> a) Una máquina sin guarda de
+                    seguridad</label><br>
+                <label><input type="radio" name="p8" value="b" onchange="calcularNota()"> b) Un piso
+                    resbaloso</label><br>
+                <label><input type="radio" name="p8" value="c" onchange="calcularNota()"> c) No usar EPP requerido
+                    ✓</label><br>
+                <label><input type="radio" name="p8" value="d" onchange="calcularNota()"> d) Cables eléctricos
+                    expuestos</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>9. La Política de SST debe ser:</strong></p>
+                <label><input type="radio" name="p9" value="a" onchange="calcularNota()"> a) Conocida solo por el
+                    gerente</label><br>
+                <label><input type="radio" name="p9" value="b" onchange="calcularNota()"> b) Un documento
+                    secreto</label><br>
+                <label><input type="radio" name="p9" value="c" onchange="calcularNota()"> c) Comunicada a todos los
+                    trabajadores ✓</label><br>
+                <label><input type="radio" name="p9" value="d" onchange="calcularNota()"> d) Archivada sin
+                    divulgar</label>
+            </div>
+
+            <div class="pregunta">
+                <p><strong>10. El ciclo PHVA del SG-SST significa:</strong></p>
+                <label><input type="radio" name="p10" value="a" onchange="calcularNota()"> a) Proteger, Hacer, Ver,
+                    Actuar</label><br>
+                <label><input type="radio" name="p10" value="b" onchange="calcularNota()"> b) Planear, Hacer, Verificar,
+                    Actuar ✓</label><br>
+                <label><input type="radio" name="p10" value="c" onchange="calcularNota()"> c) Prevenir, Higiene,
+                    Vigilancia, Análisis</label><br>
+                <label><input type="radio" name="p10" value="d" onchange="calcularNota()"> d) Producir, Hacer, Validar,
+                    Aprobar</label>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Resultados</h2>
+            <div style="background: #f1f5f9; padding: 2rem; border-radius: 8px; text-align: center;">
+                <div style="font-size: 3rem; font-weight: 700; color: var(--color-primario); margin-bottom: 1rem;">
+                    <span id="notaFinal">0</span> / 10
+                </div>
+                <div style="font-size: 1.5rem; margin-bottom: 1rem;">
+                    <span id="porcentaje">0%</span>
+                </div>
+                <div id="resultado" style="font-size: 1.2rem; font-weight: 600; padding: 1rem; border-radius: 6px;">
+                    Complete la evaluación para ver el resultado
+                </div>
+
+                <div style="margin-top: 2rem; text-align: left;">
+                    <strong>Criterios de Evaluación:</strong>
+                    <ul>
+                        <li><span style="color: green;">✓ APROBADO:</span> 7 o más respuestas correctas (≥70%)</li>
+                        <li><span style="color: red;">✗ NO APROBADO:</span> Menos de 7 respuestas correctas (<70%)< /li>
+                    </ul>
+
+                    <div id="reInduccion"
+                        style="background: #fee2e2; padding: 1rem; border-radius: 6px; margin-top: 1rem; display: none;">
+                        <strong style="color: #991b1b;">⚠️ RE-INDUCCIÓN REQUERIDA:</strong><br>
+                        El trabajador debe recibir nuevamente la inducción y presentar esta evaluación.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones</h2>
+            <textarea rows="3" style="width:100%;"
+                placeholder="Comentarios del evaluador, temas que requieren refuerzo, etc."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre del Trabajador"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Trabajador Evaluado</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST / Evaluador</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Evaluación guardada')">💾 Guardar Evaluación</button>
+        </div>
+    </div>
+
+    <script>
+        const respuestasCorrectas = {
+            p1: 'b',
+            p2: 'b',
+            p3: 'c',
+            p4: 'b',
+            p5: 'b',
+            p6: 'b',
+            p7: 'c',
+            p8: 'c',
+            p9: 'c',
+            p10: 'b'
+        };
+
+        function calcularNota() {
+            let correctas = 0;
+
+            for (let pregunta in respuestasCorrectas) {
+                const seleccionada = document.querySelector(`input[name="${pregunta}"]:checked`);
+                if (seleccionada && seleccionada.value === respuestasCorrectas[pregunta]) {
+                    correctas++;
+                }
+            }
+
+            const porcentaje = (correctas / 10) * 100;
+
+            document.getElementById('notaFinal').textContent = correctas;
+            document.getElementById('porcentaje').textContent = porcentaje.toFixed(0) + '%';
+
+            const resultado = document.getElementById('resultado');
+            const reInduccion = document.getElementById('reInduccion');
+
+            if (correctas >= 7) {
+                resultado.style.background = '#dcfce7';
+                resultado.style.color = '#166534';
+                resultado.textContent = `✓ APROBADO - ${correctas} respuestas correctas`;
+                reInduccion.style.display = 'none';
+            } else {
+                resultado.style.background = '#fee2e2';
+                resultado.style.color = '#991b1b';
+                resultado.textContent = `✗ NO APROBADO - ${correctas} respuestas correctas`;
+                reInduccion.style.display = 'block';
+            }
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+
+    <style>
+        .pregunta {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primario);
+        }
+
+        .pregunta p {
+            margin: 0 0 1rem 0;
+            font-weight: 600;
+            color: var(--color-texto);
+        }
+
+        .pregunta label {
+            display: block;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .pregunta label:hover {
+            background: #f1f5f9;
+            padding-left: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .pregunta input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+    </style>
+</body>
+
+</html>

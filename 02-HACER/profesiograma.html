@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesiograma</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Profesiograma</div>
+                <div class="subtitulo-documento">Perfil de Cargo por Riesgos Ocupacionales</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-17"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📋 Profesiograma:</strong> Documento que describe las características, requisitos y riesgos
+                ocupacionales asociados a un cargo específico, así como los exámenes médicos requeridos según Res.
+                2346/2007.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👤 Información del Cargo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Denominación del Cargo: *</label><input type="text" id="cargo"
+                        class="campo-editable" placeholder="Ej: Operario de Producción"></div>
+                <div class="campo-dato"><label>Área/Departamento:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Jefe Inmediato:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Nivel del Cargo:</label>
+                    <select class="campo-editable">
+                        <option>Operativo</option>
+                        <option>Técnico</option>
+                        <option>Profesional</option>
+                        <option>Coordinación</option>
+                        <option>Dirección</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📚 Requisitos del Cargo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nivel Educativo:</label>
+                    <select class="campo-editable">
+                        <option>Primaria</option>
+                        <option>Bachillerato</option>
+                        <option>Técnico</option>
+                        <option>Tecnólogo</option>
+                        <option>Profesional</option>
+                        <option>Especialización</option>
+                        <option>Maestría</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Experiencia Requerida:</label><input type="text" placeholder="Ej: 1 año"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Licencias/Certificaciones:</label><input type="text"
+                        placeholder="Ej: Licencia alturas" class="campo-editable"></div>
+                <div class="campo-dato"><label>Competencias Especiales:</label><input type="text"
+                        placeholder="Ej: Manejo de montacargas" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⚠️ Identificación de Peligros y Riesgos</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Factor de Riesgo</th>
+                        <th>Descripción</th>
+                        <th>Nivel de Exposición</th>
+                        <th>Efectos Posibles en la Salud</th>
+                        <th>Controles Existentes</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaRiesgos">
+                    <tr>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Físico - Ruido</option>
+                                <option>Físico - Vibración</option>
+                                <option>Físico - Temperaturas</option>
+                                <option>Físico - Radiación</option>
+                                <option>Químico - Polvos</option>
+                                <option>Químico - Gases</option>
+                                <option>Químico - Vapores</option>
+                                <option>Biológico - Virus/Bacterias</option>
+                                <option>Biomecánico - Posturas</option>
+                                <option>Biomecánico - Movimientos</option>
+                                <option>Psicosocial - Estrés</option>
+                                <option>Psicosocial - Carga mental</option>
+                                <option>Seguridad - Mecánico</option>
+                                <option>Seguridad - Eléctrico</option>
+                                <option>Seguridad - Locativo</option>
+                                <option>Seguridad - Trabajo en alturas</option>
+                                <option>Seguridad - Espacios confinados</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Detalle del riesgo"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Baja (< 25% jornada)</option>
+                                <option>Media (25-75% jornada)</option>
+                                <option>Alta (> 75% jornada)</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Hipoacusia, lesiones, etc."></td>
+                        <td><input type="text" style="width:100%;" placeholder="EPP, controles de ingeniería"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarRiesgo()">+ Agregar Riesgo</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🩺 Exámenes Médicos Ocupacionales Requeridos</h2>
+
+            <h4 style="color: var(--color-primario);">Examen de Ingreso:</h4>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="40%">Examen/Prueba</th>
+                        <th>Frecuencia</th>
+                        <th>Objetivo</th>
+                        <th width="10%">✓</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Historia clínica ocupacional</strong></td>
+                        <td>Una vez (ingreso)</td>
+                        <td>Establecer condiciones de salud basales</td>
+                        <td><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Examen físico completo</strong></td>
+                        <td>Una vez (ingreso)</td>
+                        <td>Valoración médica general</td>
+                        <td><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Audiometría</td>
+                        <td>Ingreso y anual</td>
+                        <td>Evaluación auditiva (si exposición a ruido)</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Visiometría</td>
+                        <td>Ingreso y cada 2 años</td>
+                        <td>Agudeza visual</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Espirometría</td>
+                        <td>Ingreso y anual</td>
+                        <td>Función pulmonar (si exposición a polvos/gases)</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Laboratorios (Hemograma, Glicemia, Perfil lipídico)</td>
+                        <td>Ingreso y anual</td>
+                        <td>Condiciones metabólicas</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Cuestionario de síntomas respiratorios</td>
+                        <td>Ingreso y anual</td>
+                        <td>Vigilancia polvos/gases</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Evaluación osteomuscular</td>
+                        <td>Ingreso y anual</td>
+                        <td>Riesgo biomecánico</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Batería riesgo psicosocial</td>
+                        <td>Cada 2 años</td>
+                        <td>Factores psicosociales (Res. 2404/2019)</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Prueba de alturas (si aplica)</td>
+                        <td>Ingreso y anual</td>
+                        <td>Certificación trabajo en alturas</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Prueba de espacios confinados (si aplica)</td>
+                        <td>Ingreso y anual</td>
+                        <td>Aptitud para espacios confinados</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Examen de conducción (si aplica)</td>
+                        <td>Ingreso y cada 2 años</td>
+                        <td>Aptitud para conducir</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Exámenes Periódicos:</h4>
+            <div style="background: #f8fafc; padding: 1rem; border-radius: 6px;">
+                <p><strong>Periodicidad general:</strong> Mínimo una vez al año o según exposición a factores de riesgo
+                </p>
+                <p><strong>Nota:</strong> Los exámenes periódicos deben incluir como mínimo aquellos que detecten
+                    precozmente efectos hacia la salud derivados de la exposición a factores de riesgo.</p>
+            </div>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Examen de Egreso:</h4>
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 6px;">
+                <p><strong>Objetivo:</strong> Comparar estado de salud final vs. basal para detectar posibles daños
+                    relacionados con la exposición ocupacional.</p>
+                <p><strong>Plazo:</strong> Debe realizarse dentro de los 5 días hábiles siguientes al retiro (Res.
+                    2346/2007).</p>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🦺 Elementos de Protección Personal (EPP)</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>EPP</th>
+                        <th>Especificación Técnica</th>
+                        <th>Frecuencia de Entrega</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEPP">
+                    <tr>
+                        <td><input type="text" placeholder="Ej: Casco de seguridad" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Clase G, dieléctrico" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Anual o según desgaste" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarEPP()">+ Agregar EPP</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Restricciones y Recomendaciones Médicas</h2>
+            <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px;">
+                <h4 style="color: #991b1b;">Restricciones Absolutas (NO puede ejercer el cargo):</h4>
+                <textarea rows="3" style="width:100%; margin-top:0.5rem;"
+                    placeholder="Ej: Hipoacusia severa bilateral, enfermedades cardíacas descompensadas, epilepsia no controlada..."></textarea>
+
+                <h4 style="color: #92400e; margin-top: 1.5rem;">Restricciones Relativas (Requiere adaptaciones):</h4>
+                <textarea rows="3" style="width:100%; margin-top:0.5rem;"
+                    placeholder="Ej: Limitación de carga > 25 kg, rotación de puesto cada 2 horas, pausas activas cada hora..."></textarea>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📖 Resumen de Efectos a la Salud por Exposición</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Sistema Afectado</th>
+                        <th>Posibles Enfermedades Laborales</th>
+                        <th>Vigilancia Requerida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Sistema Auditivo</strong></td>
+                        <td><input type="text" placeholder="Ej: Hipoacusia neurosensorial" style="width:100%;"></td>
+                        <td>Audiometría anual</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sistema Respiratorio</strong></td>
+                        <td><input type="text" placeholder="Ej: Neumoconiosis, asma ocupacional" style="width:100%;">
+                        </td>
+                        <td>Espirometría, Rx de tórax</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sistema Osteomuscular</strong></td>
+                        <td><input type="text" placeholder="Ej: Síndrome del túnel carpiano, lumbalgias"
+                                style="width:100%;"></td>
+                        <td>Evaluación osteomuscular</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sistema Visual</strong></td>
+                        <td><input type="text" placeholder="Ej: Fatiga visual, defectos refractivos"
+                                style="width:100%;"></td>
+                        <td>Visiometría periódica</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Salud Mental</strong></td>
+                        <td><input type="text" placeholder="Ej: Estrés laboral, síndrome de burnout"
+                                style="width:100%;"></td>
+                        <td>Batería psicosocial bienal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Médico Ocupacional</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Jefe de Área</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="guardar()">💾 Guardar</button>
+            <button class="btn btn-secundario" onclick="exportarCSV()">📊 Exportar CSV</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarRiesgo() {
+            const tabla = document.getElementById('tablaRiesgos');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            // Limpiar valores
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarEPP() {
+            const tabla = document.getElementById('tablaEPP');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function guardar() {
+            const cargo = document.getElementById('cargo').value;
+            if (!cargo) {
+                alert('⚠️ Por favor ingrese la denominación del cargo');
+                return;
+            }
+            // Aquí iría la lógica de guardado
+            alert('✅ Profesiograma guardado exitosamente');
+        }
+
+        function exportarCSV() {
+            alert('📊 Exportación a CSV en desarrollo');
+        }
+
+        // Auto-completar fecha
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendición de Cuentas Anual SG-SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Rendición de Cuentas Anual del SG-SST</div>
+                <div class="subtitulo-documento">Informe de Gestión y Resultados - Estándar 2.6.1 Res. 0312/2019</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-29"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Año:</label><input type="text" class="campo-editable" value="2025">
+                </div>
+                <div class="campo-control"><label>Fecha Presentación:</label><input type="date"
+                        class="auto-fecha campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📊 Rendición de Cuentas:</strong> Informe OBLIGATORIO anual que presenta la alta dirección a
+                trabajadores sobre resultados, inversión y estado del SG-SST (Res. 0312/2019 estándar 2.6.1).</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🏢 Introducción</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Razón Social:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>NIT:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Periodo Reportado:</label><input type="text" class="campo-editable"
+                        placeholder="Enero - Diciembre 2025"></div>
+                <div class="campo-dato"><label>Número de Trabajadores:</label><input type="number"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Responsable SG-SST:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Gerente/Representante Legal:</label><input type="text"
+                        class="campo-editable"></div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <label style="font-weight: 600; display: block; margin-bottom: 0.5rem;">Mensaje de la Gerencia:</label>
+                <textarea rows="4" style="width:100%;"
+                    placeholder="Mensaje introductorio del Gerente/Representante Legal sobre el compromiso con la SST y principales logros del año..."></textarea>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💰 Inversión en el SG-SST</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Rubro</th>
+                        <th>Presupuesto Asignado</th>
+                        <th>Ejecutado</th>
+                        <th>% Ejecución</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaInversion">
+                    <tr>
+                        <td>Capacitaciones y formación</td>
+                        <td>$ <input type="number" style="width:120px;" class="ppto" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="ejec" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td class="porc-ejec">0%</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Exámenes médicos ocupacionales</td>
+                        <td>$ <input type="number" style="width:120px;" class="ppto" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="ejec" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td class="porc-ejec">0%</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>EPP y equipos de protección</td>
+                        <td>$ <input type="number" style="width:120px;" class="ppto" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="ejec" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td class="porc-ejec">0%</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Señalización y demarcación</td>
+                        <td>$ <input type="number" style="width:120px;" class="ppto" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="ejec" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td class="porc-ejec">0%</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Equipos de emergencia</td>
+                        <td>$ <input type="number" style="width:120px;" class="ppto" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="ejec" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td class="porc-ejec">0%</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Mantenimiento y mejoras a instalaciones</td>
+                        <td>$ <input type="number" style="width:120px;" class="ppto" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="ejec" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td class="porc-ejec">0%</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Mediciones higiénicas</td>
+                        <td>$ <input type="number" style="width:120px;" class="ppto" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="ejec" onchange="calcularEjecucion(this)">
+                        </td>
+                        <td class="porc-ejec">0%</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td><strong>TOTAL INVERSIÓN</strong></td>
+                        <td><strong>$ <span id="totalPpto">0</span></strong></td>
+                        <td><strong>$ <span id="totalEjec">0</span></strong></td>
+                        <td><strong id="totalPorc">0%</strong></td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarRubro()">+ Agregar Rubro</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📈 Resultados e Indicadores</h2>
+
+            <h4 style="color: var(--color-primario);">Accidentalidad</h4>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Año Anterior</th>
+                        <th>Año Actual</th>
+                        <th>Variación</th>
+                        <th>Meta</th>
+                        <th>Cumplimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Número de accidentes de trabajo</td>
+                        <td><input type="number" style="width:80px;"></td>
+                        <td><input type="number" style="width:80px;"></td>
+                        <td class="variacion">-</td>
+                        <td><input type="number" style="width:80px;"></td>
+                        <td class="cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>Índice de Frecuencia (IFI)</td>
+                        <td><input type="number" style="width:80px;" step="0.1"></td>
+                        <td><input type="number" style="width:80px;" step="0.1"></td>
+                        <td class="variacion">-</td>
+                        <td><input type="number" style="width:80px;" step="0.1"></td>
+                        <td class="cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>Días perdidos por AT</td>
+                        <td><input type="number" style="width:80px;"></td>
+                        <td><input type="number" style="width:80px;"></td>
+                        <td class="variacion">-</td>
+                        <td><input type="number" style="width:80px;"></td>
+                        <td class="cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>Índice de Ausentismo (%)</td>
+                        <td><input type="number" style="width:80px;" step="0.1"></td>
+                        <td><input type="number" style="width:80px;" step="0.1"></td>
+                        <td class="variacion">-</td>
+                        <td><input type="number" style="width:80px;" step="0.1"></td>
+                        <td class="cumple">-</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Gestión del Sistema</h4>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Meta</th>
+                        <th>Resultado</th>
+                        <th>% Cumplimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>% Cumplimiento Plan de Trabajo</td>
+                        <td>100%</td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td class="porc-cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>% Cobertura exámenes médicos</td>
+                        <td>100%</td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td class="porc-cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>% Cumplimiento capacitaciones</td>
+                        <td>100%</td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td class="porc-cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>Horas de capacitación por trabajador</td>
+                        <td>>2 horas</td>
+                        <td><input type="number" style="width:80px;" step="0.1"> hrs</td>
+                        <td class="porc-cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>% Cierre de hallazgos de auditoría</td>
+                        <td>100%</td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td class="porc-cumple">-</td>
+                    </tr>
+                    <tr>
+                        <td>Puntaje Autoevaluación Res. 0312</td>
+                        <td>>85%</td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td class="porc-cumple">-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Cumplimiento del Plan de Trabajo</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Actividad Programada</th>
+                        <th>Estado</th>
+                        <th>% Avance</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaPlan">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Actualización Matriz IPER"></td>
+                        <td><select style="width:100%;">
+                                <option>Completado</option>
+                                <option>En proceso</option>
+                                <option>No iniciado</option>
+                                <option>Cancelado</option>
+                            </select></td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarActividadPlan()">+ Agregar Actividad</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🏆 Logros Destacados del Año</h2>
+            <ul id="listaLogros" style="list-style: none; padding: 0;">
+                <li style="background: #dcfce7; padding: 1rem; border-radius: 6px; margin-bottom: 0.5rem;">
+                    <input type="text" style="width:100%; background: transparent; border: none; font-weight: 500;"
+                        placeholder="✓ Ejemplo: Reducción del 30% en accidentalidad vs año anterior">
+                </li>
+            </ul>
+            <button class="btn btn-secundario" onclick="agregarLogro()">+ Agregar Logro</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⚠️ Desafíos y Limitaciones Identificadas</h2>
+            <textarea rows="4" style="width:100%;" placeholder="Describa los principales desafíos enfrentados durante el año...
+
+Ejemplo:
+- Dificultad para programar capacitaciones en horarios laborales
+- Resistencia al uso de EPP en algunas áreas
+- Falta de espacio para almacenamiento de equipos de emergencia"></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Prioridades para el Próximo Año</h2>
+            <ul id="listaPrioridades" style="list-style: none; padding: 0;">
+                <li style="background: #fef3c7; padding: 1rem; border-radius: 6px; margin-bottom: 0.5rem;">
+                    <input type="text" style="width:100%; background: transparent; border: none; font-weight: 500;"
+                        placeholder="→ Ejemplo: Implementar PVE para riesgo biomecánico">
+                </li>
+            </ul>
+            <button class="btn btn-secundario" onclick="agregarPrioridad()">+ Agregar Prioridad</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones Finales</h2>
+            <textarea rows="4" style="width:100%;"
+                placeholder="Comentarios adicionales, agradecimientos, reconocimientos a personas o áreas destacadas en SST..."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST</div>
+                <div style="font-size: 0.8rem; margin-top: 0.5rem;">Elaboró el informe</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Gerente / Representante Legal</div>
+                <div style="font-size: 0.8rem; margin-top: 0.5rem;">Presenta rendición de cuentas</div>
+            </div>
+        </div>
+
+        <div style="background: #e0f2fe; padding: 1.5rem; border-radius: 8px; margin: 2rem 0;">
+            <strong style="color: #0369a1;">📅 Registro de Socialización:</strong><br><br>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Fecha de presentación:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Lugar:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Asistentes:</label><input type="number" class="campo-editable"> personas
+                </div>
+                <div class="campo-dato"><label>Medio de difusión:</label>
+                    <select class="campo-editable">
+                        <option>Reunión presencial</option>
+                        <option>Reunión virtual</option>
+                        <option>Correo electrónico</option>
+                        <option>Cartelera/publicación</option>
+                        <option>Varios medios</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Rendición guardada')">💾 Guardar Informe</button>
+            <button class="btn btn-secundario" onclick="alert('📧 Enviar a trabajadores')">📧 Difundir</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularEjecucion(input) {
+            const fila = input.closest('tr');
+            const ppto = parseFloat(fila.querySelector('.ppto').value) || 0;
+            const ejec = parseFloat(fila.querySelector('.ejec').value) || 0;
+            const porc = ppto > 0 ? ((ejec / ppto) * 100).toFixed(1) : 0;
+            fila.querySelector('.porc-ejec').textContent = porc + '%';
+
+            calcularTotales();
+        }
+
+        function calcularTotales() {
+            let totalPpto = 0;
+            let totalEjec = 0;
+
+            document.querySelectorAll('.ppto').forEach(input => {
+                totalPpto += parseFloat(input.value) || 0;
+            });
+
+            document.querySelectorAll('.ejec').forEach(input => {
+                totalEjec += parseFloat(input.value) || 0;
+            });
+
+            document.getElementById('totalPpto').textContent = totalPpto.toLocaleString('es-CO');
+            document.getElementById('totalEjec').textContent = totalEjec.toLocaleString('es-CO');
+
+            const totalPorc = totalPpto > 0 ? ((totalEjec / totalPpto) * 100).toFixed(1) : 0;
+            document.getElementById('totalPorc').textContent = totalPorc + '%';
+        }
+
+        function agregarRubro() {
+            const tabla = document.getElementById('tablaInversion');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.cells[0].textContent = 'Nuevo rubro';
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.insertBefore(nuevaFila, tabla.rows[tabla.rows.length - 1]);
+        }
+
+        function agregarActividadPlan() {
+            const tabla = document.getElementById('tablaPlan');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarLogro() {
+            const lista = document.getElementById('listaLogros');
+            const nuevoItem = lista.children[0].cloneNode(true);
+            nuevoItem.querySelector('input').value = '';
+            lista.appendChild(nuevoItem);
+        }
+
+        function agregarPrioridad() {
+            const lista = document.getElementById('listaPrioridades');
+            const nuevoItem = lista.children[0].cloneNode(true);
+            nuevoItem.querySelector('input').value = '';
+            lista.appendChild(nuevoItem);
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

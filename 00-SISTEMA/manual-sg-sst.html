@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual del Sistema de Gestión de SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo" style="border: 3px solid var(--color-primario);">
+            <div class="logo-empresa"
+                style="grid-column: 1 / -1; text-align: center; border-bottom: 2px solid var(--color-primario); padding: 2rem;">
+                <div class="logo-placeholder" style="margin: 0 auto;">LOGO<br>EMPRESA</div>
+            </div>
+            <div style="grid-column: 1 / -1; text-align: center; padding: 2rem;">
+                <div class="titulo-documento" style="font-size: 2rem;">MANUAL DEL SISTEMA DE</div>
+                <div class="titulo-documento" style="font-size: 2rem; margin-top: 0.5rem;">GESTIÓN DE SEGURIDAD Y SALUD
+                    EN EL TRABAJO</div>
+                <div class="subtitulo-documento" style="margin-top: 1rem; font-size: 1.2rem;">SG-SST</div>
+            </div>
+            <div class="datos-control"
+                style="grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; padding: 1rem; background: #f1f5f9;">
+                <div class="campo-control"><label>Código:</label><input type="text" value="MAN-SST-001"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha de Vigencia:</label><input type="date"
+                        class="auto-fecha campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info" style="margin-top: 2rem;">
+            <div><strong>📘 Documento Maestro del SG-SST:</strong> Este manual describe la estructura, elementos y
+                funcionamiento del Sistema de Gestión de Seguridad y Salud en el Trabajo conforme al Dec. 1072/2015 y
+                Res. 0312/2019.</div>
+        </div>
+
+        <!-- TABLA DE CONTENIDO -->
+        <div class="seccion" style="background: #f8fafc; padding: 2rem; border-radius: 8px;">
+            <h2 class="seccion-titulo">📑 Tabla de Contenido</h2>
+            <ol style="line-height: 2.5;">
+                <li><a href="#seccion1" style="text-decoration: none; color: var(--color-primario);">Información de la
+                        Empresa</a></li>
+                <li><a href="#seccion2" style="text-decoration: none; color: var(--color-primario);">Política de
+                        Seguridad y Salud en el Trabajo</a></li>
+                <li><a href="#seccion3" style="text-decoration: none; color: var(--color-primario);">Objetivos del
+                        SG-SST</a></li>
+                <li><a href="#seccion4" style="text-decoration: none; color: var(--color-primario);">Estructura del
+                        SG-SST (Ciclo PHVA)</a></li>
+                <li><a href="#seccion5" style="text-decoration: none; color: var(--color-primario);">Responsabilidades
+                        en el SG-SST</a></li>
+                <li><a href="#seccion6" style="text-decoration: none; color: var(--color-primario);">Recursos del
+                        SG-SST</a></li>
+                <li><a href="#seccion7" style="text-decoration: none; color: var(--color-primario);">Documentación del
+                        Sistema</a></li>
+                <li><a href="#seccion8" style="text-decoration: none; color: var(--color-primario);">Comunicación y
+                        Participación</a></li>
+                <li><a href="#seccion9" style="text-decoration: none; color: var(--color-primario);">Mejora Continua</a>
+                </li>
+            </ol>
+        </div>
+
+        <!-- SECCIÓN 1 -->
+        <div class="seccion" id="seccion1">
+            <h2 class="seccion-titulo">1. Información de la Empresa</h2>
+            <table class="tabla-formato">
+                <tr>
+                    <td style="width: 30%:"><strong>Razón Social:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>NIT:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Dirección:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Ciudad:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Teléfono:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Actividad Económica:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Código CIIU:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Clase de Riesgo ARL:</strong></td>
+                    <td>
+                        <select style="width:100%;">
+                            <option>I - Mínimo</option>
+                            <option>II - Bajo</option>
+                            <option>III - Medio</option>
+                            <option>IV - Alto</option>
+                            <option>V - Máximo</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Número de Trabajadores:</strong></td>
+                    <td><input type="number" style="width:200px;"></td>
+                </tr>
+                <tr>
+                    <td><strong>ARL:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Representante Legal:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- SECCIÓN 2 -->
+        <div class="seccion" id="seccion2" style="background: #e0f2fe; padding: 2rem; border-radius: 8px;">
+            <h2 class="seccion-titulo">2. Política de Seguridad y Salud en el Trabajo</h2>
+            <p style="font-style: italic; color: #64748b; margin-bottom: 1rem;">La Política de SST debe estar firmada
+                por el representante legal, ser clara, fechada, comunicada a todos los trabajadores, revisada mínimo una
+                vez al año.</p>
+
+            <div style="background: white; padding: 2rem; border-radius: 8px; border: 2px solid var(--color-primario);">
+                <textarea rows="10" style="width:100%; border: 1px solid #cbd5e1;" placeholder="[Inserte aquí la Política de SST aprobada por la empresa]
+
+Ejemplo:
+En [Nombre de la Empresa] nos comprometemos a proporcionar un ambiente de trabajo seguro y saludable, protegiendo la integridad física y mental de todos nuestros trabajadores, contratistas y visitantes. 
+
+Para ello, nos comprometemos a:
+• Cumplir con la normatividad legal vigente en Seguridad y Salud en el Trabajo
+• Identificar peligros, evaluar y valorar riesgos, estableciendo controles necesarios
+• Asignar los recursos humanos, técnicos y financieros para la gestión del SG-SST
+• ..."></textarea>
+
+                <div style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <label style="font-weight: 600;">Fecha de Aprobación:</label><br>
+                        <input type="date" style="width:200px; margin-top: 0.5rem;">
+                    </div>
+                    <div>
+                        <label style="font-weight: 600;">Próxima Revisión:</label><br>
+                        <input type="date" style="width:200px; margin-top: 0.5rem;">
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center; border-top: 2px solid #e2e8f0; padding-top: 1.5rem;">
+                    <div style="display: inline-block; text-align: center;">
+                        <div style="border-top: 2px solid black; width: 300px; margin: 2rem auto 0.5rem;"></div>
+                        <strong>Firma del Representante Legal</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3 -->
+        <div class="seccion" id="seccion3">
+            <h2 class="seccion-titulo">3. Objetivos del SG-SST</h2>
+
+            <div style="background: #dcfce7; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h4 style="color: #166534; margin-top: 0;">3.1 Objetivo General</h4>
+                <textarea rows="3" style="width:100%;"
+                    placeholder="Ejemplo: Implementar y mantener un Sistema de Gestión de Seguridad y Salud en el Trabajo que permita identificar, evaluar y controlar los riesgos laborales, previniendo accidentes y enfermedades, promoviendo un ambiente de trabajo seguro y cumpliendo con la normatividad vigente."></textarea>
+            </div>
+
+            <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                <h4 style="color: #92400e; margin-top: 0;">3.2 Objetivos Específicos</h4>
+                <ol id="listaObjetivos">
+                    <li><input type="text" style="width:95%; border:none; border-bottom: 1px solid #cbd5e1;"
+                            placeholder="Ej: Reducir el índice de accidentalidad en un 20% durante el año"></li>
+                    <li><input type="text" style="width:95%; border:none; border-bottom: 1px solid #cbd5e1;"
+                            placeholder="Ej: Capacitar al 100% del personal en SST"></li>
+                    <li><input type="text" style="width:95%; border:none; border-bottom: 1px solid #cbd5e1;"
+                            placeholder="Ej: Implementar controles para el 100% de riesgos prioritarios"></li>
+                    <li><input type="text" style="width:95%; border:none; border-bottom: 1px solid #cbd5e1;"
+                            placeholder="Ej: Cumplir con el 100% del plan anual de trabajo"></li>
+                </ol>
+                <button class="btn btn-secundario" onclick="agregarObjetivo()">+ Agregar Objetivo</button>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 4 -->
+        <div class="seccion" id="seccion4">
+            <h2 class="seccion-titulo">4. Estructura del SG-SST (Ciclo PHVA)</h2>
+            <p>El Sistema de Gestión de SST se estructura conforme al Ciclo de Mejora Continua PHVA (Planear, Hacer,
+                Verificar, Actuar):</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                    <h4 style="color: #1e40af; margin-top: 0;">🔵 1. PLANEAR</h4>
+                    <p style="font-size: 0.9rem;">Establecer objetivos, identificar peligros, evaluar riesgos, definir
+                        la política y planificar actividades.</p>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;"><strong>Elementos clave:</strong></p>
+                    <ul style="font-size: 0.85rem; margin: 0.5rem 0 0 1.5rem;">
+                        <li>Política de SST</li>
+                        <li>Objetivos y metas</li>
+                        <li>Matriz IPER</li>
+                        <li>Matriz legal</li>
+                        <li>Plan de trabajo anual</li>
+                        <li>Asignación de recursos</li>
+                    </ul>
+                </div>
+
+                <div style="background: #d1fae5; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #10b981;">
+                    <h4 style="color: #047857; margin-top: 0;">🟢 2. HACER</h4>
+                    <p style="font-size: 0.9rem;">Implementar las actividades planificadas, ejecutar controles,
+                        capacitar y comunicar.</p>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;"><strong>Elementos clave:</strong></p>
+                    <ul style="font-size: 0.85rem; margin: 0.5rem 0 0 1.5rem;">
+                        <li>Controles operacionales</li>
+                        <li>Capacitaciones</li>
+                        <li>Entrega de EPP</li>
+                        <li>Exámenes médicos</li>
+                        <li>Inspecciones</li>
+                        <li>Gestión del cambio</li>
+                    </ul>
+                </div>
+
+                <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #92400e; margin-top: 0;">🟡 3. VERIFICAR</h4>
+                    <p style="font-size: 0.9rem;">Monitorear, medir y evaluar el desempeño del sistema.</p>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;"><strong>Elementos clave:</strong></p>
+                    <ul style="font-size: 0.85rem; margin: 0.5rem 0 0 1.5rem;">
+                        <li>Indicadores de gestión</li>
+                        <li>Auditoría interna</li>
+                        <li>Revisión por la dirección</li>
+                        <li>Investigación de AT/EL</li>
+                        <li>Mediciones ambientales</li>
+                    </ul>
+                </div>
+
+                <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #ef4444;">
+                    <h4 style="color: #991b1b; margin-top: 0;">🔴 4. ACTUAR</h4>
+                    <p style="font-size: 0.9rem;">Tomar acciones preventivas y correctivas para mejorar continuamente.
+                    </p>
+                    <p style="font-size: 0.85rem; margin-top: 1rem;"><strong>Elementos clave:</strong></p>
+                    <ul style="font-size: 0.85rem; margin: 0.5rem 0 0 1.5rem;">
+                        <li>Acciones correctivas</li>
+                        <li>Acciones preventivas</li>
+                        <li>Mejora continua</li>
+                        <li>Rendición de cuentas</li>
+                        <li>Actualización del sistema</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 5 -->
+        <div class="seccion" id="seccion5">
+            <h2 class="seccion-titulo">5. Responsabilidades en el SG-SST</h2>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Cargo/Rol</th>
+                        <th>Responsabilidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Alta Dirección / Empleador</strong></td>
+                        <td>
+                            • Definir y aprobar la política de SST<br>
+                            • Asignar recursos (humanos, técnicos, financieros)<br>
+                            • Liderar el SG-SST y garantizar su implementación<br>
+                            • Rendir cuentas sobre el desempeño del SG-SST<br>
+                            • Garantizar consulta y participación de trabajadores
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Responsable del SG-SST</strong></td>
+                        <td>
+                            • Planificar, coordinar e implementar el SG-SST<br>
+                            • Identificar peligros y evaluar riesgos<br>
+                            • Elaborar y ejecutar el plan de trabajo anual<br>
+                            • Realizar seguimiento a indicadores<br>
+                            • Gestionar documentación del sistema<br>
+                            • Asesorar en SST a todos los niveles
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>COPASST</strong></td>
+                        <td>
+                            • Proponer actividades de promoción y prevención<br>
+                            • Participar en inspecciones e investigaciones de AT<br>
+                            • Vigilar cumplimiento del SG-SST<br>
+                            • Promover cultura de prevención
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Jefes de Área / Supervisores</strong></td>
+                        <td>• Garantizar cumplimiento de normas SST en su área<br>
+                            • Velar por el uso de EPP<br>
+                            • Reportar actos y condiciones inseguras<br>
+                            • Participar en investigación de AT<br>
+                            • Facilitar capacitación de su personal
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trabajadores</strong></td>
+                        <td>
+                            • Cumplir normas, reglamentos y procedimientos de SST<br>
+                            • Usar adecuadamente EPP e instalaciones<br>
+                            • Reportar actos/condiciones inseguras e incidentes<br>
+                            • Participar en capacitaciones<br>
+                            • Procurar el cuidado integral de su salud
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓN 6 -->
+        <div class="seccion" id="seccion6">
+            <h2 class="seccion-titulo">6. Recursos del SG-SST</h2>
+            <p>La organización asigna los siguientes recursos para el SG-SST:</p>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Tipo de Recurso</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Recursos Humanos</strong></td>
+                        <td>
+                            • Responsable del SG-SST con licencia SST: <input type="text"
+                                style="width:300px; border:none; border-bottom:1px solid #cbd5e1;"><br>
+                            • Dedicación: <input type="text"
+                                style="width:200px; border:none; border-bottom:1px solid #cbd5e1;"
+                                placeholder="Tiempo completo/parcial"><br>
+                            • COPASST conformado: <label><input type="checkbox"> Sí</label><br>
+                            • Brigada de emergencias: <label><input type="checkbox"> Sí</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recursos Financieros</strong></td>
+                        <td>
+                            Presupuesto anual del SG-SST: $ <input type="number"
+                                style="width:200px; border:none; border-bottom:1px solid #cbd5e1;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Recursos Técnicos</strong></td>
+                        <td>
+                            • Equipos de medición: <input type="text"
+                                style="width:400px; border:none; border-bottom:1px solid #cbd5e1;"
+                                placeholder="Luxómetro, sonómetro, etc."><br>
+                            • Software/Herramientas de gestión:<input type="text"
+                                style="width:350px; border:none; border-bottom:1px solid #cbd5e1;"><br>
+                            • Ubicación oficina/espacio SST: <input type="text"
+                                style="width:350px; border:none; border-bottom:1px solid #cbd5e1;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓN 7 -->
+        <div class="seccion" id="seccion7">
+            <h2 class="seccion-titulo">7. Documentación del Sistema</h2>
+            <p>El SG-SST cuenta con la siguiente documentación:</p>
+
+            <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <h4 style="color: var(--color-primario);">Documentos Principales:</h4>
+                <ul style="column-count: 2;">
+                    <li>Manual del SG-SST</li>
+                    <li>Política de SST</li>
+                    <li>Plan Anual de Trabajo</li>
+                    <li>Matriz de Identificación de Peligros y Evaluación de Riesgos (IPER)</li>
+                    <li>Matriz de Requisitos Legales</li>
+                    <li>Procedimientos operativos</li>
+                    <li>Programas de vigilancia epidemiológica</li>
+                    <li>Plan de emergencias</li>
+                    <li>Reglamento de higiene y seguridad</li>
+                    <li>Registros evidencia de cumplimiento</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Control de Documentos:</strong> Todos los documentos tienen código,
+                    versión, fecha de aprobación y son revisados periódicamente.</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 8 -->
+        <div class="seccion" id="seccion8">
+            <h2 class="seccion-titulo">8. Comunicación y Participación</h2>
+
+            <h4>8.1 Mecanismos de Comunicación Interna:</h4>
+            <ul>
+                <li>Reuniones de COPASST (mensual)</li>
+                <li>Comité de dirección / gerencia</li>
+                <li>Capacitaciones y charlas de seguridad</li>
+                <li>Carteleras informativas</li>
+                <li>Correo electrónico institucional</li>
+                <li>Intranet corporativa</li>
+            </ul>
+
+            <h4 style="margin-top: 2rem;">8.2 Participación de los Trabajadores:</h4>
+            <p>Los trabajadores participan mediante:</p>
+            <ul>
+                <li>Elección de representantes al COPASST y Comité de Convivencia</li>
+                <li>Reporte de actos y condiciones inseguras</li>
+                <li>Participación en inspecciones y auditorías</li>
+                <li>Sugerencias y mejoras al SG-SST</li>
+                <li>Participación en capacitaciones y simulacros</li>
+            </ul>
+        </div>
+
+        <!-- SECCIÓN 9 -->
+        <div class="seccion" id="seccion9">
+            <h2 class="seccion-titulo">9. Mejora Continua</h2>
+            <p>El SG-SST se mejora continuamente mediante:</p>
+
+            <div style="background: #e0f2fe; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <strong>📊 Monitoreo de Indicadores:</strong>
+                <ul>
+                    <li>Índice de Frecuencia de Incidentes (IFI)</li>
+                    <li>Índice de Lesiones Incapacitantes (ILI)</li>
+                    <li>Índice de Severidad de Incidentes (ISI)</li>
+                    <li>% de cumplimiento del Plan de Trabajo</li>
+                    <li>% de cobertura de capacitación</li>
+                </ul>
+            </div>
+
+            <div style="background: #dcfce7; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <strong>🔍 Auditoría Interna:</strong> Anual como mínimo
+            </div>
+
+            <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <strong>📋 Revisión por la Dirección:</strong> Mínimo una vez al año
+            </div>
+
+            <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+                <strong>⚙️ Acciones Correctivas y Preventivas:</strong> Derivadas de investigaciones, auditorías,
+                inspecciones y reportes
+            </div>
+        </div>
+
+        <!-- CONTROL DE CAMBIOS -->
+        <div class="seccion" style="background: #f1f5f9; padding: 2rem; border-radius: 8px;">
+            <h2 class="seccion-titulo">Control de Cambios del Manual</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width: 15%;">Versión</th>
+                        <th style="width: 15%;">Fecha</th>
+                        <th style="width: 40%;">Descripción del Cambio</th>
+                        <th style="width: 30%;">Responsable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.0</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td>Emisión inicial del manual</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- APROBACIÓN -->
+        <div class="seccion-firmas"
+            style="margin-top: 3rem; border-top: 3px solid var(--color-primario); padding-top: 2rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Elaboró - Responsable SG-SST</div>
+                <div style="margin-top: 0.5rem;">Fecha: <input type="date"
+                        style="border:none; border-bottom:1px solid #000;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Revisó - Gerencia/Jefe HSEQ</div>
+                <div style="margin-top: 0.5rem;">Fecha: <input type="date"
+                        style="border:none; border-bottom:1px solid #000;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Aprobó - Representante Legal</div>
+                <div style="margin-top: 0.5rem;">Fecha: <input type="date"
+                        style="border:none; border-bottom:1px solid #000;"></div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Manual guardado')">💾 Guardar Manual</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarObjetivo() {
+            const lista = document.getElementById('listaObjetivos');
+            const numero = lista.children.length + 1;
+            const nuevoItem = document.createElement('li');
+            nuevoItem.innerHTML = '<input type="text" style="width:95%; border:none; border-bottom: 1px solid #cbd5e1;" placeholder="Nuevo objetivo específico">';
+            lista.appendChild(nuevoItem);
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

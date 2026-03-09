@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permiso de Trabajo en Caliente</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Permiso de Trabajo en Caliente</div>
+                <div class="subtitulo-documento">NFC 51B - Prevención de Incendios</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Permiso #:</label><input type="text" class="campo-editable"
+                        value="PTC-001"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Válido:</label><input type="time" class="campo-editable"> a <input
+                        type="time" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>🔥 ALTO RIESGO DE INCENDIO:</strong> Trabajo en caliente incluye soldadura, corte, esmerilado,
+                y cualquier operación que genere llama, chispas o calor suficiente para encender materiales
+                combustibles. Prohibido sin permiso.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información del Trabajo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Tipo de Trabajo: *</label>
+                    <select class="campo-editable">
+                        <option>Soldadura eléctrica</option>
+                        <option>Soldadura autógena/oxicorte</option>
+                        <option>Esmerilado</option>
+                        <option>Corte con amoladora</option>
+                        <option>Uso de soplete</option>
+                        <option>Otro (especificar)</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Ubicación Exacta:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Descripción del Trabajo:</label><input type="text"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Equipo/Estructura:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Solicitante/Empresa:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Supervisor Responsable:</label><input type="text" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👷 Personal Autorizado</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cédula</th>
+                        <th>Certificación Soldadura</th>
+                        <th>Vigía Contraincendios</th>
+                        <th>Firma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td>_______</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox"></td>
+                        <td>_______</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Verificación Pre-Trabajo</h2>
+
+            <h4 style="color: #dc2626;">🚨 VERIFICACIONES CRÍTICAS (Todas deben ser SÍ):</h4>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="70%">Requisito</th>
+                        <th width="10%">SÍ</th>
+                        <th width="10%">NO</th>
+                        <th width="10%">N/A</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Área inspeccionada y libre de materiales combustibles (radio 11
+                                metros)</strong></td>
+                        <td><input type="radio" name="c1"></td>
+                        <td><input type="radio" name="c1"></td>
+                        <td><input type="radio" name="c1"></td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Extintores apropiados disponibles y operativos (mín. 2)</strong></td>
+                        <td><input type="radio" name="c2"></td>
+                        <td><input type="radio" name="c2"></td>
+                        <td><input type="radio" name="c2"></td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Vigía contraincendios asignado y presente</strong></td>
+                        <td><input type="radio" name="c3"></td>
+                        <td><input type="radio" name="c3"></td>
+                        <td><input type="radio" name="c3"></td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Mantas ignífugas/pantallas disponibles para proteger áreas
+                                adyacentes</strong></td>
+                        <td><input type="radio" name="c4"></td>
+                        <td><input type="radio" name="c4"></td>
+                        <td><input type="radio" name="c4"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Preparación del Área:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="70%">Materiales combustibles retirados o protegidos con mantas ignífugas</td>
+                        <td width="10%"><input type="radio" name="p1"></td>
+                        <td width="10%"><input type="radio" name="p1"></td>
+                        <td width="10%"><input type="radio" name="p1"></td>
+                    </tr>
+                    <tr>
+                        <td>Pisos barridos y libres de combustibles</td>
+                        <td><input type="radio" name="p2"></td>
+                        <td><input type="radio" name="p2"></td>
+                        <td><input type="radio" name="p2"></td>
+                    </tr>
+                    <tr>
+                        <td>Aperturas selladas (evitar caída de chispas pisos inferiores)</td>
+                        <td><input type="radio" name="p3"></td>
+                        <td><input type="radio" name="p3"></td>
+                        <td><input type="radio" name="p3"></td>
+                    </tr>
+                    <tr>
+                        <td>Protección de paredes combustibles adyacentes</td>
+                        <td><input type="radio" name="p4"></td>
+                        <td><input type="radio" name="p4"></td>
+                        <td><input type="radio" name="p4"></td>
+                    </tr>
+                    <tr>
+                        <td>Sistema de rociadores/detectores protegidos o desactivados temporalmente (con autorización)
+                        </td>
+                        <td><input type="radio" name="p5"></td>
+                        <td><input type="radio" name="p5"></td>
+                        <td><input type="radio" name="p5"></td>
+                    </tr>
+                    <tr>
+                        <td>Área delimitada y señalizada (\"TRABAJO EN CALIENTE\")</td>
+                        <td><input type="radio" name="p6"></td>
+                        <td><input type="radio" name="p6"></td>
+                        <td><input type="radio" name="p6"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Equipos y Herramientas:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="70%">Equipo de soldadura/corte inspeccionado y en buen estado</td>
+                        <td width="10%"><input type="radio" name="e1"></td>
+                        <td width="10%"><input type="radio" name="e1"></td>
+                        <td width="10%"><input type="radio" name="e1"></td>
+                    </tr>
+                    <tr>
+                        <td>Cables eléctricos sin daños, conexiones seguras</td>
+                        <td><input type="radio" name="e2"></td>
+                        <td><input type="radio" name="e2"></td>
+                        <td><input type="radio" name="e2"></td>
+                    </tr>
+                    <tr>
+                        <td>Cilindros de gas asegurados, con válvulas en buen estado</td>
+                        <td><input type="radio" name="e3"></td>
+                        <td><input type="radio" name="e3"></td>
+                        <td><input type="radio" name="e3"></td>
+                    </tr>
+                    <tr>
+                        <td>Reguladores y mangueras sin fugas</td>
+                        <td><input type="radio" name="e4"></td>
+                        <td><input type="radio" name="e4"></td>
+                        <td><input type="radio" name="e4"></td>
+                    </tr>
+                    <tr>
+                        <td>Arrestadores de flama instalados en soplete</td>
+                        <td><input type="radio" name="e5"></td>
+                        <td><input type="radio" name="e5"></td>
+                        <td><input type="radio" name="e5"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Equipos de Protección Personal:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="70%">Careta de soldar con filtro apropiado (DIN 9-14 según proceso)</td>
+                        <td width="10%"><input type="radio" name="epp1"></td>
+                        <td width="10%"><input type="radio" name="epp1"></td>
+                        <td width="10%"><input type="radio" name="epp1"></td>
+                    </tr>
+                    <tr>
+                        <td>Guantes de cuero/carnaza para soldadura</td>
+                        <td><input type="radio" name="epp2"></td>
+                        <td><input type="radio" name="epp2"></td>
+                        <td><input type="radio" name="epp2"></td>
+                    </tr>
+                    <tr>
+                        <td>Chaqueta/delantal de cuero</td>
+                        <td><input type="radio" name="epp3"></td>
+                        <td><input type="radio" name="epp3"></td>
+                        <td><input type="radio" name="epp3"></td>
+                    </tr>
+                    <tr>
+                        <td>Polaina s de cuero (si aplica)</td>
+                        <td><input type="radio" name="epp4"></td>
+                        <td><input type="radio" name="epp4"></td>
+                        <td><input type="radio" name="epp4"></td>
+                    </tr>
+                    <tr>
+                        <td>Calzado de seguridad dieléctrico</td>
+                        <td><input type="radio" name="epp5"></td>
+                        <td><input type="radio" name="epp5"></td>
+                        <td><input type="radio" name="epp5"></td>
+                    </tr>
+                    <tr>
+                        <td>Protección respiratoria (si humos tóxicos)</td>
+                        <td><input type="radio" name="epp6"></td>
+                        <td><input type="radio" name="epp6"></td>
+                        <td><input type="radio" name="epp6"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Ventilación y Condiciones:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="70%">Ventilación adecuada (natural o forzada)</td>
+                        <td width="10%"><input type="radio" name="v1"></td>
+                        <td width="10%"><input type="radio" name="v1"></td>
+                        <td width="10%"><input type="radio" name="v1"></td>
+                    </tr>
+                    <tr>
+                        <td>No hay presencia de gases inflamables en el área</td>
+                        <td><input type="radio" name="v2"></td>
+                        <td><input type="radio" name="v2"></td>
+                        <td><input type="radio" name="v2"></td>
+                    </tr>
+                    <tr>
+                        <td>Medición atmosférica realizada (si espacio confinado o tanque)</td>
+                        <td><input type="radio" name="v3"></td>
+                        <td><input type="radio" name="v3"></td>
+                        <td><input type="radio" name="v3"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Coordinación y Comunicación:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="70%">Personal de planta/área notificado del trabajo</td>
+                        <td width="10%"><input type="radio" name="co1"></td>
+                        <td width="10%"><input type="radio" name="co1"></td>
+                        <td width="10%"><input type="radio" name="co1"></td>
+                    </tr>
+                    <tr>
+                        <td>Número de emergencia visible y vigía con radio/teléfono</td>
+                        <td><input type="radio" name="co2"></td>
+                        <td><input type="radio" name="co2"></td>
+                        <td><input type="radio" name="co2"></td>
+                    </tr>
+                    <tr>
+                        <td>Charla de seguridad pre-trabajo realizada</td>
+                        <td><input type="radio" name="co3"></td>
+                        <td><input type="radio" name="co3"></td>
+                        <td><input type="radio" name="co3"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🧯 Equipos Contraincendios Disponibles</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Equipo</th>
+                        <th>Tipo/Capacidad</th>
+                        <th>Ubicación</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Extintor 1</td>
+                        <td><input type="text" placeholder="PQS 20 lbs" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Operativo</option>
+                                <option>No operativo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Extintor 2</td>
+                        <td><input type="text" placeholder="CO₂ 10 lbs" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Operativo</option>
+                                <option>No operativo</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mantas Ignífugas</td>
+                        <td><input type="number" placeholder="Cantidad" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Disponible</option>
+                                <option>No disponible</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Baldes con Arena/Agua</td>
+                        <td><input type="number" placeholder="Cantidad" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Disponible</option>
+                                <option>No disponible</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Responsabilidades del Vigía Contraincendios</h2>
+            <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                <p><strong>El vigía debe:</strong></p>
+                <ul>
+                    <li>✓ Permanecer en el área durante TODO el trabajo y 60 minutos después</li>
+                    <li>✓ Vigilar chispas y brasas que puedan causar ignición</li>
+                    <li>✓ Tener extintores listos y saber usarlos</li>
+                    <li>✓ Deterner el trabajo si detecta condiciones inseguras</li>
+                    <li>✓ Activar alarma de incendio si es necesario</li>
+                    <li>✓ Realizar ronda de inspección 60 min después de finalizado el trabajo</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>🚫 CONDICIONES PARA SUSPENDER EL TRABAJO:</strong> Presencia de gases inflamables, falta de
+                vigía, extinores no disponibles, materiales combustibles no removidos, cambios en condiciones del área.
+                Si algo cambia, suspender hasta corregir.</div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SST / Autoriza</div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">Hora: <input type="time"
+                        style="border:none; width:80px;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Vigía Contraincendios</div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">Hora: <input type="time"
+                        style="border:none; width:80px;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Ejecutor del Trabajo</div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">Hora: <input type="time"
+                        style="border:none; width:80px;"></div>
+            </div>
+        </div>
+
+        <div style="background: #dcfce7; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+            <h4 style="color: #065f46; margin-top: 0;">✅ Cierre del Permiso e Inspección Post-Trabajo</h4>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Trabajo Finalizado a las:</label><input type="time"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Inspección 60 min después (vigía):</label><input type="time"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>¿Se detectaron puntos calientes/humo?:</label>
+                    <select class="campo-editable">
+                        <option>No - Área segura</option>
+                        <option>Sí - Se controló</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>¿Ocurrió algún incidente?:</label>
+                    <select class="campo-editable">
+                        <option>No</option>
+                        <option>Sí - Reportar</option>
+                    </select>
+                </div>
+                <div class="campo-dato" style="grid-column: 1 / -1;"><label>Observaciones:</label><textarea rows="2"
+                        style="width:100%;"></textarea></div>
+            </div>
+            <div style="margin-top: 1rem; text-align: center;">
+                <strong>Firma Vigía (Cierre):</strong> _______________________ Hora: <input type="time"
+                    style="width: 100px;">
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Permiso guardado')">💾 Guardar Permiso</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const hoy = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = hoy;
+            });
+        };
+    </script>
+</body>
+
+</html>

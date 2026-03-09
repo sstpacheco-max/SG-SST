@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz de Asignación de Responsabilidades SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Matriz de Asignación de Responsabilidades en SST</div>
+                <div class="subtitulo-documento">Roles y Funciones por Cargo - Estándar 1.1.2 Res. 0312/2019</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-27"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>👥 Matriz RACI:</strong> Define quién es Responsable, Aprobador, Consultado e Informado para
+                cada actividad del SG-SST. Documento OBLIGATORIO según Res. 0312/2019 estándar 1.1.2.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📖 Leyenda RACI</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div style="background: #dbeafe; padding: 1rem; border-radius: 6px;">
+                    <strong style="color: #1e40af;">R - Responsable</strong><br>
+                    <small>Ejecuta la actividad</small>
+                </div>
+                <div style="background: #dcfce7; padding: 1rem; border-radius: 6px;">
+                    <strong style="color: #065f46;">A - Aprobador</strong><br>
+                    <small>Autoriza y rinde cuentas</small>
+                </div>
+                <div style="background: #fef3c7; padding: 1rem; border-radius: 6px;">
+                    <strong style="color: #92400e;">C - Consultado</strong><br>
+                    <small>Su opinión es requerida</small>
+                </div>
+                <div style="background: #f3f4f6; padding: 1rem; border-radius: 6px;">
+                    <strong style="color: #374151;">I - Informado</strong><br>
+                    <small>Debe ser notificado</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👔 Cargos del Organigrama SST</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Gerente/Representante Legal:</label><input type="text"
+                        class="campo-editable" placeholder="Nombre"></div>
+                <div class="campo-dato"><label>Responsable SG-SST:</label><input type="text" class="campo-editable"
+                        placeholder="Nombre"></div>
+                <div class="campo-dato"><label>Coordinador COPASST:</label><input type="text" class="campo-editable"
+                        placeholder="Nombre"></div>
+                <div class="campo-dato"><label>Jefe de RRHH:</label><input type="text" class="campo-editable"
+                        placeholder="Nombre"></div>
+                <div class="campo-dato"><label>Jefe de Mantenimiento:</label><input type="text" class="campo-editable"
+                        placeholder="Nombre"></div>
+                <div class="campo-dato"><label>Coordinador de Brigada:</label><input type="text" class="campo-editable"
+                        placeholder="Nombre"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Matriz RACI - Actividades del SG-SST</h2>
+
+            <div style="overflow-x: auto;">
+                <table class="tabla-formato" style="font-size: 0.85rem; min-width: 900px;">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" style="min-width: 250px;">Actividad / Responsabilidad</th>
+                            <th colspan="6" style="background: #3b82f6; color: white;">Cargos</th>
+                        </tr>
+                        <tr style="background: #dbeafe;">
+                            <th style="writing-mode: vertical-rl; text-align: center; min-width: 40px;">Gerente</th>
+                            <th style="writing-mode: vertical-rl; text-align: center; min-width: 40px;">Resp. SST</th>
+                            <th style="writing-mode: vertical-rl; text-align: center; min-width: 40px;">COPASST</th>
+                            <th style="writing-mode: vertical-rl; text-align: center; min-width: 40px;">RRHH</th>
+                            <th style="writing-mode: vertical-rl; text-align: center; min-width: 40px;">Mantenimiento
+                            </th>
+                            <th style="writing-mode: vertical-rl; text-align: center; min-width: 40px;">Brigada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- PLANEAR -->
+                        <tr style="background: #e0f2fe; font-weight: 600;">
+                            <td colspan="7">PLANEAR - Planificación del SG-SST</td>
+                        </tr>
+                        <tr>
+                            <td>Definir Política de SST</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Asignar recursos financieros al SG-SST</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A/R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Elaborar Matriz IPER (Identificación de Peligros)</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Definir objetivos e indicadores SST</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Elaborar Plan Anual de Trabajo</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Actualizar Matriz Legal</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R/A</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+
+                        <!-- HACER -->
+                        <tr style="background: #dcfce7; font-weight: 600;">
+                            <td colspan="7">HACER - Ejecución del SG-SST</td>
+                        </tr>
+                        <tr>
+                            <td>Coordinar exámenes médicos ocupacionales</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Realizar inspecciones de seguridad</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Ejecutar capacitaciones en SST</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Entregar y controlar EPP</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Realizar simulacros de emergencia</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mantenimiento de equipos de emergencia</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                        </tr>
+                        <tr>
+                            <td>Conformar y capacitar COPASST</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+
+                        <!-- VERIFICAR -->
+                        <tr style="background: #fef3c7; font-weight: 600;">
+                            <td colspan="7">VERIFICAR - Verificación y Seguimiento</td>
+                        </tr>
+                        <tr>
+                            <td>Investigar accidentes de trabajo</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Realizar auditoría interna SG-SST</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Calcular indicadores de gestión SST</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R/A</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Revisión por la Alta Dirección</td>
+                            <td style="text-align: center;"><span class="badge-raci r">R/A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+
+                        <!-- ACTUAR -->
+                        <tr style="background: #fee2e2; font-weight: 600;">
+                            <td colspan="7">ACTUAR - Mejora Continua</td>
+                        </tr>
+                        <tr>
+                            <td>Elaborar plan de mejoramiento</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Implementar acciones correctivas/preventivas</td>
+                            <td style="text-align: center;"><span class="badge-raci a">A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                        <tr>
+                            <td>Rendición de cuentas anual</td>
+                            <td style="text-align: center;"><span class="badge-raci r">R/A</span></td>
+                            <td style="text-align: center;"><span class="badge-raci r">R</span></td>
+                            <td style="text-align: center;"><span class="badge-raci c">C</span></td>
+                            <td style="text-align: center;"><span class="badge-raci i">I</span></td>
+                            <td style="text-align: center;">-</td>
+                            <td style="text-align: center;">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button class="btn btn-secundario" onclick="agregarActividad()" style="margin-top: 1rem;">+ Agregar
+                Actividad</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Funciones Específicas por Cargo</h2>
+
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h4 style="color: #1e40af;">👔 Gerente / Representante Legal</h4>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li>Asignar y comunicar responsabilidades en SST</li>
+                    <li>Garantizar recursos financieros, técnicos y humanos</li>
+                    <li>Aprobar política y objetivos del SG-SST</li>
+                    <li>Realizar revisión anual del sistema</li>
+                    <li>Garantizar la participación de todos los trabajadores</li>
+                </ul>
+            </div>
+
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h4 style="color: #059669;">🎯 Responsable del SG-SST</h4>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li>Planificar, organizar, dirigir y controlar el SG-SST</li>
+                    <li>Conservar documentación del sistema (20 años)</li>
+                    <li>Gestionar peligros y riesgos</li>
+                    <li>Coordinar con ARL y reportar novedades</li>
+                    <li>Gestionar programas de capacitación</li>
+                    <li>Presentar informe anual de gestión</li>
+                </ul>
+            </div>
+
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h4 style="color: #d97706;">👥 COPASST</h4>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li>Proponer actividades de promoción y prevención</li>
+                    <li>Vigilar desarrollo de actividades del SG-SST</li>
+                    <li>Participar en investigación de AT y EL</li>
+                    <li>Visitar periódicamente lugares de trabajo</li>
+                    <li>Servir de enlace entre trabajadores y empleador</li>
+                </ul>
+            </div>
+
+            <textarea rows="5" style="width:100%; margin-top: 1rem;"
+                placeholder="Agregue funciones adicionales específicas de su organización..."></textarea>
+        </div>
+
+        <div class=" seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Gerente / Representante Legal</div>
+                <div style="font-size: 0.8rem; margin-top: 0.5rem;">Aprueba y comunica responsabilidades</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST</div>
+                <div style="font-size: 0.8rem; margin-top: 0.5rem;">Elabora y difunde matriz</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Matriz guardada')">💾 Guardar Matriz</button>
+        </div>
+    </div>
+
+    <style>
+        .badge-raci {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+        }
+
+        .badge-raci.r {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-raci.a {
+            background: #dcfce7;
+            color: #065f46;
+        }
+
+        .badge-raci.c {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-raci.i {
+            background: #f3f4f6;
+            color: #374151;
+        }
+    </style>
+
+    <script>
+        function agregarActividad() {
+            alert('Función para agregar nueva actividad personalizada');
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Mediciones Higiénicas Ocupacionales</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Registro de Mediciones Higiénicas Ocupacionales</div>
+                <div class="subtitulo-documento">Control de Factores de Riesgo Higiénico</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-28"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📏 Mediciones Higiénicas:</strong> Registro de evaluaciones ambientales (ruido, iluminación,
+                temperatura, material particulado) para identificar y controlar factores de riesgo. Base para Programas
+                de Vigilancia Epidemiológica.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔊 Mediciones de Ruido Ocupacional</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Área/Puesto</th>
+                        <th>Nivel Medido (dB)</th>
+                        <th>Tiempo Exposición (hrs)</th>
+                        <th>Límite Permisible</th>
+                        <th>Cumple</th>
+                        <th>Controles Actuales</th>
+                        <th>Acción Requerida</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaRuido">
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Producción - Torno"></td>
+                        <td><input type="number" style="width:80px;" step="0.1" onchange="verificarRuido(this)"> dB</td>
+                        <td><input type="number" style="width:60px;" value="8"> hrs</td>
+                        <td class="limite-ruido">85 dB</td>
+                        <td class="cumple-ruido" style="text-align:center;">-</td>
+                        <td><input type="text" style="width:100%;" placeholder="Protección auditiva"></td>
+                        <td><select style="width:100%;">
+                                <option>Ninguna - OK</option>
+                                <option>Reforzar controles</option>
+                                <option>PVE Conservación Auditiva</option>
+                                <option>Reducción en la fuente</option>
+                            </select></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarMedicion('Ruido')">+ Agregar Medición</button>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                <strong>📋 Límites Permisibles (Res. 1792/1990):</strong><br>
+                <small>85 dB para 8 hrs | 90 dB para 4 hrs | 95 dB para 2 hrs | 100 dB para 1 hr | 105 dB para 30 min |
+                    110 dB para 15 min</small>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💡 Mediciones de Iluminación</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Área/Puesto</th>
+                        <th>Tipo de Tarea</th>
+                        <th>Nivel Medido (lux)</th>
+                        <th>Límite Mínimo</th>
+                        <th>Cumple</th>
+                        <th>Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaIluminacion">
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><select style="width:100%;">
+                                <option>Visual continua - Alta precisión</option>
+                                <option>Visual continua - Precisión moderada</option>
+                                <option>Visual ocasional - Sin detalles finos</option>
+                                <option>Ocasional - Desplazamiento</option>
+                                <option>Áreas generales</option>
+                            </select></td>
+                        <td><input type="number" style="width:80px;" onchange="verificarIluminacion(this)"> lux</td>
+                        <td class="limite-ilum">500 lux</td>
+                        <td class="cumple-ilum" style="text-align:center;">-</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarMedicion('Iluminacion')">+ Agregar Medición</button>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                <strong>📋 Niveles Mínimos (Res. 2400/1979):</strong><br>
+                <small>Alta precisión: 500 lux | Precisión moderada: 300 lux | Sin detalles: 200 lux | Desplazamiento:
+                    100 lux | General: 50 lux</small>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🌡️ Mediciones de Confort Térmico</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Área</th>
+                        <th>Temp. (°C)</th>
+                        <th>Humedad (%)</th>
+                        <th>Velocidad Aire (m/s)</th>
+                        <th>Carga Trabajo</th>
+                        <th>WBGT</th>
+                        <th>Cumple</th>
+                        <th>Controles</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaTermico">
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="number" style="width:60px;" step="0.1"> °C</td>
+                        <td><input type="number" style="width:60px;"> %</td>
+                        <td><input type="number" style="width:60px;" step="0.1"> m/s</td>
+                        <td><select style="width:100%;">
+                                <option>Liviano</option>
+                                <option>Moderado</option>
+                                <option>Pesado</option>
+                                <option>Muy pesado</option>
+                            </select></td>
+                        <td><input type="number" style="width:60px;" step="0.1"> °C</td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Ventilación, pausas"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarMedicion('Termico')">+ Agregar Medición</button>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                <strong>📋 Límites WBGT (ISO 7243):</strong><br>
+                <small>Liviano: 30°C | Moderado: 28°C | Pesado: 26°C | Muy pesado: 24°C (Para trabajo continuo)</small>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">😷 Material Particulado y Aerosoles</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Área/Proceso</th>
+                        <th>Tipo de Partícula</th>
+                        <th>Concentración (mg/m³)</th>
+                        <th>TLV-TWA</th>
+                        <th>Método Medición</th>
+                        <th>Cumple</th>
+                        <th>Controles</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaParticulado">
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><select style="width:100%;">
+                                <option>Polvo inerte</option>
+                                <option>Polvo metálico</option>
+                                <option>Sílice cristalina</option>
+                                <option>Asbestos</option>
+                                <option>Humos metálicos</option>
+                                <option>Neblinas/vapores</option>
+                            </select></td>
+                        <td><input type="number" style="width:80px;" step="0.01"> mg/m³</td>
+                        <td><input type="number" style="width:80px;" step="0.01"> mg/m³</td>
+                        <td><select style="width:100%;">
+                                <option>Gravimétrico</option>
+                                <option>Lector directo</option>
+                                <option>Muestreo personal</option>
+                                <option>Muestreo ambiental</option>
+                            </select></td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;" placeholder="EPP, ventilación"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarMedicion('Particulado')">+ Agregar Medición</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🧪 Gases y Vapores</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Área</th>
+                        <th>Sustancia</th>
+                        <th>Concentración (ppm)</th>
+                        <th>TLV-TWA (ppm)</th>
+                        <th>TLV-STEL</th>
+                        <th>Cumple</th>
+                        <th>Controles</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaGases">
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="CO, NH₃, etc."></td>
+                        <td><input type="number" style="width:80px;" step="0.1"> ppm</td>
+                        <td><input type="number" style="width:80px;" step="0.1"> ppm</td>
+                        <td><input type="number" style="width:80px;" step="0.1"> ppm</td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarMedicion('Gases')">+ Agregar Medición</button>
+
+            <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                <strong>📋 Definiciones:</strong><br>
+                <small><strong>TLV-TWA:</strong> Límite promedio ponderado 8 horas | <strong>TLV-STEL:</strong> Límite
+                    exposición corta (15 min)</small>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Resumen de Cumplimiento</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Factor de Riesgo</th>
+                        <th>Total Mediciones</th>
+                        <th>Dentro de Límites</th>
+                        <th>Fuera de Límites</th>
+                        <th>% Cumplimiento</th>
+                        <th>Próxima Medición</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ruido</td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td>-</td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Iluminación</td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td>-</td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Confort Térmico</td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td>-</td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Material Particulado</td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td><input type="number" style="width:60px;" value="0"></td>
+                        <td>-</td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información de la Empresa de Medición</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Empresa/Profesional:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Licencia SO:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Método/Norma Aplicada:</label><input type="text" class="campo-editable"
+                        placeholder="ISO, NIOSH, etc."></div>
+                <div class="campo-dato"><label>Equipos Utilizados:</label><input type="text" class="campo-editable"
+                        placeholder="Sonómetro, luxómetro..."></div>
+                <div class="campo-dato"><label>Calibración Vigente:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Informe Técnico #:</label><input type="text" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Higienista Ocupacional</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Mediciones guardadas')">💾 Guardar Mediciones</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarMedicion(tipo) {
+            const tablaId = `tabla${tipo}`;
+            const tabla = document.getElementById(tablaId);
+            if (tabla) {
+                const nuevaFila = tabla.rows[0].cloneNode(true);
+                nuevaFila.querySelectorAll('input[type="text"], input[type="number"], input[type="date"]').forEach(input => input.value = '');
+                nuevaFila.querySelectorAll('input[type="checkbox"]').forEach(input => input.checked = false);
+                tabla.appendChild(nuevaFila);
+            }
+        }
+
+        function verificarRuido(input) {
+            const fila = input.closest('tr');
+            const nivel = parseFloat(input.value) || 0;
+            const cumpleCell = fila.querySelector('.cumple-ruido');
+
+            if (nivel > 85) {
+                cumpleCell.innerHTML = '<span style="color: red;">✗ NO</span>';
+            } else {
+                cumpleCell.innerHTML = '<span style="color: green;">✓ SÍ</span>';
+            }
+        }
+
+        function verificarIluminacion(input) {
+            const fila = input.closest('tr');
+            const select = fila.querySelector('select');
+            const nivel = parseFloat(input.value) || 0;
+            const cumpleCell = fila.querySelector('.cumple-ilum');
+            const limiteCell = fila.querySelector('.limite-ilum');
+
+            const limites = {
+                'Visual continua - Alta precisión': 500,
+                'Visual continua - Precisión moderada': 300,
+                'Visual ocasional - Sin detalles finos': 200,
+                'Ocasional - Desplazamiento': 100,
+                'Áreas generales': 50
+            };
+
+            const limite = limites[select.value] || 300;
+            limiteCell.textContent = limite + ' lux';
+
+            if (nivel >= limite) {
+                cumpleCell.innerHTML = '<span style="color: green;">✓ SÍ</span>';
+            } else {
+                cumpleCell.innerHTML = '<span style="color: red;">✗ NO</span>';
+            }
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

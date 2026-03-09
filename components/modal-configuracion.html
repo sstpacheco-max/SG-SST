@@ -1,0 +1,340 @@
+<!-- ============================================ -->
+<!-- MODAL DE CONFIGURACIÓN GLOBAL -->
+<!-- ============================================ -->
+
+<div id="modalConfiguracion"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; align-items: center; justify-content: center;">
+    <div
+        style="background: white; width: 90%; max-width: 900px; max-height: 90vh; overflow-y: auto; border-radius: 16px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);">
+        <!-- Header -->
+        <div
+            style="background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); color: white; padding: 2rem; border-radius: 16px 16px 0 0;">
+            <h2 style="margin: 0; font-size: 1.8rem; font-family: var(--font-titulo);">⚙️ Configuración del Sistema
+                SG-SST</h2>
+            <p style="margin: 0.5rem 0 0 0; opacity: 0.9;">Complete la información de su empresa para personalizar todos
+                los formatos</p>
+        </div>
+
+        <!-- Barra de progreso -->
+        <div style="padding: 1.5rem 2rem 0 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <span id="textoProgreso" style="font-weight: 600; color: #3b82f6;">Paso 1 de 5</span>
+                <span style="font-size: 0.9rem; color: #64748b;">Todos los campos marcados con * son obligatorios</span>
+            </div>
+            <div style="height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden;">
+                <div id="barraProgreso"
+                    style="height: 100%; background: linear-gradient(90deg, #3b82f6, #10b981); width: 20%; transition: width 0.3s ease;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenido de pasos -->
+        <div style="padding: 2rem;">
+
+            <!-- PASO 1: DATOS DE LA EMPRESA -->
+            <div id="paso1" style="display: block;">
+                <h3 style="color: #1e40af; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #3b82f6; color: white; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">1</span>
+                    Datos de la Empresa
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="grid-column: 1/-1;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">NIT
+                            *</label>
+                        <input type="text" id="nit" placeholder="900123456-7"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;"
+                            maxlength="12">
+                        <small style="color: #64748b;">Formato: 9-10 dígitos + guión + dígito de verificación</small>
+                    </div>
+
+                    <div style="grid-column: 1/-1;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Razón
+                            Social *</label>
+                        <input type="text" id="razonSocial" placeholder="Nombre completo de la empresa"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="grid-column: 1/-1;">
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Dirección</label>
+                        <input type="text" id="direccion" placeholder="Calle 123 # 45-67"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Ciudad
+                            *</label>
+                        <input type="text" id="ciudad" placeholder="Bogotá"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Departamento</label>
+                        <input type="text" id="departamento" placeholder="Cundinamarca"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Teléfono</label>
+                        <input type="tel" id="telefono" placeholder="601 1234567"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Email
+                            Corporativo</label>
+                        <input type="email" id="email" placeholder="contacto@empresa.com"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="grid-column: 1/-1;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Sitio
+                            Web (opcional)</label>
+                        <input type="url" id="web" placeholder="https://www.empresa.com"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="grid-column: 1/-1;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Logo de
+                            la Empresa (opcional)</label>
+                        <div style="display: flex; gap: 1rem; align-items: start;">
+                            <div style="flex: 1;">
+                                <input type="file" id="inputLogo" accept="image/*" onchange="ModalConfig.cargarLogo()"
+                                    style="width: 100%; padding: 0.75rem; border: 2px dashed #e2e8f0; border-radius: 8px; background: #f8fafc;">
+                                <small style="color: #64748b;">PNG, JPG o SVG. Máximo 2MB. Se mostrará en todos los
+                                    formatos.</small>
+                            </div>
+                            <div
+                                style="width: 120px; height: 120px; border: 2px solid #e2e8f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; background: #f8fafc;">
+                                <img id="logoPreview" src="" alt="Logo"
+                                    style="display: none; max-width: 100%; max-height: 100%; object-fit: contain;">
+                                <span style="color: #94a3b8; font-size: 0.9rem; text-align: center;"
+                                    id="logoPlaceholderText">Vista previa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 2: REPRESENTANTE LEGAL -->
+            <div id="paso2" style="display: none;">
+                <h3 style="color: #1e40af; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #3b82f6; color: white; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">2</span>
+                    Representante Legal
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="grid-column: 1/-1;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Nombre
+                            Completo *</label>
+                        <input type="text" id="repLegalNombre" placeholder="Juan Pérez García"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Documento
+                            de Identidad *</label>
+                        <input type="text" id="repLegalDocumento" placeholder="1234567890"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Teléfono</label>
+                        <input type="tel" id="repLegalTelefono" placeholder="300 123 4567"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="grid-column: 1/-1;">
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Email</label>
+                        <input type="email" id="repLegalEmail" placeholder="representante@empresa.com"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 3: RESPONSABLE SG-SST -->
+            <div id="paso3" style="display: none;">
+                <h3 style="color: #1e40af; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #3b82f6; color: white; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">3</span>
+                    Responsable del SG-SST
+                </h3>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 1.5rem;">
+                    <div style="grid-column: 1/-1;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Nombre
+                            Completo *</label>
+                        <input type="text" id="sstNombre" placeholder="María González López"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Documento
+                            de Identidad</label>
+                        <input type="text" id="sstDocumento" placeholder="9876543210"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Número
+                            Licencia SST *</label>
+                        <input type="text" id="sstLicencia" placeholder="SST-12345"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Vigencia
+                            Licencia</label>
+                        <input type="date" id="sstVigencia"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Teléfono</label>
+                        <input type="tel" id="sstTelefono" placeholder="310 987 6543"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Email</label>
+                        <input type="email" id="sstEmail" placeholder="sst@empresa.com"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="grid-column: 1/-1;">
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Horas
+                            Dedicación Semanal</label>
+                        <input type="number" id="sstHoras" placeholder="40" min="1" max="168"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                        <small style="color: #64748b;">Según Res. 4927/2016, mínimo requerido según tamaño de
+                            empresa</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 4: CLASIFICACIÓN DE RIESGO -->
+            <div id="paso4" style="display: none;">
+                <h3 style="color: #1e40af; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #3b82f6; color: white; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">4</span>
+                    Clasificación y Riesgo
+                </h3>
+
+                <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                    <div>
+                        <label
+                            style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Actividad
+                            Económica Principal (CIIU) *</label>
+                        <select id="actividadEconomica" onchange="ModalConfig.seleccionarCIIU()"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                            <!-- Se llenará dinámicamente desde ciiu-clasificacion.js -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Clase de
+                            Riesgo *</label>
+                        <input type="text" id="claseRiesgo" readonly
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1.2rem; font-weight: 700; text-align: center; background: #f8fafc;">
+                    </div>
+
+                    <div id="infoRiesgo"></div>
+
+                    <div>
+                        <label style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155;">Número
+                            Total de Trabajadores *</label>
+                        <input type="number" id="totalTrabajadores" placeholder="50" min="1"
+                            style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem;">
+                    </div>
+
+                    <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border: 2px solid #e2e8f0;">
+                        <h4 style="margin-top: 0; color: #334155;">Distribución por Tipo de Contrato (opcional)</h4>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                            <div>
+                                <label
+                                    style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155; font-size: 0.9rem;">Indefinido</label>
+                                <input type="number" id="distIndefinido" placeholder="0" min="0"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                            <div>
+                                <label
+                                    style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155; font-size: 0.9rem;">Fijo</label>
+                                <input type="number" id="distFijo" placeholder="0" min="0"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                            <div>
+                                <label
+                                    style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155; font-size: 0.9rem;">Prestación</label>
+                                <input type="number" id="distPrestacion" placeholder="0" min="0"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                            <div>
+                                <label
+                                    style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: #334155; font-size: 0.9rem;">Aprendiz</label>
+                                <input type="number" id="distAprendiz" placeholder="0" min="0"
+                                    style="width: 100%; padding: 0.75rem; border: 2px solid #e2e8f0; border-radius: 8px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PASO 5: TRABAJADORES -->
+            <div id="paso5" style="display: none;">
+                <h3 style="color: #1e40af; margin-top: 0; display: flex; align-items: center; gap: 0.5rem;">
+                    <span
+                        style="background: #3b82f6; color: white; width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">5</span>
+                    Gestión de Trabajadores
+                </h3>
+
+                <div
+                    style="background: #eff6ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6; margin-top: 1.5rem;">
+                    <p style="margin: 0;"><strong>📋 Nota:</strong> La gestión de trabajadores es opcional en esta
+                        configuración inicial. Puede agregar trabajadores posteriormente desde el menú de configuración.
+                    </p>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <p style="color: #64748b;">Proximamente disponible: importación de trabajadores desde Excel</p>
+                    <button class="btn btn-outline" style="margin-top: 1rem;" disabled>📥 Importar desde Excel</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer con botones -->
+        <div
+            style="background: #f8fafc; padding: 1.5rem 2rem; border-radius: 0 0 16px 16px; display: flex; justify-content: space-between; align-items: center; border-top: 2px solid #e2e8f0;">
+            <button id="btnAnterior" onclick="ModalConfig.pasoAnterior()" class="btn btn-outline">← Anterior</button>
+
+            <div style="display: flex; gap: 1rem;">
+                <button onclick="ModalConfig.cerrarModal()" class="btn btn-outline">Cerrar</button>
+                <button id="btnSiguiente" onclick="ModalConfig.siguientePaso()" class="btn btn-primario">Siguiente
+                    →</button>
+                <button id="btnGuardar" onclick="ModalConfig.guardarConfiguracion()" class="btn btn-primario"
+                    style="display: none;">💾 Guardar Configuración</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Inicializar select de CIIU cuando se cargue el modal
+    window.addEventListener('load', function () {
+        const select = document.getElementById('actividadEconomica');
+        if (select && typeof ClasificacionCIIU !== 'undefined') {
+            select.innerHTML = ClasificacionCIIU.generarOpcionesSelect();
+        }
+    });
+</script>

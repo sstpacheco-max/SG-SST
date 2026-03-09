@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Chequeo Auditoría - Res. 0312/2019</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .estandar-row {
+            transition: all 0.2s ease;
+        }
+
+        .estandar-row:hover {
+            background: #f1f5f9 !important;
+        }
+
+        .resultado-select {
+            padding: 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .evidencia-input {
+            width: 100%;
+            padding: 0.3rem;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver
+
+                al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Lista de Chequeo de Auditoría</div>
+                <div class="subtitulo-documento">Resolución 0312 de 2019 - Estándares Mínimos SG-SST</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-44"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">Información de la Auditoría</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Auditor:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha Auditoría:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Área/Proceso:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Auditado:</label><input type="text" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Resultado Global</h2>
+            <div
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 12px; color: white;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 700;"><span id="puntajeTotal">0</span></div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Puntaje Total (max 100)</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 700;"><span id="porcentaje">0%</span></div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Porcentaje</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 700; color: #86efac;"><span id="cumple">0</span></div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">Cumple</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 3rem; font-weight: 700; color: #fca5a5;"><span id="noCumple">0</span>
+                        </div>
+                        <div style="font-size: 0.9rem; opacity: 0.9;">No Cumple</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📋 Instrucciones:</strong> Evalúe cada estándar y registre: <strong>C</strong>=Cumple
+                Totalmente, <strong>PC</strong>=Cumple Parcialmente (50%), <strong>NC</strong>=No Cumple. Registre
+                evidencias y observaciones.</div>
+        </div>
+
+        <!-- CICLO I: PLANEAR (25 puntos) -->
+        <div class="seccion">
+            <h2 class="seccion-titulo" style="background: #dcfce7; color: #166534; padding: 1rem;">① PLANEAR - 25 Puntos
+            </h2>
+
+            <h3 style="background: #e0f2fe; padding: 0.75rem; margin-top: 1.5rem;">1. Recursos (10%)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 5%;">Valor</th>
+                        <th style="width: 40%;">Estándar</th>
+                        <th style="width: 15%;">Resultado</th>
+                        <th style="width: 5%;">Ptos</th>
+                        <th style="width: 30%;">Evidencia / Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="estandar-row">
+                        <td>1.1.1</td>
+                        <td>0.5</td>
+                        <td>Responsable del SG-SST con curso de 50 horas</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input" placeholder="Certificado, licencia..."></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.1.2</td>
+                        <td>0.5</td>
+                        <td>Responsable con licencia SST vigente</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.1.3</td>
+                        <td>0.5</td>
+                        <td>Asignación de responsabilidades por escrito</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.1.4</td>
+                        <td>0.5</td>
+                        <td>Asignación de recursos financieros, técnicos y humanos</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.1.5</td>
+                        <td>0.5</td>
+                        <td>Afiliación al Sistema General de Riesgos Laborales</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.1.6</td>
+                        <td>0.5</td>
+                        <td>Pago de pensión trabajadores alto riesgo</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                                <option value="NA">N/A</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.1.7</td>
+                        <td>4</td>
+                        <td>Conformación COPASST / Vigía SST</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.1.8</td>
+                        <td>2</td>
+                        <td>Conformación Comité de Convivencia Laboral</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="background: #e0f2fe; padding: 0.75rem; margin-top: 1.5rem;">2. Gestión Integral del SG-SST (15%)
+            </h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 5%;">Valor</th>
+                        <th style="width: 40%;">Estándar</th>
+                        <th style="width: 15%;">Resultado</th>
+                        <th style="width: 5%;">Ptos</th>
+                        <th style="width: 30%;">Evidencia / Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="estandar-row">
+                        <td>1.2.1</td>
+                        <td>1</td>
+                        <td>Política de SST firmada, fechada y comunicada</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.2</td>
+                        <td>1</td>
+                        <td>Objetivos del SG-SST definidos, medibles, cuantificables</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.3</td>
+                        <td>1</td>
+                        <td>Evaluación inicial del SG-SST</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.4</td>
+                        <td>2</td>
+                        <td>Plan Anual de Trabajo firmado y fechado</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.5</td>
+                        <td>1</td>
+                        <td>Conservación documental (20 años)</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.6</td>
+                        <td>1</td>
+                        <td>Rendición de cuentas anual</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.7</td>
+                        <td>1</td>
+                        <td>Normatividad vigente y aplicable</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.8</td>
+                        <td>2</td>
+                        <td>Mecanismos de comunicación</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.9</td>
+                        <td>1</td>
+                        <td>Adquisiciones y contratación</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.10</td>
+                        <td>2</td>
+                        <td>Gestión del cambio</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>1.2.11</td>
+                        <td>2</td>
+                        <td>Contratistas, subcontratistas y proveedores</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CICLO II: HACER (60 puntos) -->
+        <div class="seccion">
+            <h2 class="seccion-titulo" style="background: #fef3c7; color: #92400e; padding: 1rem;">② HACER - 60 Puntos
+            </h2>
+
+            <h3 style="background: #e0f2fe; padding: 0.75rem; margin-top: 1.5rem;">3. Gestión de Salud (20%)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 5%;">Valor</th>
+                        <th style="width: 40%;">Estándar</th>
+                        <th style="width: 15%;">Resultado</th>
+                        <th style="width: 5%;">Ptos</th>
+                        <th style="width: 30%;">Evidencia / Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="estandar-row">
+                        <td>2.1.1</td>
+                        <td>5</td>
+                        <td>Evaluaciones médicas ocupacionales</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>2.1.2</td>
+                        <td>5</td>
+                        <td>Actividades de medicina del trabajo y prevención</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>2.1.3</td>
+                        <td>5</td>
+                        <td>Profesiograma o perfiles de cargo</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>2.1.4</td>
+                        <td>5</td>
+                        <td>Restricciones y recomendaciones médicas</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="background: #e0f2fe; padding: 0.75rem; margin-top: 1.5rem;">4. Gestión de Peligros y Riesgos
+                (30%)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 5%;">Valor</th>
+                        <th style="width: 40%;">Estándar</th>
+                        <th style="width: 15%;">Resultado</th>
+                        <th style="width: 5%;">Ptos</th>
+                        <th style="width: 30%;">Evidencia / Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="estandar-row">
+                        <td>2.2.1</td>
+                        <td>15</td>
+                        <td>Identificación de peligros, evaluación y valoración de riesgos</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>2.2.2</td>
+                        <td>15</td>
+                        <td>Medidas de prevención y control</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="background: #e0f2fe; padding: 0.75rem; margin-top: 1.5rem;">5. Gestión de Amenazas (10%)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 5%;">Valor</th>
+                        <th style="width: 40%;">Estándar</th>
+                        <th style="width: 15%;">Resultado</th>
+                        <th style="width: 5%;">Ptos</th>
+                        <th style="width: 30%;">Evidencia / Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="estandar-row">
+                        <td>2.3.1</td>
+                        <td>10</td>
+                        <td>Plan de prevención, preparación y respuesta ante emergencias</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CICLO III: VERIFICAR (5 puntos) -->
+        <div class="seccion">
+            <h2 class="seccion-titulo" style="background: #f3e8ff; color: #6b21a8; padding: 1rem;">③ VERIFICAR - 5
+                Puntos</h2>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 5%;">Valor</th>
+                        <th style="width: 40%;">Estándar</th>
+                        <th style="width: 15%;">Resultado</th>
+                        <th style="width: 5%;">Ptos</th>
+                        <th style="width: 30%;">Evidencia / Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="estandar-row">
+                        <td>3.1.1</td>
+                        <td>1</td>
+                        <td>Definición de indicadores del SG-SST</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>3.1.2</td>
+                        <td>4</td>
+                        <td>Auditoría anual del SG-SST</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- CICLO IV: ACTUAR (10 puntos) -->
+        <div class="seccion">
+            <h2 class="seccion-titulo" style="background: #fee2e2; color: #991b1b; padding: 1rem;">④ ACTUAR - 10 Puntos
+            </h2>
+
+            <h3 style="background: #e0f2fe; padding: 0.75rem; margin-top: 1.5rem;">4. Acciones Preventivas y Correctivas
+                (10%)</h3>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 5%;">Valor</th>
+                        <th style="width: 40%;">Estándar</th>
+                        <th style="width: 15%;">Resultado</th>
+                        <th style="width: 5%;">Ptos</th>
+                        <th style="width: 30%;">Evidencia / Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="estandar-row">
+                        <td>4.1.1</td>
+                        <td>2.5</td>
+                        <td>Acciones preventivas y correctivas</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>4.1.2</td>
+                        <td>2.5</td>
+                        <td>Mejora continua</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                    <tr class="estandar-row">
+                        <td>4.1.3</td>
+                        <td>5</td>
+                        <td>Investigación de incidentes, accidentes y enfermedades laborales</td>
+                        <td>
+                            <select class="resultado-select" onchange="calcularPuntaje()">
+                                <option value="0">Seleccionar</option>
+                                <option value="1">Cumple (C)</option>
+                                <option value="0.5">Cumple Parcial (PC)</option>
+                                <option value="0">No Cumple (NC)</option>
+                            </select>
+                        </td>
+                        <td class="puntaje-celda">0</td>
+                        <td><input type="text" class="evidencia-input"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones Generales de la Auditoría</h2>
+            <textarea rows="5" style="width:100%;"
+                placeholder="Comentarios generales, fortalezas identificadas, áreas de mejora prioritarias, etc."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Auditor</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Auditado</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Lista de chequeo guardada')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularPuntaje() {
+            let puntajeTotal = 0;
+            let total Estándares = 0;
+            let cumple = 0;
+            let noCumple = 0;
+
+            const selects = document.querySelectorAll('.resultado-select');
+            const puntajeCeldas = document.querySelectorAll('.puntaje-celda');
+
+            selects.forEach((select, index) => {
+                const valor = parseFloat(select.value);
+                const valorMaximo = parseFloat(select.closest('tr').cells[1].textContent);
+
+                if (!isNaN(valor) && valor >= 0) {
+                    const puntaje = (valor * valorMaximo).toFixed(2);
+                    puntajeCeldas[index].textContent = puntaje;
+                    puntajeTotal += parseFloat(puntaje);
+                    totalEstándares++;
+
+                    if (valor === 1) cumple++;
+                    else if (valor === 0) noCumple++;
+                }
+            });
+
+            document.getElementById('puntajeTotal').textContent = puntajeTotal.toFixed(1);
+            document.getElementById('porcentaje').textContent = puntajeTotal.toFixed(1) + '%';
+            document.getElementById('cumple').textContent = cumple;
+            document.getElementById('noCumple').textContent = noCumple;
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permiso de Trabajo en Alturas</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Permiso de Trabajo en Alturas</div>
+                <div class="subtitulo-documento">Resolución 4272 de 2021 - MinTrabajo</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Permiso #:</label><input type="text" class="campo-editable"
+                        value="PTA-001"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Válido hasta:</label><input type="date" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>⚠️ ADVERTENCIA:</strong> Este permiso es obligatorio para trabajos ≥1.50 metros. El
+                incumplimiento constituye falta grave. Solo personal certificado puede ejecutar trabajo en alturas.
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información del Trabajo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Descripción del Trabajo: *</label><input type="text"
+                        class="campo-editable" placeholder="Ej: Mantenimiento de cubierta"></div>
+                <div class="campo-dato"><label>Ubicación Exacta:</label><input type="text" class="campo-editable"
+                        placeholder="Edificio, área, nivel"></div>
+                <div class="campo-dato"><label>Altura del Trabajo:</label><input type="number" step="0.1"
+                        class="campo-editable" placeholder="metros"> m</div>
+                <div class="campo-dato"><label>Hora Inicio:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora Fin Estimada:</label><input type="time" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Duración Estimada:</label><input type="text" class="campo-editable"
+                        placeholder="Horas"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👷 Personal Autorizado</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Cédula</th>
+                        <th>Certificado Alturas</th>
+                        <th>Vigencia</th>
+                        <th>Examen Médico</th>
+                        <th>Firma</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaPersonal">
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Avanzado</option>
+                                <option>Coordinador</option>
+                                <option>Jefe de Trabajo</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Vigente</option>
+                                <option>Vencido</option>
+                            </select>
+                        </td>
+                        <td style="text-align:center;">_________</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarPersonal()">+ Agregar Trabajador</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Lista de Verificación Pre-Trabajo</h2>
+
+            <h4 style="color: var(--color-primario);">1. Evaluación de Riesgos:</h4>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="60%">Ítem a Verificar</th>
+                        <th width="15%">SÍ</th>
+                        <th width="15%">NO</th>
+                        <th width="10%">N/A</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fef3c7;">
+                        <td><strong>Se realizó inspección del lugar de trabajo</strong></td>
+                        <td><input type="radio" name="inspeccion"></td>
+                        <td><input type="radio" name="inspeccion"></td>
+                        <td><input type="radio" name="inspeccion"></td>
+                    </tr>
+                    <tr>
+                        <td>Se identificaron todos los peligros de caída</td>
+                        <td><input type="radio" name="peligros"></td>
+                        <td><input type="radio" name="peligros"></td>
+                        <td><input type="radio" name="peligros"></td>
+                    </tr>
+                    <tr>
+                        <td>Las condiciones climáticas son adecuadas (no lluvia, viento <40 km/h)</td>
+                        <td><input type="radio" name="clima"></td>
+                        <td><input type="radio" name="clima"></td>
+                        <td><input type="radio" name="clima"></td>
+                    </tr>
+                    <tr>
+                        <td>Se delimitó y señalizó el área de trabajo</td>
+                        <td><input type="radio" name="delimitacion"></td>
+                        <td><input type="radio" name="delimitacion"></td>
+                        <td><input type="radio" name="delimitacion"></td>
+                    </tr>
+                    <tr>
+                        <td>Se verificó que no hay paso de personal bajo el área de trabajo</td>
+                        <td><input type="radio" name="paso"></td>
+                        <td><input type="radio" name="paso"></td>
+                        <td><input type="radio" name="paso"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">2. Equipos de Protección Contra Caídas:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr style="background: #fef3c7;">
+                        <td width="60%"><strong>Arnés de cuerpo completo certificado</strong></td>
+                        <td width="15%"><input type="radio" name="arnes"></td>
+                        <td width="15%"><input type="radio" name="arnes"></td>
+                        <td width="10%"><input type="radio" name="arnes"></td>
+                    </tr>
+                    <tr>
+                        <td>Eslinga de posicionamiento o restricción (si aplica)</td>
+                        <td><input type="radio" name="eslinga"></td>
+                        <td><input type="radio" name="eslinga"></td>
+                        <td><input type="radio" name="eslinga"></td>
+                    </tr>
+                    <tr>
+                        <td>Línea de vida (horizontal o vertical según corresponda)</td>
+                        <td><input type="radio" name="linea"></td>
+                        <td><input type="radio" name="linea"></td>
+                        <td><input type="radio" name="linea"></td>
+                    </tr>
+                    <tr>
+                        <td>Punto de anclaje certificado (resistencia > 5000 lbs / 22.2 kN)</td>
+                        <td><input type="radio" name="anclaje"></td>
+                        <td><input type="radio" name="anclaje"></td>
+                        <td><input type="radio" name="anclaje"></td>
+                    </tr>
+                    <tr>
+                        <td>Conector certificado (mosquetón, gancho)</td>
+                        <td><input type="radio" name="conector"></td>
+                        <td><input type="radio" name="conector"></td>
+                        <td><input type="radio" name="conector"></td>
+                    </tr>
+                    <tr>
+                        <td>Absorbedor de energía (si sistema detención de caídas)</td>
+                        <td><input type="radio" name="absorbedor"></td>
+                        <td><input type="radio" name="absorbedor"></td>
+                        <td><input type="radio" name="absorbedor"></td>
+                    </tr>
+                    <tr>
+                        <td>Los equipos están en buen estado (sin roturas, desgaste excesivo)</td>
+                        <td><input type="radio" name="estado"></td>
+                        <td><input type="radio" name="estado"></td>
+                        <td><input type="radio" name="estado"></td>
+                    </tr>
+                    <tr>
+                        <td>Los equipos tienen certificación vigente</td>
+                        <td><input type="radio" name="certificacion"></td>
+                        <td><input type="radio" name="certificacion"></td>
+                        <td><input type="radio" name="certificacion"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">3. Equipos de Acceso:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="60%">Escalera en buen estado y bien asegurada</td>
+                        <td width="15%"><input type="radio" name="escalera"></td>
+                        <td width="15%"><input type="radio" name="escalera"></td>
+                        <td width="10%"><input type="radio" name="escalera"></td>
+                    </tr>
+                    <tr>
+                        <td>Andamio certificado y armado correctamente</td>
+                        <td><input type="radio" name="andamio"></td>
+                        <td><input type="radio" name="andamio"></td>
+                        <td><input type="radio" name="andamio"></td>
+                    </tr>
+                    <tr>
+                        <td>Plataforma elevadora con permiso de operación</td>
+                        <td><input type="radio" name="plataforma"></td>
+                        <td><input type="radio" name="plataforma"></td>
+                        <td><input type="radio" name="plataforma"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">4. Medidas de Prevención:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="60%">Se implementaron barandas/guardas perimetrales</td>
+                        <td width="15%"><input type="radio" name="barandas"></td>
+                        <td width="15%"><input type="radio" name="barandas"></td>
+                        <td width="10%"><input type="radio" name="barandas"></td>
+                    </tr>
+                    <tr>
+                        <td>Se instalaron redes de seguridad (si aplica)</td>
+                        <td><input type="radio" name="redes"></td>
+                        <td><input type="radio" name="redes"></td>
+                        <td><input type="radio" name="redes"></td>
+                    </tr>
+                    <tr>
+                        <td>Herramientas aseguradas con cuerda antcaída de herramientas</td>
+                        <td><input type="radio" name="herramientas"></td>
+                        <td><input type="radio" name="herramientas"></td>
+                        <td><input type="radio" name="herramientas"></td>
+                    </tr>
+                    <tr>
+                        <td>Se cuenta con plan de rescate documentado</td>
+                        <td><input type="radio" name="rescate"></td>
+                        <td><input type="radio" name="rescate"></td>
+                        <td><input type="radio" name="rescate"></td>
+                    </tr>
+                    <tr>
+                        <td>Kit de rescate disponible y equipo capacitado</td>
+                        <td><input type="radio" name="kit"></td>
+                        <td><input type="radio" name="kit"></td>
+                        <td><input type="radio" name="kit"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">5. EPP Adicional:</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="60%">Casco de seguridad con barbiquejo</td>
+                        <td width="15%"><input type="radio" name="casco"></td>
+                        <td width="15%"><input type="radio" name="casco"></td>
+                        <td width="10%"><input type="radio" name="casco"></td>
+                    </tr>
+                    <tr>
+                        <td>Calzado de seguridad antideslizante</td>
+                        <td><input type="radio" name="calzado"></td>
+                        <td><input type="radio" name="calzado"></td>
+                        <td><input type="radio" name="calzado"></td>
+                    </tr>
+                    <tr>
+                        <td>Guantes apropiados para la tarea</td>
+                        <td><input type="radio" name="guantes"></td>
+                        <td><input type="radio" name="guantes"></td>
+                        <td><input type="radio" name="guantes"></td>
+                    </tr>
+                    <tr>
+                        <td>Gafas de seguridad</td>
+                        <td><input type="radio" name="gafas"></td>
+                        <td><input type="radio" name="gafas"></td>
+                        <td><input type="radio" name="gafas"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones y Medidas Adicionales</h2>
+            <textarea rows="4" style="width:100%;"
+                placeholder="Especifique cualquier observación, riesgo adicional identificado o medida preventiva especial..."></textarea>
+        </div>
+
+        <div class="alerta alerta-advertencia" style="margin-top: 2rem;">
+            <div><strong>⚠️ IMPORTANTE:</strong> Si cualquiera de los ítems críticos (resaltados) es NO, el trabajo NO
+                puede iniciar hasta corregir la condición. El trabajo debe suspenderse si las condiciones cambian.</div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Solicitante/Supervisor</div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">Hora: <input type="time"
+                        style="border:none; width:80px;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Coordinador de Alturas / SST</div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">Hora: <input type="time"
+                        style="border:none; width:80px;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Trabajador(es) Autorizados</div>
+                <div style="font-size: 0.85rem; margin-top: 0.25rem;">Hora: <input type="time"
+                        style="border:none; width:80px;"></div>
+            </div>
+        </div>
+
+        <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+            <h4 style="color: #1e40af; margin-top: 0;">Cierre del Permiso</h4>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Hora Real de Finalización:</label><input type="time"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>¿Se completó el trabajo?:</label>
+                    <select class="campo-editable">
+                        <option>Sí - Completo</option>
+                        <option>Parcial - Requiere continuación</option>
+                        <option>No - Suspendido</option>
+                    </select>
+                </div>
+                <div class="campo-dato" style="grid-column: 1 / -1;"><label>Observaciones de Cierre:</label><textarea
+                        rows="2" style="width:100%;"></textarea></div>
+            </div>
+            <div style="margin-top: 1rem; text-align: center;">
+                <strong>Firma Cierre:</strong> _______________________ Hora: <input type="time" style="width: 100px;">
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="guardar()">💾 Guardar Permiso</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarPersonal() {
+            const tabla = document.getElementById('tablaPersonal');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function guardar() {
+            alert('✅ Permiso de trabajo guardado');
+        }
+
+        window.onload = function () {
+            const hoy = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = hoy;
+            });
+        };
+    </script>
+</body>
+
+</html>

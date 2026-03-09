@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Auditoría Interna SG-SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Informe de Auditoría Interna</div>
+                <div class="subtitulo-documento">Sistema de Gestión SG-SST</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-42"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Auditoría #:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">1. Información General de la Auditoría</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Tipo de Auditoría:</label>
+                    <select class="campo-editable">
+                        <option>Integral SG-SST</option>
+                        <option>Por Procesos/Áreas</option>
+                        <option>Seguimiento</option>
+                        <option>Extraordinaria</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Fecha(s) de Ejecución:</label><input type="text" class="campo-editable"
+                        placeholder="Ej: 15-16 Marzo 2026"></div>
+                <div class="campo-dato"><label>Auditor Líder:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Equipo Auditor:</label><input type="text" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">2. Objetivo y Alcance</h2>
+            <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h4>Objetivo:</h4>
+                <textarea rows="2" style="width:100%;"></textarea>
+            </div>
+            <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px;">
+                <h4>Alcance:</h4>
+                <textarea rows="2" style="width:100%;"></textarea>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">3. Criterios de Auditoría</h2>
+            <ul>
+                <li>Resolución 0312 de 2019 - Estándares Mínimos SG-SST</li>
+                <li>Decreto 1072 de 2015</li>
+                <li>Política y Objetivos del SG-SST</li>
+                <li>Plan Anual de Trabajo</li>
+                <li>Otros: <input type="text" style="width:400px; border:none; border-bottom:1px solid #ccc;"></li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 4. Resultado Global de la Auditoría</h2>
+            <div
+                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 12px; color: white; text-align: center;">
+                <div style="font-size: 4rem; font-weight: 700; margin-bottom: 0.5rem;">
+                    <span id="porcentajeTotal">0%</span>
+                </div>
+                <div style="font-size: 1.5rem; opacity: 0.9;">CUMPLIMIENTO GLOBAL SG-SST</div>
+                <div
+                    style="margin-top: 1.5rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center;">
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 600;"><span id="totalEstándares">0</span></div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">Total Estándares</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 600; color: #86efac;"><span id="totalCumple">0</span>
+                        </div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">Cumple</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 600; color: #fca5a5;"><span
+                                id="totalNoCumple">0</span></div>
+                        <div style="font-size: 0.9rem; opacity: 0.8;">No Cumple</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">5. Resumen Ejecutivo</h2>
+            <textarea rows="5" style="width:100%;"
+                placeholder="Síntesis de los principales hallazgos, nivel de madurez del SG-SST, aspectos destacados y áreas de mejora identificadas."></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">6. Hallazgos por Tipo</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Tipo de Hallazgo</th>
+                        <th style="width: 15%;">Cantidad</th>
+                        <th style="width: 60%;">Descripción General</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #dcfce7;">
+                        <td><strong>✅ Conformidades</strong></td>
+                        <td><input type="number" id="cantConformidades" oninput="calcularEstadisticas()"
+                                style="width:80px;"></td>
+                        <td><textarea rows="2" style="width:100%;"
+                                placeholder="Aspectos que cumplen satisfactoriamente"></textarea></td>
+                    </tr>
+                    <tr style="background: #fef3c7;">
+                        <td><strong>⚠️ Observaciones</strong></td>
+                        <td><input type="number" id="cantObservaciones" oninput="calcularEstadisticas()"
+                                style="width:80px;"></td>
+                        <td><textarea rows="2" style="width:100%;"
+                                placeholder="Situaciones que pueden mejorar"></textarea></td>
+                    </tr>
+                    <tr style="background: #ffedd5;">
+                        <td><strong>🟡 No Conformidades Menores</strong></td>
+                        <td><input type="number" id="cantNCMenor" oninput="calcularEstadisticas()" style="width:80px;">
+                        </td>
+                        <td><textarea rows="2" style="width:100%;" placeholder="Incumplimientos aislados"></textarea>
+                        </td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>🔴 No Conformidades Mayores</strong></td>
+                        <td><input type="number" id="cantNCMayor" oninput="calcularEstadisticas()" style="width:80px;">
+                        </td>
+                        <td><textarea rows="2" style="width:100%;"
+                                placeholder="Incumplimientos sistemáticos o críticos"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">7. Detalle de No Conformidades</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 10%;">Tipo</th>
+                        <th style="width: 15%;">Área/Proceso</th>
+                        <th style="width: 20%;">Requisito Incumplido</th>
+                        <th style="width: 30%;">Descripción de la NC</th>
+                        <th style="width: 10%;">Plazo Cierre</th>
+                        <th style="width: 10%;">Responsable</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaNC">
+                    <tr>
+                        <td style="text-align:center;">1</td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Mayor</option>
+                                <option>Menor</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Est. 1.1.2 Res. 0312/2019"></td>
+                        <td><textarea rows="2" style="width:100%;"></textarea></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarNC()">+ Agregar No Conformidad</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">8. Fortalezas Identificadas</h2>
+            <ul id="listaFortalezas">
+                <li><input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;"
+                        placeholder="Fortaleza 1"></li>
+                <li><input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;"
+                        placeholder="Fortaleza 2"></li>
+                <li><input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;"
+                        placeholder="Fortaleza 3"></li>
+            </ul>
+            <button class="btn btn-secundario" onclick="agregarFortaleza()">+ Agregar Fortaleza</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">9. Oportunidades de Mejora</h2>
+            <ul id="listaMejoras">
+                <li><input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;"
+                        placeholder="Oportunidad 1"></li>
+                <li><input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;"
+                        placeholder="Oportunidad 2"></li>
+                <li><input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;"
+                        placeholder="Oportunidad 3"></li>
+            </ul>
+            <button class="btn btn-secundario" onclick="agregarMejora()">+ Agregar Oportunidad</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">10. Conclusiones</h2>
+            <textarea rows="5" style="width:100%;"
+                placeholder="Conclusiones generales de la auditoría, nivel de madurez del sistema, compromisos asumidos por la dirección, próximos pasos, etc."></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">11. Recomendaciones del Auditor</h2>
+            <textarea rows="4" style="width:100%;"
+                placeholder="Recomendaciones para fortalecer el SG-SST y cerrar las no conformidades identificadas."></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">12. Plan de Acción Requerido</h2>
+            <div class="alerta alerta-info">
+                <div><strong>📋 Plazo:</strong> Los auditados deben presentar Plan de Acción para las No Conformidades
+                    en máximo 10 días hábiles.</div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">13. Distribución del Informe</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <label><input type="checkbox" checked> Alta Dirección</label>
+                <label><input type="checkbox" checked> Responsable SG-SST</label>
+                <label><input type="checkbox" checked> COPASST</label>
+                <label><input type="checkbox"> Jefes de Área Auditadas</label>
+                <label><input type="checkbox"> Archivo del SG-SST</label>
+                <label><input type="checkbox"> ARL</label>
+            </div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Auditor Líder</div>
+                <div style="margin-top: 0.5rem; font-size: 0.85rem;">Licencia SST: <input type="text"
+                        style="width:150px; border:none; border-bottom:1px solid #000;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST / Representante del Auditado</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Informe de auditoría guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularEstadisticas() {
+            const conformidades = parseInt(document.getElementById('cantConformidades').value) || 0;
+            const observaciones = parseInt(document.getElementById('cantObservaciones').value) || 0;
+            const ncMenor = parseInt(document.getElementById('cantNCMenor').value) || 0;
+            const ncMayor = parseInt(document.getElementById('cantNCMayor').value) || 0;
+
+            const total = conformidades + observaciones + ncMenor + ncMayor;
+            const cumple = conformidades;
+            const noCumple = ncMenor + ncMayor;
+            const porcentaje = total > 0 ? ((cumple / total) * 100).toFixed(1) : 0;
+
+            document.getElementById('totalEstándares').textContent = total;
+            document.getElementById('totalCumple').textContent = cumple;
+            document.getElementById('totalNoCumple').textContent = noCumple;
+            document.getElementById('porcentajeTotal').textContent = porcentaje + '%';
+        }
+
+        function agregarNC() {
+            const tabla = document.getElementById('tablaNC');
+            const numero = tabla.rows.length + 1;
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.cells[0].textContent = numero;
+            nuevaFila.querySelectorAll('input, textarea').forEach(el => el.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarFortaleza() {
+            const lista = document.getElementById('listaFortalezas');
+            const nuevoItem = document.createElement('li');
+            nuevoItem.innerHTML = '<input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;" placeholder="Nueva fortaleza">';
+            lista.appendChild(nuevoItem);
+        }
+
+        function agregarMejora() {
+            const lista = document.getElementById('listaMejoras');
+            const nuevoItem = document.createElement('li');
+            nuevoItem.innerHTML = '<input type="text" style="width:95%; border:none; border-bottom:1px solid #e2e8f0;" placeholder="Nueva oportunidad">';
+            lista.appendChild(nuevoItem);
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+            calcularEstadisticas();
+        };
+    </script>
+</body>
+
+</html>

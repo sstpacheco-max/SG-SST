@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Vigilancia Epidemiológica - Riesgo Biomecánico</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Programa de Vigilancia Epidemiológica</div>
+                <div class="subtitulo-documento">Sistema de Vigilancia Epidemiológica (SVE) - Riesgo Biomecánico</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="PRO-SST-08"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Vigencia:</label><input type="text" value="2026"
+                        class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📋 Nota:</strong> Este es un modelo de SVE para riesgo biomecánico (Desórdenes
+                Musculoesqueléticos). Adapte esta estructura para otros riesgos prioritarios: psicosocial, ruido,
+                químicos, etc.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">1. Justificación</h2>
+            <p>Los Desórdenes Musculoesqueléticos (DME) relacionados con el trabajo constituyen una de las principales
+                causas de ausentismo laboral y discapacidad. En Colombia, según estadísticas del Ministerio de Trabajo,
+                los DME representan el 82% de las enfermedades laborales calificadas.</p>
+
+            <p style="margin-top: 1rem;">Este programa se implementa con base en:</p>
+            <ul>
+                <li><strong>Matriz IPER:</strong> Identificación del riesgo biomecánico como prioritario</li>
+                <li><strong>Análisis de ausentismo:</strong> Alto índice de incapacidades por dolor lumbar, síndrome del
+                    túnel carpiano, tendinitis</li>
+                <li><strong>Exámenes médicos:</strong> Hallazgos de sintomatología osteomuscular</li>
+                <li><strong>Requisito legal:</strong> Res. 0312/2019, Estándar 2.1 (Vigilancia de la salud de los
+                    trabajadores)</li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">2. Objetivos</h2>
+
+            <div class="grid-datos">
+                <div class="campo-dato" style="grid-column: 1/-1;">
+                    <label><strong>Objetivo General:</strong></label>
+                    <p>Prevenir, detectar tempranamente y controlar los desórdenes musculoesqueléticos (DME) en los
+                        trabajadores expuestos a riesgo biomecánico, mediante intervenciones de promoción, prevención y
+                        vigilancia de la salud.</p>
+                </div>
+
+                <div class="campo-dato" style="grid-column: 1/-1;">
+                    <label><strong>Objetivos Específicos:</strong></label>
+                    <ul>
+                        <li>Identificar trabajadores y puestos con alto riesgo biomecánico</li>
+                        <li>Detectar tempranamente síntomas osteomusculares</li>
+                        <li>Implementar controles en la fuente, medio e individuo</li>
+                        <li>Capacitar en higiene postural y autocuidado</li>
+                        <li>Reducir la prevalencia e incidencia de DME en 20% anual</li>
+                        <li>Disminuir ausentismo por DME en 15% anual</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">3. Población Objeto</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Criterio de Inclusión</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Por Exposición</strong></td>
+                        <td>Trabajadores expuestos a: posturas prolongadas, movimientos repetitivos, manipulación de
+                            cargas, sobreesfuerzos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Por Nivel de Riesgo</strong></td>
+                        <td>Cargos con nivel de riesgo biomecánico MEDIO, ALTO o MUY ALTO según matriz IPER</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Por Síntomas</strong></td>
+                        <td>Trabajadores con sintomatología osteomuscular reportada o detectada en exámenes médicos</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Por Antecedentes</strong></td>
+                        <td>Casos previos de incapacidad por DME, restricciones médicas por causa osteomuscular</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem;">
+                <label><strong>Población Estimada:</strong></label>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0.5rem;">
+                    <div style="background: #f1f5f9; padding: 1rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 700; color: var(--color-primario);"><input
+                                type="number"
+                                style="width: 80px; border: none; background: transparent; text-align: center; font-size: 2rem; font-weight: 700;">
+                        </div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem;">Total Trabajadores</div>
+                    </div>
+                    <div style="background: #fef3c7; padding: 1rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 700; color: #92400e;"><input type="number"
+                                style="width: 80px; border: none; background: transparent; text-align: center; font-size: 2rem; font-weight: 700;">
+                        </div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem;">Expuestos a Riesgo</div>
+                    </div>
+                    <div style="background: #fee2e2; padding: 1rem; border-radius: 8px; text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 700; color: #991b1b;"><input type="number"
+                                style="width: 80px; border: none; background: transparent; text-align: center; font-size: 2rem; font-weight: 700;">
+                        </div>
+                        <div style="font-size: 0.9rem; margin-top: 0.5rem;">Con Sintomatología</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">4. Factores de Riesgo Biomecánico a Vigilar</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Factor de Riesgo</th>
+                        <th>Descripción</th>
+                        <th>Efectos en Salud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Posturas Prolongadas</strong></td>
+                        <td>Mantenimiento de una misma posición > 2 horas (sentado, de pie, cuclillas)</td>
+                        <td>Dolor lumbar, cervicalgia, várices, fatiga</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Posturas Forzadas</strong></td>
+                        <td>Posiciones que alejan al cuerpo de la posición neutral (flexión, extensión, torsión)</td>
+                        <td>Lesiones espinales, tendinitis, bursitis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Movimientos Repetitivos</strong></td>
+                        <td>Repetición del mismo patrón de movimiento > 4 horas/día</td>
+                        <td>Síndrome del túnel carpiano, epicondilitis, tenosinovitis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Manipulación de Cargas</strong></td>
+                        <td>Levantamiento, transporte manual de cargas > 3 kg mujeres, > 5 kg hombres</td>
+                        <td>Hernia discal, lumbago, desgarres</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Esfuerzo/Fuerza</strong></td>
+                        <td>Aplicación de fuerza con las manos, brazos o todo el cuerpo</td>
+                        <td>Lesiones musculares, articulares, tendinosas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">5. Componentes del Programa SVE</h2>
+
+            <div style="background: #e0f2fe; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h3 style="color: #0369a1; margin-top: 0;">5.1. Prevención Primaria (Evitar la Aparición)</h3>
+
+                <h4>A. Controles en la Fuente</h4>
+                <ul>
+                    <li><strong>Diseño ergonómico de puestos:</strong> Sillas ergonómicas, ajuste de alturas,
+                        reposabrazos</li>
+                    <li><strong>Ayudas mecánicas:</strong> Carros, montacargas, poleas para manipulación de cargas</li>
+                    <li><strong>Automatización:</strong> Reducir tareas manuales repetitivas</li>
+                    <li><strong>Rotación de tareas:</strong> Cambiar actividades cada 2 horas</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">B. Controles Administrativos</h4>
+                <ul>
+                    <li><strong>Pausas activas:</strong> 2 sesiones diarias de 10 minutos (mañana y tarde)</li>
+                    <li><strong>Gimnasia laboral:</strong> Estiramientos y fortalecimiento 3 veces/semana</li>
+                    <li><strong>Capacitación:</strong>
+                        <ul>
+                            <li>Higiene postural (anual)</li>
+                            <li>Mecánica corporal y levantamiento de cargas (semestral)</li>
+                            <li>Autocuidado y señales de alarma</li>
+                        </ul>
+                    </li>
+                    <li><strong>Procedimientos seguros:</strong> Instructivos para manipulación de cargas</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">C. Actividades de Promoción</h4>
+                <ul>
+                    <li>Campañas de salud osteomuscular</li>
+                    <li>Material educativo (afiches, infografías)</li>
+                    <li>Programa de acondicionamiento físico</li>
+                    <li>Evaluación y mejora de estilos de vida</li>
+                </ul>
+            </div>
+
+            <div style="background: #dcfce7; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem;">
+                <h3 style="color: #166534; margin-top: 0;">5.2. Prevención Secundaria (Detección Temprana)</h3>
+
+                <h4>A. Tamizaje y Evaluación</h4>
+                <ul>
+                    <li><strong>Cuestionario Nórdico de Kuorinka:</strong> Aplicación semestral para detectar
+                        sintomatología</li>
+                    <li><strong>Método REBA/RULA:</strong> Evaluación ergonómica de puestos de trabajo anual</li>
+                    <li><strong>Inspecciones ergonómicas:</strong> Recorridos trimestrales</li>
+                    <li><strong>Exámenes médicos periódicos:</strong> Con énfasis osteomuscular según frecuencia
+                        definida</li>
+                </ul>
+
+                <h4 style="margin-top: 1.5rem;">B. Clasificación de Casos</h4>
+                <table class="tabla-formato" style="margin-top: 0.5rem; font-size: 0.9rem;">
+                    <thead>
+                        <tr>
+                            <th>Nivel</th>
+                            <th>Criterio</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background: #dcfce7;">
+                            <td><strong>VERDE</strong></td>
+                            <td>Sin síntomas o molestias leves ocasionales</td>
+                            <td>Prevención primaria, seguimiento anual</td>
+                        </tr>
+                        <tr style="background: #fef3c7;">
+                            <td><strong>AMARILLO</strong></td>
+                            <td>Molestias moderadas, frecuentes, sin incapacidad</td>
+                            <td>Valoración médica, ajuste de puesto, seguimiento trimestral</td>
+                        </tr>
+                        <tr style="background: #fed7aa;">
+                            <td><strong>NARANJA</strong></td>
+                            <td>Dolor severo recurrente, con incapacidades esporádicas</td>
+                            <td>Valoración especializada, reubicación temporal, terapia</td>
+                        </tr>
+                        <tr style="background: #fee2e2;">
+                            <td><strong>ROJO</strong></td>
+                            <td>Diagnóstico de enfermedad laboral osteomuscular</td>
+                            <td>Calificación EL, tratamiento, rehabilitación, reubicación</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px;">
+                <h3 style="color: #92400e; margin-top: 0;">5.3. Prevención Terciaria (Rehabilitación y Reintegro)</h3>
+                <ul>
+                    <li><strong>Rehabilitación funcional:</strong> Fisioterapia, terapia ocupacional</li>
+                    <li><strong>Manejo de restricciones:</strong> Implementación y seguimiento</li>
+                    <li><strong>Reubicación laboral:</strong> Análisis de capacidades residuales</li>
+                    <li><strong>Adaptación de puestos:</strong> Modificaciones ergonómicas</li>
+                    <li><strong>Programa de retorno al trabajo:</strong> Reintegro progresivo</li>
+                    <li><strong>Seguimiento post-incapacidad:</strong> Evaluación médica y funcional</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">6. Cronograma de Actividades</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Ene-Mar</th>
+                        <th>Abr-Jun</th>
+                        <th>Jul-Sep</th>
+                        <th>Oct-Dic</th>
+                        <th>Responsable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Cuestionario Nórdico</td>
+                        <td style="text-align: center;">✓</td>
+                        <td></td>
+                        <td style="text-align: center;">✓</td>
+                        <td></td>
+                        <td>SST</td>
+                    </tr>
+                    <tr>
+                        <td>Evaluación ergonómica (REBA)</td>
+                        <td style="text-align: center;">✓</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>SST / ARL</td>
+                    </tr>
+                    <tr>
+                        <td>Pausas activas (diarias)</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td>Líderes</td>
+                    </tr>
+                    <tr>
+                        <td>Gimnasia laboral (3/semana)</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td>SST / ARL</td>
+                    </tr>
+                    <tr>
+                        <td>Capacitación higiene postural</td>
+                        <td></td>
+                        <td style="text-align: center;">✓</td>
+                        <td></td>
+                        <td></td>
+                        <td>SST / ARL</td>
+                    </tr>
+                    <tr>
+                        <td>Capacitación manipulación cargas</td>
+                        <td></td>
+                        <td></td>
+                        <td style="text-align: center;">✓</td>
+                        <td></td>
+                        <td>SST / ARL</td>
+                    </tr>
+                    <tr>
+                        <td>Inspecciones ergonómicas</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td>SST / COPASST</td>
+                    </tr>
+                    <tr>
+                        <td>Campaña salud osteomuscular</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="text-align: center;">✓</td>
+                        <td>SST / ARL</td>
+                    </tr>
+                    <tr>
+                        <td>Seguimiento casos amarillo/naranja</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td style="text-align: center;">✓</td>
+                        <td>SST</td>
+                    </tr>
+                    <tr>
+                        <td>Análisis de indicadores</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td style="text-align: center;">✓</td>
+                        <td>SST</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">7. Indicadores de Seguimiento</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Indicador</th>
+                        <th style="width: 40%;">Fórmula</th>
+                        <th style="width: 15%;">Meta</th>
+                        <th style="width: 10%;">Periodicidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Prevalencia de Síntomas</strong></td>
+                        <td>(# Trabajadores con síntomas / Total expuestos) × 100</td>
+                        <td>≤ 30%</td>
+                        <td>Semestral</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Incidencia de DME</strong></td>
+                        <td>(# Casos nuevos DME / Total expuestos) × 100</td>
+                        <td>≤ 5%</td>
+                        <td>Anual</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ausentismo por DME</strong></td>
+                        <td>(Días ausencia DME / Días trabajados expuestos) × 100</td>
+                        <td>≤ 2%</td>
+                        <td>Trimestral</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cobertura Pausas Activas</strong></td>
+                        <td>(# Participantes / Total expuestos) × 100</td>
+                        <td>≥ 80%</td>
+                        <td>Mensual</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cumplimiento Capacitación</strong></td>
+                        <td>(# Capacitados / Total expuestos) × 100</td>
+                        <td>≥ 90%</td>
+                        <td>Anual</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Puestos Intervenidos</strong></td>
+                        <td>(# Puestos mejorados / Total puestos alto riesgo) × 100</td>
+                        <td>100%</td>
+                        <td>Anual</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: #f1f5f9; border-radius: 8px;">
+                <h4>Cuadro de Mando - Resultados Actuales:</h4>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1rem;">
+                    <div><strong>Prevalencia de Síntomas:</strong> <input type="number" step="0.1" style="width: 60px;">
+                        %</div>
+                    <div><strong>Incidencia DME:</strong> <input type="number" step="0.1" style="width: 60px;"> %</div>
+                    <div><strong>Ausentismo DME:</strong> <input type="number" step="0.1" style="width: 60px;"> %</div>
+                    <div><strong>Cobertura Pausas:</strong> <input type="number" step="0.1" style="width: 60px;"> %
+                    </div>
+                    <div><strong>Cumplimiento Capacit.:</strong> <input type="number" step="0.1" style="width: 60px;"> %
+                    </div>
+                    <div><strong>Puestos Intervenidos:</strong> <input type="number" step="0.1" style="width: 60px;"> %
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">8. Recursos Necesarios</h2>
+
+            <h4>Recursos Humanos:</h4>
+            <ul>
+                <li>Responsable SG-SST (coordinación)</li>
+                <li>Fisioterapeuta o terapeuta ocupacional (contratación o ARL)</li>
+                <li>Médico ocupacional</li>
+                <li>Apoyo técnico de ARL</li>
+            </ul>
+
+            <h4>Recursos Técnicos:</h4>
+            <ul>
+                <li>Software de evaluación ergonómica (REBA, RULA) o formatos físicos</li>
+                <li>Cuestionario Nórdico de Kuorinka</li>
+                <li>Material didáctico para capacitaciones</li>
+                <li>Equipos para pausas activas y gimnasia laboral</li>
+            </ul>
+
+            <h4>Recursos Financieros (Presupuesto Estimado):</h4>
+            <table class="tabla-formato" style="margin-top: 0.5rem;">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Monto Estimado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Evaluaciones ergonómicas</td>
+                        <td><input type="text" style="width: 150px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Intervención de puestos (sillas, apoyos, ayudas)</td>
+                        <td><input type="text" style="width: 150px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Capacitaciones</td>
+                        <td><input type="text" style="width: 150px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Material educativo</td>
+                        <td><input type="text" style="width: 150px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Equipos para pausas activas</td>
+                        <td><input type="text" style="width: 150px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Fisioterapia/rehabilitación casos positivos</td>
+                        <td><input type="text" style="width: 150px;"></td>
+                    </tr>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td><strong>TOTAL</strong></td>
+                        <td><input type="text" style="width: 150px;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">9. Documentos Relacionados</h2>
+            <ul>
+                <li>Matriz IPER (identificación de riesgo biomecánico)</li>
+                <li>Cuestionario Nórdico de Kuorinka</li>
+                <li>Evaluaciones ergonómicas (REBA/RULA)</li>
+                <li>Profesiogramas</li>
+                <li>Registros de asistencia a pausas y capacitaciones</li>
+                <li>Base de datos de sintomáticos y casos</li>
+                <li>Informes de seguimiento trimestral/anual</li>
+                <li>Plan de acción de mejoras ergonómicas</li>
+            </ul>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">10. Seguimiento y Evaluación del Programa</h2>
+            <p><strong>Revisión trimestral:</strong></p>
+            <ul>
+                <li>Análisis de indicadores vs metas</li>
+                <li>Seguimiento a casos amarillo/naranja/rojo</li>
+                <li>Evaluación de cumplimiento del cronograma</li>
+                <li>Identificación de desviaciones y ajustes</li>
+            </ul>
+
+            <p style="margin-top: 1rem;"><strong>Revisión anual:</strong></p>
+            <ul>
+                <li>Evaluación global del programa</li>
+                <li>Análisis costo-beneficio</li>
+                <li>Actualización de población objeto</li>
+                <li>Ajuste de estrategias y metas para el siguiente año</li>
+                <li>Presentación de resultados a Alta Dirección y COPASST</li>
+            </ul>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Elaboró - Responsable SG-SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Aprobó - Alta Dirección</div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info" style="margin-top: 2rem;">
+            <div><strong>📋 Adaptación para Otros Riesgos:</strong> Este formato sirve como modelo. Puede adaptarse para
+                crear SVE de: Riesgo Psicosocial, Ruido (Conservación Auditiva), Químicos, Cardiovascular, Ausentismo,
+                entre otros.</div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Programa SVE guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

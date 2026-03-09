@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acta de Reunión COPASST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Acta de Reunión COPASST</div>
+                <div class="subtitulo-documento">Comité Paritario de Seguridad y Salud en el Trabajo</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-08"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Acta N°:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="datos-empresa">
+            <h3>📋 Datos de la Reunión</h3>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Fecha:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora Inicio:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora Fin:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Lugar:</label><input type="text" class="campo-editable"
+                        placeholder="Sala de reuniones"></div>
+                <div class="campo-dato"><label>Tipo Reunión:</label>
+                    <select class="campo-editable">
+                        <option>Ordinaria</option>
+                        <option>Extraordinaria</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h3>👥 Asistencia - Miembros del COPASST</h3>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h4 style="color: var(--color-primario); margin-bottom: 1rem;">Representantes del Empleador</h4>
+                    <table class="tabla-formato">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cargo</th>
+                                <th style="width:80px;">Asiste</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td style="text-align:center;"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td style="text-align:center;"><input type="checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-primario); margin-bottom: 1rem;">Representantes de los Trabajadores
+                    </h4>
+                    <table class="tabla-formato">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cargo</th>
+                                <th style="width:80px;">Asiste</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td style="text-align:center;"><input type="checkbox"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td><input type="text" style="width:100%;"></td>
+                                <td style="text-align:center;"><input type="checkbox"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h4 style="color: var(--color-primario); margin-bottom: 0.5rem;">Invitados Especiales</h4>
+                <table class="tabla-formato">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Cargo</th>
+                            <th>Entidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" style="width:100%;"></td>
+                            <td><input type="text" style="width:100%;"></td>
+                            <td><input type="text" style="width:100%;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Orden del Día</h2>
+            <ol style="line-height: 2; font-size: 1rem;">
+                <li contenteditable="true">Verificación de quórum</li>
+                <li contenteditable="true">Lectura y aprobación del acta anterior</li>
+                <li contenteditable="true">Seguimiento a compromisos pendientes</li>
+                <li contenteditable="true">Presentación de estadísticas de accidentalidad</li>
+                <li contenteditable="true">Revisión de investigaciones de accidentes/incidentes</li>
+                <li contenteditable="true">Análisis de inspecciones realizadas</li>
+                <li contenteditable="true">Temas varios</li>
+                <li contenteditable="true">Compromisos y cierre</li>
+            </ol>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💬 Desarrollo de la Reunión</h2>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--color-primario);">1. Verificación de Quórum</h4>
+                <textarea rows="2"
+                    style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit;"
+                    placeholder="Se verificó la asistencia de los miembros...">Se verificó la asistencia de los miembros del COPASST, estableciéndose quórum para sesionar.</textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--color-primario);">2. Lectura y Aprobación del Acta Anterior</h4>
+                <textarea rows="2"
+                    style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit;"
+                    placeholder="Se dio lectura al acta anterior..."></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--color-primario);">3. Seguimiento a Compromisos</h4>
+                <table class="tabla-formato">
+                    <thead>
+                        <tr>
+                            <th>Compromiso Pendiente</th>
+                            <th>Responsable</th>
+                            <th>Estado</th>
+                            <th>Observaciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="text" style="width:100%;"></td>
+                            <td><input type="text" style="width:100%;"></td>
+                            <td>
+                                <select style="width:100%;">
+                                    <option>Pendiente</option>
+                                    <option>En Proceso</option>
+                                    <option>Completado</option>
+                                </select>
+                            </td>
+                            <td><input type="text" style="width:100%;"></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" style="width:100%;"></td>
+                            <td><input type="text" style="width:100%;"></td>
+                            <td>
+                                <select style="width:100%;">
+                                    <option>Pendiente</option>
+                                    <option>En Proceso</option>
+                                    <option>Completado</option>
+                                </select>
+                            </td>
+                            <td><input type="text" style="width:100%;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--color-primario);">4. Estadísticas de Accidentalidad</h4>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                    <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; text-align: center;">
+                        <div style="font-weight: 700; font-size: 1.5rem;"><input type="number" value="0"
+                                style="width:50px; text-align:center; border:none; background:transparent; font-size:1.5rem; font-weight:700;">
+                        </div>
+                        <div style="font-size: 0.85rem;">Accidentes del Mes</div>
+                    </div>
+                    <div style="background: #dbeafe; padding: 1rem; border-radius: 6px; text-align: center;">
+                        <div style="font-weight: 700; font-size: 1.5rem;"><input type="number" value="0"
+                                style="width:50px; text-align:center; border:none; background:transparent; font-size:1.5rem; font-weight:700;">
+                        </div>
+                        <div style="font-size: 0.85rem;">Incidentes del Mes</div>
+                    </div>
+                    <div style="background: #fee2e2; padding: 1rem; border-radius: 6px; text-align: center;">
+                        <div style="font-weight: 700; font-size: 1.5rem;"><input type="number" value="0"
+                                style="width:50px; text-align:center; border:none; background:transparent; font-size:1.5rem; font-weight:700;">
+                        </div>
+                        <div style="font-size: 0.85rem;">Días Perdidos</div>
+                    </div>
+                </div>
+                <textarea rows="3"
+                    style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit;"
+                    placeholder="Análisis y observaciones de la accidentalidad..."></textarea>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--color-primario);">5. Temas Tratados y Decisiones</h4>
+                <textarea rows="6"
+                    style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; font-family: inherit;"
+                    placeholder="Detallar los temas discutidos, decisiones tomadas, recomendaciones del comité..."></textarea>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Compromisos y Acciones</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">#</th>
+                        <th>Compromiso / Acción</th>
+                        <th>Responsable</th>
+                        <th>Fecha Límite</th>
+                        <th>Seguimiento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><textarea rows="2" style="width:100%;"></textarea></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Próxima reunión" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><textarea rows="2" style="width:100%;"></textarea></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Próxima reunión" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><textarea rows="2" style="width:100%;"></textarea></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Próxima reunión" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><textarea rows="2" style="width:100%;"></textarea></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" placeholder="Próxima reunión" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📅 Próxima Reunión:</strong> <input type="date" class="campo-editable"
+                    style="margin-left: 1rem;"> a las <input type="time" class="campo-editable"></div>
+        </div>
+
+        <div style="background: #dbeafe; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+            <h4 style="margin-top:0;">📌 Recordatorio Legal - Funciones del COPASST:</h4>
+            <ul style="line-height: 1.8; font-size: 0.95rem;">
+                <li>Proponer actividades de promoción, divulgación e información del SG-SST</li>
+                <li>Colaborar en análisis de causas de accidentes y enfermedades laborales</li>
+                <li>Visitas periódicas a lugares de trabajo e inspecciones</li>
+                <li>Proponer medidas de control y correctivas</li>
+                <li>Estudiar sugerencias de trabajadores sobre SST</li>
+                <li>Vigilar el cumplimiento de las actividades del SG-SST</li>
+                <li>Reunirse mínimo una vez al mes (empresas >10 trabajadores)</li>
+            </ul>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Presidente COPASST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Secretario COPASST</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario"
+                onclick="UtilidadesSST.guardarDatos('acta_copasst', {}); alert('✅ Guardado')">💾 Guardar Acta</button>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+</body>
+
+</html>

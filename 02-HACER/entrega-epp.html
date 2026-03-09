@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Entrega de EPP</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Registro de Entrega de Elementos de Protección Personal (EPP)</div>
+                <div class="subtitulo-documento">Control de Dotación</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-09"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="datos-empresa">
+            <h3>👤 Datos del Trabajador</h3>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nombre Completo:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Cédula:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Cargo:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Área:</label><input type="text" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>⚠️ Importante:</strong> El trabajador debe firmar al recibir los EPP y comprometerse a su uso y
+                cuidado. La entrega debe estar documentada.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🦺 Elementos Entregados</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Elemento de Protección</th>
+                        <th>Marca/Referencia</th>
+                        <th>Talla</th>
+                        <th>Cantidad</th>
+                        <th>Fecha Entrega</th>
+                        <th>Fecha Próxima Renovación</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Casco de Seguridad</strong></td>
+                        <td><input type="text" placeholder="Marca/modelo"></td>
+                        <td><input type="text" placeholder="Universal" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Gafas de Seguridad</strong></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="Universal" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Guantes</strong> (especificar tipo)</td>
+                        <td><input type="text" placeholder="Ej: nitrilo, cuero"></td>
+                        <td><input type="text" placeholder="M/L/XL" style="width:80px"></td>
+                        <td><input type="number" value="2" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Calzado de Seguridad</strong></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="37-45" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Protección Auditiva</strong> (tapones/orejeras)</td>
+                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="Universal" style="width:80px"></td>
+                        <td><input type="number" value="5" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Respirador/Mascarilla</strong></td>
+                        <td><input type="text" placeholder="N95, media cara, etc."></td>
+                        <td><input type="text" placeholder="M/L" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Overol/Camisa</strong></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="S/M/L/XL" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Arnés de Seguridad</strong></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" placeholder="Universal" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                                <option>No aplica</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><input type="text" placeholder="Otro elemento"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><input type="text" placeholder="Otro elemento"></td>
+                        <td><input type="text"></td>
+                        <td><input type="text" style="width:80px"></td>
+                        <td><input type="number" value="1" style="width:60px"></td>
+                        <td><input type="date"></td>
+                        <td><input type="date"></td>
+                        <td><select>
+                                <option>Entregado</option>
+                                <option>Por entregar</option>
+                                <option>Renovado</option>
+                            </select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h3>📋 Compromiso del Trabajador</h3>
+            <div
+                style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                <p style="text-align: justify; line-height: 1.8;">
+                    Yo <strong><span contenteditable="true" style="background: #fef3c7; padding: 0 4px;">[NOMBRE DEL
+                            TRABAJADOR]</span></strong>,
+                    identificado(a) con cédula <strong><span contenteditable="true"
+                            style="background: #fef3c7; padding: 0 4px;">[CÉDULA]</span></strong>,
+                    declaro haber recibido los elementos de protección personal listados anteriormente y me comprometo
+                    a:
+                </p>
+                <ul style="line-height: 2;">
+                    <li>✓ Usar los EPP de manera correcta y permanente durante la jornada laboral</li>
+                    <li>✓ Cuidar y mantener en buen estado los elementos entregados</li>
+                    <li>✓ Reportar inmediatamente cualquier daño o deterioro</li>
+                    <li>✓ Devolver los EPP al terminar la relación laboral o cuando sean reemplazados</li>
+                    <li>✓ No compartir ni prestar los elementos de protección personal</li>
+                    <li>✓ Cumplir con las capacitaciones sobre uso adecuado de EPP</li>
+                </ul>
+                <p style="text-align: justify; margin-top: 1rem; font-size: 0.9rem; color: #64748b;">
+                    <em>Entiendo que el incumplimiento de estas disposiciones puede generar sanciones disciplinarias y
+                        pone en riesgo mi seguridad y salud.</em>
+                </p>
+            </div>
+        </div>
+
+        <div class="seccion-firmas">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre del Trabajador"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Firma del Trabajador</div>
+                <div style="margin-top: 0.5rem;"><small>C.C: <input type="text" placeholder="Número"
+                            style="border: none; border-bottom: 1px solid #ccc;"></small></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Entrega - Responsable SST</div>
+                <div style="margin-top: 0.5rem;"><small>Fecha: <input type="date"
+                            style="border: none; border-bottom: 1px solid #ccc;"></small></div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario"
+                onclick="UtilidadesSST.guardarDatos('entrega_epp', {}); alert('✅ Guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+</body>
+
+</html>

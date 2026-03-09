@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elección Digital - COCOLAB</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .candidato-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .candidato-card:hover {
+            border-color: var(--color-secundario);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .candidato-card.seleccionado {
+            border-color: var(--color-secundario);
+            background: linear-gradient(to right, #fef3c7, white);
+            border-width: 3px;
+        }
+
+        .votar-btn {
+            background: var(--color-secundario);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .votar-btn:hover {
+            background: #d97706;
+            transform: translateY(-2px);
+        }
+
+        .votar-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .resultado-votacion {
+            background: linear-gradient(135deg, #f97316 0%, #dc2626 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        .voto-confirmado {
+            background: #d1fae5;
+            border: 2px solid #059669;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .fase-votacion {
+            display: none;
+        }
+
+        .fase-votacion.activa {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Elección Digital COCOLAB</div>
+                <div class="subtitulo-documento">Comité de Convivencia Laboral - Sistema de Votación</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-16"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Proceso:</label><span style="font-weight:600;">2025</span></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 1: INFORMACIÓN -->
+        <div id="fase-info" class="fase-votacion activa">
+            <div class="alerta alerta-advertencia">
+                <div>
+                    <strong>🤝 Comité de Convivencia Laboral (COCOLAB)</strong><br>
+                    El COCOLAB es el encargado de prevenir el acoso laboral y promover un ambiente de trabajo saludable.
+                    Es obligatorio en empresas con 10 o más trabajadores.
+                </div>
+            </div>
+
+            <div class="seccion">
+                <h2 class="seccion-titulo">🗳️ Información de la Elección</h2>
+                <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; line-height: 2;">
+                    <p><strong>Composición del COCOLAB:</strong></p>
+                    <ul>
+                        <li>Empresas de 10 a 49 trabajadores: 2 representantes (1 del empleador + 1 de los trabajadores)
+                        </li>
+                        <li>Empresas de más de 50 trabajadores: 4 representantes (2 del empleador + 2 de los
+                            trabajadores)</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem;"><strong>Requisitos para ser candidato:</strong></p>
+                    <ul>
+                        <li>Ser trabajador de planta con contrato vigente mínimo 1 año</li>
+                        <li>No tener antecedentes por acoso laboral</li>
+                        <li>Tener formación en resolución de conflictos (deseable )</li>
+                        <li>No pertenecer a COPASST simultáneamente</li>
+                        <li>Habilidades de escucha, mediación y confidencialidad</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem;"><strong>Funciones principales:</strong></p>
+                    <ul>
+                        <li>Recibir y tramitar quejas de acoso laboral</li>
+                        <li>Examinar de manera confidencial los casos de acoso</li>
+                        <li>Formular recomendaciones preventivas</li>
+                        <li>Hacer seguimiento a compromisos adquiridos</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem;"><strong>Periodo:</strong> 2 años</p>
+                </div>
+            </div>
+
+            <div class="datos-empresa">
+                <h3>👤 Datos del Votante</h3>
+                <div class="grid-datos">
+                    <div class="campo-dato"><label>Nombre Completo: *</label><input type="text" id="nombreVotante"
+                            class="campo-editable" required></div>
+                    <div class="campo-dato"><label>Cédula: *</label><input type="text" id="cedulaVotante"
+                            class="campo-editable" required></div>
+                    <div class="campo-dato"><label>Cargo:</label><input type="text" id="cargoVotante"
+                            class="campo-editable"></div>
+                    <div class="campo-dato"><label>Email:</label><input type="email" id="emailVotante"
+                            class="campo-editable"></div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-primario" onclick="iniciarVotacion()"
+                    style="font-size: 1.1rem; padding: 1rem 2rem; background: var(--color-secundario);">
+                    ▶️ Iniciar Votación
+                </button>
+            </div>
+        </div>
+
+        <!-- FASE 2: VOTACIÓN REPRESENTANTES TRABAJADORES -->
+        <div id="fase-trabajadores" class="fase-votacion">
+            <div class="seccion">
+                <h2 class="seccion-titulo">👥 Representantes de los Trabajadores</h2>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">Seleccione <strong
+                        id="maxVotosTrabajadores">1</strong> candidato(s)</p>
+
+                <div id="candidatosTrabajadores">
+                    <!-- Los candidatos se cargarán aquí -->
+                </div>
+
+                <div style="text-align: right; margin-top: 2rem;">
+                    <button class="btn btn-outline" onclick="volverInfo()">← Volver</button>
+                    <button class="btn btn-primario" onclick="continuarAEmpleador()" id="btnContinuarEmpleador"
+                        style="background: var(--color-secundario);">
+                        Continuar →
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 3: VOTACIÓN REPRESENTANTES EMPLEADOR -->
+        <div id="fase-empleador" class="fase-votacion">
+            <div class="seccion">
+                <h2 class="seccion-titulo">🏢 Representantes del Empleador</h2>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">Seleccione <strong id="maxVotosEmpleador">1</strong>
+                    candidato(s)</p>
+
+                <div id="candidatosEmpleador">
+                    <!-- Los candidatos se cargarán aquí -->
+                </div>
+
+                <div style="text-align: right; margin-top: 2rem;">
+                    <button class="btn btn-outline" onclick="volverTrabajadores()">← Volver</button>
+                    <button class="btn btn-primario" onclick="confirmarVotacion()" id="btnConfirmar"
+                        style="background: var(--color-secundario);">
+                        ✅ Confirmar Votación
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FASE 4: CONFIRMACIÓN -->
+        <div id="fase-confirmacion" class="fase-votacion">
+            <div class="voto-confirmado">
+                <h2 style="color: #059669; margin-top: 0;">✅ ¡Voto Registrado Exitosamente!</h2>
+                <p style="font-size: 1.1rem; margin: 1.5rem 0;">Su voto ha sido registrado de forma segura y
+                    confidencial.</p>
+                <p style="color: #065f46;">Código de confirmación: <strong id="codigoConfirmacion"></strong></p>
+                <p style="margin-top: 1rem; font-size: 0.95rem;">Gracias por participar en la elección del COCOLAB</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir Confirmación</button>
+                <button class="btn btn-primario" onclick="location.href='../index.html'"
+                    style="background: var(--color-secundario);">Volver al Inicio</button>
+            </div>
+        </div>
+
+        <!-- PANEL ADMINISTRATIVO -->
+        <div class="seccion" style="margin-top: 3rem; border-top: 3px solid var(--border-color); padding-top: 2rem;">
+            <details>
+                <summary
+                    style="cursor: pointer; font-weight: 700; font-size: 1.1rem; padding: 1rem; background: #f8fafc; border-radius: 6px;">
+                    🔐 Panel de Administración (Solo Administradores)
+                </summary>
+                <div style="margin-top: 1.5rem; padding: 1.5rem; background: #fffbeb; border-radius: 8px;">
+                    <h3>Gestión de Candidatos</h3>
+
+                    <h4 style="margin-top: 1.5rem;">Agregar Candidato - Representantes Trabajadores</h4>
+                    <div class="grid-datos">
+                        <div class="campo-dato"><label>Nombre:</label><input type="text" id="adminNombreTrab"></div>
+                        <div class="campo-dato"><label>Cédula:</label><input type="text" id="adminCedulaTrab"></div>
+                        <div class="campo-dato"><label>Cargo:</label><input type="text" id="adminCargoTrab"></div>
+                        <div class="campo-dato"><label>Área:</label><input type="text" id="adminAreaTrab"></div>
+                    </div>
+                    <button class="btn btn-primario" onclick="agregarCandidatoTrabajador()"
+                        style="background: var(--color-secundario);">+ Agregar Candidato</button>
+
+                    <h4 style="margin-top: 2rem;">Agregar Candidato - Representantes Empleador</h4>
+                    <div class="grid-datos">
+                        <div class="campo-dato"><label>Nombre:</label><input type="text" id="adminNombreEmp"></div>
+                        <div class="campo-dato"><label>Cédula:</label><input type="text" id="adminCedulaEmp"></div>
+                        <div class="campo-dato"><label>Cargo:</label><input type="text" id="adminCargoEmp"></div>
+                        <div class="campo-dato"><label>Área:</label><input type="text" id="adminAreaEmp"></div>
+                    </div>
+                    <button class="btn btn-primario" onclick="agregarCandidatoEmpleador()"
+                        style="background: var(--color-secundario);">+ Agregar Candidato</button>
+
+                    <h4 style="margin-top: 2rem;">Configuración</h4>
+                    <div class="campo-dato">
+                        <label>Número de representantes por parte:</label>
+                        <input type="number" id="numRepresentantes" value="1" min="1" max="4"
+                            onchange="actualizarMaxSeleccion()">
+                        <small style="display: block; color: #64748b; margin-top: 0.5rem;">1 para empresas 10-49
+                            trabajadores, 2 para 50+ trabajadores</small>
+                    </div>
+
+                    <h4 style="margin-top: 2rem;">Resultados de Votación</h4>
+                    <button class="btn btn-secundario" onclick="mostrarResultados()">📊 Ver Resultados Actuales</button>
+                    <button class="btn btn-outline" onclick="exportarResultados()">💾 Exportar Resultados</button>
+                    <button class="btn btn-outline" onclick="generarActaEleccion()"
+                        style="border-color: #059669; color: #059669;">📄 Generar Acta de Elección</button>
+
+                    <div id="resultadosVotacion" style="margin-top: 1rem;"></div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+    <script>
+        // Base de datos de candidatos (en producción, esto estaría en un servidor)
+        let candidatosTrabajadores = [
+            { id: 1, nombre: "Patricia González Ruiz", cedula: "11223344", cargo: "Coordinadora Administrativa", area: "Administración", votos: 0 },
+            { id: 2, nombre: "Roberto Jiménez Cruz", cedula: "22334455", cargo: "Supervisor", area: "Operaciones", votos: 0 },
+            { id: 3, nombre: "Sandra Morales Díaz", cedula: "33445566", cargo: "Asistente de Gerencia", area: "Gerencia", votos: 0 }
+        ];
+
+        let candidatosEmpleador = [
+            { id: 1, nombre: "Diana Ramírez Castro", cedula: "44556677", cargo: "Jefe de RRHH", area: "Recursos Humanos", votos: 0 },
+            { id: 2, nombre: "Felipe Vargas Ortiz", cedula: "55667788", cargo: "Coordinador de Calidad", area: "Calidad", votos: 0 }
+        ];
+
+        let votosRegistrados = [];
+        let seleccionTrabajadores = [];
+        let seleccionEmpleador = [];
+        let maxSeleccion = 1; // Configurable según tamaño de empresa
+
+        function actualizarMaxSeleccion() {
+            maxSeleccion = parseInt(document.getElementById('numRepresentantes').value);
+        }
+
+        function iniciarVotacion() {
+            const nombre = document.getElementById('nombreVotante').value;
+            const cedula = document.getElementById('cedulaVotante').value;
+
+            if (!nombre || !cedula) {
+                alert('⚠️ Por favor complete nombre y cédula');
+                return;
+            }
+
+            // Verificar si ya votó
+            const yaVoto = votosRegistrados.some(v => v.cedula === cedula);
+            if (yaVoto) {
+                alert('⚠️ Esta cédula ya ha registrado un voto');
+                return;
+            }
+
+            document.getElementById('maxVotosTrabajadores').textContent = maxSeleccion;
+            document.getElementById('maxVotosEmpleador').textContent = maxSeleccion;
+
+            renderizarCandidatos();
+            cambiarFase('fase-trabajadores');
+        }
+
+        function renderizarCandidatos() {
+            // Renderizar candidatos trabajadores
+            const containerTrab = document.getElementById('candidatosTrabajadores');
+            containerTrab.innerHTML = candidatosTrabajadores.map(c => `
+                <div class="candidato-card" id="cand-trab-${c.id}" onclick="seleccionarCandidato('trabajadores', ${c.id})">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="flex: 1;">
+                            <h4 style="margin: 0; color: var(--color-secundario);">${c.nombre}</h4>
+                            <p style="margin: 0.5rem 0; color: #64748b;">Cédula: ${c.cedula}</p>
+                            <p style="margin: 0; font-weight: 600;">Cargo: ${c.cargo} | Área: ${c.area}</p>
+                        </div>
+                        <div class="votar-btn" style="pointer-events: none;">
+                            <span class="check-icon" style="display: none;">✓</span>
+                            <span class="select-text">Seleccionar</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Renderizar candidatos empleador
+            const containerEmp = document.getElementById('candidatosEmpleador');
+            containerEmp.innerHTML = candidatosEmpleador.map(c => `
+                <div class="candidato-card" id="cand-emp-${c.id}" onclick="seleccionarCandidato('empleador', ${c.id})">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="flex: 1;">
+                            <h4 style="margin: 0; color: var(--color-secundario);">${c.nombre}</h4>
+                            <p style="margin: 0.5rem 0; color: #64748b;">Cédula: ${c.cedula}</p>
+                            <p style="margin: 0; font-weight: 600;">Cargo: ${c.cargo} | Área: ${c.area}</p>
+                        </div>
+                        <div class="votar-btn" style="pointer-events: none;">
+                            <span class="check-icon" style="display: none;">✓</span>
+                            <span class="select-text">Seleccionar</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function seleccionarCandidato(tipo, id) {
+            const seleccion = tipo === 'trabajadores' ? seleccionTrabajadores : seleccionEmpleador;
+            const card = document.getElementById(`cand-${tipo === 'trabajadores' ? 'trab' : 'emp'}-${id}`);
+
+            const index = seleccion.indexOf(id);
+            if (index > -1) {
+                // Deseleccionar
+                seleccion.splice(index, 1);
+                card.classList.remove('seleccionado');
+                card.querySelector('.check-icon').style.display = 'none';
+                card.querySelector('.select-text').textContent = 'Seleccionar';
+            } else {
+                // Seleccionar si no se ha llegado al máximo
+                if (seleccion.length < maxSeleccion) {
+                    seleccion.push(id);
+                    card.classList.add('seleccionado');
+                    card.querySelector('.check-icon').style.display = 'inline';
+                    card.querySelector('.select-text').textContent = 'Seleccionado';
+                } else {
+                    alert(`⚠️ Solo puede seleccionar máximo ${maxSeleccion} candidato(s)`);
+                }
+            }
+
+            if (tipo === 'trabajadores') {
+                seleccionTrabajadores = seleccion;
+            } else {
+                seleccionEmpleador = seleccion;
+            }
+        }
+
+        function cambiarFase(faseId) {
+            document.querySelectorAll('.fase-votacion').forEach(f => f.classList.remove('activa'));
+            document.getElementById(faseId).classList.add('activa');
+        }
+
+        function volverInfo() {
+            cambiarFase('fase-info');
+        }
+
+        function volverTrabajadores() {
+            cambiarFase('fase-trabajadores');
+        }
+
+        function continuarAEmpleador() {
+            if (seleccionTrabajadores.length === 0) {
+                alert('⚠️ Debe seleccionar al menos 1 candidato');
+                return;
+            }
+            cambiarFase('fase-empleador');
+        }
+
+        function confirmarVotacion() {
+            if (seleccionEmpleador.length === 0) {
+                alert('⚠️ Debe seleccionar al menos 1 candidato');
+                return;
+            }
+
+            // Registrar votos
+            seleccionTrabajadores.forEach(id => {
+                const candidato = candidatosTrabajadores.find(c => c.id === id);
+                if (candidato) candidato.votos++;
+            });
+
+            seleccionEmpleador.forEach(id => {
+                const candidato = candidatosEmpleador.find(c => c.id === id);
+                if (candidato) candidato.votos++;
+            });
+
+            // Guardar registro del voto
+            const voto = {
+                cedula: document.getElementById('cedulaVotante').value,
+                nombre: document.getElementById('nombreVotante').value,
+                fecha: new Date().toISOString(),
+                trabajadores: seleccionTrabajadores,
+                empleador: seleccionEmpleador
+            };
+            votosRegistrados.push(voto);
+
+            // Generar código de confirmación
+            const codigo = 'COCOLAB-' + Date.now().toString(36).toUpperCase();
+            document.getElementById('codigoConfirmacion').textContent = codigo;
+
+            // Guardar en localStorage
+            localStorage.setItem('votosCocolab', JSON.stringify({
+                votos: votosRegistrados,
+                candidatosTrabajadores,
+                candidatosEmpleador
+            }));
+
+            cambiarFase('fase-confirmacion');
+        }
+
+        // Funciones administrativas
+        function agregarCandidatoTrabajador() {
+            const nombre = document.getElementById('adminNombreTrab').value;
+            const cedula = document.getElementById('adminCedulaTrab').value;
+            const cargo = document.getElementById('adminCargoTrab').value;
+            const area = document.getElementById('adminAreaTrab').value;
+
+            if (!nombre || !cedula) {
+                alert('Complete al menos nombre y cédula');
+                return;
+            }
+
+            candidatosTrabajadores.push({
+                id: candidatosTrabajadores.length + 1,
+                nombre, cedula, cargo, area, votos: 0
+            });
+
+            alert('✅ Candidato agregado');
+            document.getElementById('adminNombreTrab').value = '';
+            document.getElementById('adminCedulaTrab').value = '';
+            document.getElementById('adminCargoTrab').value = '';
+            document.getElementById('adminAreaTrab').value = '';
+        }
+
+        function agregarCandidatoEmpleador() {
+            const nombre = document.getElementById('adminNombreEmp').value;
+            const cedula = document.getElementById('adminCedulaEmp').value;
+            const cargo = document.getElementById('adminCargoEmp').value;
+            const area = document.getElementById('adminAreaEmp').value;
+
+            if (!nombre || !cedula) {
+                alert('Complete al menos nombre y cédula');
+                return;
+            }
+
+            candidatosEmpleador.push({
+                id: candidatosEmpleador.length + 1,
+                nombre, cedula, cargo, area, votos: 0
+            });
+
+            alert('✅ Candidato agregado');
+            document.getElementById('adminNombreEmp').value = '';
+            document.getElementById('adminCedulaEmp').value = '';
+            document.getElementById('adminCargoEmp').value = '';
+            document.getElementById('adminAreaEmp').value = '';
+        }
+
+        function mostrarResultados() {
+            const container = document.getElementById('resultadosVotacion');
+
+            const trabOrdenados = [...candidatosTrabajadores].sort((a, b) => b.votos - a.votos);
+            const empOrdenados = [...candidatosEmpleador].sort((a, b) => b.votos - a.votos);
+
+            container.innerHTML = `
+                <div class="resultado-votacion">
+                    <h3 style="margin-top:0;">📊 Resultados de Votación</h3>
+                    <p>Total de votos registrados: <strong>${votosRegistrados.length}</strong></p>
+                    
+                    <h4 style="margin-top: 1.5rem;">Representantes de los Trabajadores:</h4>
+                    ${trabOrdenados.map((c, i) => `
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 6px; margin-bottom: 0.5rem;">
+                            <strong>${i + 1}. ${c.nombre}</strong> - ${c.votos} votos
+                            ${i < maxSeleccion ? ' <span style="background: #fbbf24; color: #000; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">ELEGIDO</span>' : ''}
+                        </div>
+                    `).join('')}
+                    
+                    <h4 style="margin-top: 1.5rem;">Representantes del Empleador:</h4>
+                    ${empOrdenados.map((c, i) => `
+                        <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 6px; margin-bottom: 0.5rem;">
+                            <strong>${i + 1}. ${c.nombre}</strong> - ${c.votos} votos
+                            ${i < maxSeleccion ? ' <span style="background: #fbbf24; color: #000; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.85rem;">ELEGIDO</span>' : ''}
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function exportarResultados() {
+            const data = {
+                fecha: new Date().toISOString(),
+                totalVotos: votosRegistrados.length,
+                candidatosTrabajadores,
+                candidatosEmpleador,
+                votos: votosRegistrados
+            };
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `resultados-cocolab-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+        }
+
+        function generarActaEleccion() {
+            const trabGanadores = [...candidatosTrabajadores].sort((a, b) => b.votos - a.votos).slice(0, maxSeleccion);
+            const empGanadores = [...candidatosEmpleador].sort((a, b) => b.votos - a.votos).slice(0, maxSeleccion);
+
+            alert(`📄 Acta de Elección COCOLAB\n\nElegidos:\n\nTrabajadores:\n${trabGanadores.map(c => `- ${c.nombre} (${c.votos} votos)`).join('\n')}\n\nEmpleador:\n${empGanadores.map(c => `- ${c.nombre} (${c.votos} votos)`).join('\n')}\n\nTotal votantes: ${votosRegistrados.length}`);
+        }
+
+        // Cargar datos guardados
+        window.onload = function () {
+            const saved = localStorage.getItem('votosCocolab');
+            if (saved) {
+                const data = JSON.parse(saved);
+                votosRegistrados = data.votos || [];
+                candidatosTrabajadores = data.candidatosTrabajadores || candidatosTrabajadores;
+                candidatosEmpleador = data.candidatosEmpleador || candidatosEmpleador;
+            }
+
+            // Auto-completar fecha
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

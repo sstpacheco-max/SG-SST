@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Auditoría</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Plan de Auditoría</div>
+                <div class="subtitulo-documento">Sistema de Gestión SG-SST</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-41"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Auditoría #:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">1. Información de la Auditoría</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Tipo de Auditoría:</label>
+                    <select class="campo-editable">
+                        <option>Integral SG-SST</option>
+                        <option>Por Procesos/Áreas</option>
+                        <option>Seguimiento</option>
+                        <option>Extraordinaria</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Fecha de la Auditoría:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Duración Estimada:</label><input type="text" class="campo-editable"
+                        placeholder="Ej: 2 días"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">2. Objetivo de la Auditoría</h2>
+            <textarea rows="3" style="width:100%;"
+                placeholder="Ejemplo: Verificar el cumplimiento de los estándares mínimos del SG-SST según Resolución 0312/2019 y evaluar la eficacia de los controles operacionales implementados."></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">3. Alcance de la Auditoría</h2>
+            <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px;">
+                <h4>Áreas/Procesos a Auditar:</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <label><input type="checkbox"> Todas las áreas (Auditoría Integral)</label>
+                    <label><input type="checkbox"> Área Administrativa</label>
+                    <label><input type="checkbox"> Área Operativa/Producción</label>
+                    <label><input type="checkbox"> Área de Mantenimiento</label>
+                    <label><input type="checkbox"> Área Comercial/Ventas</label>
+                    <label><input type="checkbox"> Logística/Almacén</label>
+                    <label><input type="checkbox"> Recursos Humanos</label>
+                    <label><input type="checkbox"> COPASST</label>
+                    <label><input type="checkbox"> Brigada de Emergencias</label>
+                    <label><input type="checkbox"> Otra: <input type="text"
+                            style="width:150px; border:none; border-bottom:1px solid #ccc;"></label>
+                </div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+                <h4>Fases del PHVA a Auditar:</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem;">
+                    <label><input type="checkbox" checked> ① PLANEAR</label>
+                    <label><input type="checkbox" checked> ② HACER</label>
+                    <label><input type="checkbox" checked> ③ VERIFICAR</label>
+                    <label><input type="checkbox" checked> ④ ACTUAR</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">4. Criterios de Auditoría</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Norma/Documento</th>
+                        <th>Aplicable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Resolución 0312 de 2019 - Estándares Mínimos SG-SST</td>
+                        <td style="text-align:center;"><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Decreto 1072 de 2015 - Decreto Único Reglamentario del Sector Trabajo</td>
+                        <td style="text-align:center;"><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Política de SST de la Empresa</td>
+                        <td style="text-align:center;"><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Objetivos y Metas del SG-SST</td>
+                        <td style="text-align:center;"><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Plan Anual de Trabajo</td>
+                        <td style="text-align:center;"><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Procedimientos y Formatos del SG-SST</td>
+                        <td style="text-align:center;"><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>Matriz de Requisitos Legales</td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Otros: <input type="text" style="width:400px; border:none; border-bottom:1px solid #ccc;">
+                        </td>
+                        <td style="text-align:center;"><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">5. Equipo Auditor</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Rol</th>
+                        <th>Nombre</th>
+                        <th>Licencia SST / Formación</th>
+                        <th>Responsabilidades</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Auditor Líder</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="# Licencia"></td>
+                        <td style="font-size: 0.85rem;">Coordinar auditoría, elaborar informe</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Auditor(es)</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="# Licencia"></td>
+                        <td style="font-size: 0.85rem;">Evaluación de áreas específicas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Observador(es)</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td style="font-size: 0.85rem;">Formación, sin participación en decisiones</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">6. Personal a Auditar / Contactos</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cargo</th>
+                        <th>Área</th>
+                        <th>Teléfono/Ext</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">7. Cronograma Detallado de la Auditoría</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width: 12%;">Fecha</th>
+                        <th style="width: 15%;">Hora</th>
+                        <th style="width: 25%;">Actividad</th>
+                        <th style="width: 23%;">Área/Proceso</th>
+                        <th style="width: 15%;">Responsable</th>
+                        <th style="width: 10%;">Duración</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="time" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Reunión de apertura"
+                                value="Reunión de apertura"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Sala de juntas"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="30 min"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="time" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Revisión documental"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="2 horas"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="time" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Entrevistas y observación"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="time" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Análisis de evidencias"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="time" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Reunión de cierre"
+                                value="Reunión de cierre"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="1 hora"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">8. Recursos Necesarios</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div>
+                    <h4>Recursos Logísticos:</h4>
+                    <label><input type="checkbox"> Sala de reuniones</label><br>
+                    <label><input type="checkbox"> Computador/Proyector</label><br>
+                    <label><input type="checkbox"> Acceso a sistemas/documentos</label><br>
+                    <label><input type="checkbox"> Transporte (múltiples sedes)</label><br>
+                    <label><input type="checkbox"> Refrigerio</label><br>
+                </div>
+                <div>
+                    <h4>Documentos Requeridos:</h4>
+                    <label><input type="checkbox"> Lista de chequeo Res. 0312/2019</label><br>
+                    <label><input type="checkbox"> Plan Anual de Trabajo</label><br>
+                    <label><input type="checkbox"> Matriz IPER</label><br>
+                    <label><input type="checkbox"> Registros del SG-SST</label><br>
+                    <label><input type="checkbox"> Matriz Legal</label><br>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">9. Observaciones / Notas Especiales</h2>
+            <textarea rows="3" style="width:100%;"
+                placeholder="Consideraciones especiales, restricciones de acceso, horarios específicos, etc."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Auditor Líder</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Aprobó - Alta Dirección</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Plan de auditoría guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta Sociodemográfica</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Encuesta Sociodemográfica</div>
+                <div class="subtitulo-documento">Perfil Sociodemográfico y Condiciones de Salud</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-46"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>🔒 Confidencialidad:</strong> Esta información es CONFIDENCIAL y será utilizada exclusivamente
+                para diseñar programas de medicina preventiva y del trabajo. Los datos personales están protegidos por
+                la Ley 1581 de 2012 (Protección de Datos Personales).</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">1. Información Personal</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nombres Completos:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Apellidos Completos:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Documento de Identidad:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Fecha de Nacimiento:</label><input type="date" class="campo-editable"
+                        onchange="calcularEdad()"></div>
+                <div class="campo-dato"><label>Edad:</label><input type="number" id="edad" class="campo-editable"
+                        readonly style="background: #f1f5f9;"></div>
+                <div class="campo-dato"><label>Sexo:</label>
+                    <select class="campo-editable">
+                        <option>Masculino</option>
+                        <option>Femenino</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Estado Civil:</label>
+                    <select class="campo-editable">
+                        <option>Soltero(a)</option>
+                        <option>Casado(a)</option>
+                        <option>Unión Libre</option>
+                        <option>Separado(a)</option>
+                        <option>Divorciado(a)</option>
+                        <option>Viudo(a)</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Tipo de Sangre:</label>
+                    <select class="campo-editable">
+                        <option>O+</option>
+                        <option>O-</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>Desconoce</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">2. Información de Contacto</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Dirección de Residencia:</label><input type="text"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Ciudad:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Departamento:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Teléfono Fijo:</label><input type="tel" class="campo-editable"></div>
+                <div class="campo-dato"><label>Celular:</label><input type="tel" class="campo-editable"></div>
+                <div class="campo-dato"><label>Email Personal:</label><input type="email" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">3. Contacto de Emergencia</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nombre Completo:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Parentesco:</label><input type="text" class="campo-editable"
+                        placeholder="Ej: Cónyuge, Padre, Hermano"></div>
+                <div class="campo-dato"><label>Teléfonos de Contacto:</label><input type="tel" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">4. Composición Familiar</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>¿Tiene personas a cargo?</label>
+                    <select class="campo-editable" onchange="toggleDependientes(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+                <div class="campo-dato" id="campoDependientes" style="display:none;">
+                    <label>Número de Personas a Cargo:</label>
+                    <input type="number" min="0" class="campo-editable">
+                </div>
+            </div>
+            <table class="tabla-formato" id="tablaDependientes" style="display:none; margin-top: 1rem;">
+                <thead>
+                    <tr>
+                        <th>Parentesco</th>
+                        <th>Edad</th>
+                        <th>Ocupación/Estudio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: Hijo(a)"></td>
+                        <td><input type="number" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">5. Formación Académica</h2>
+            <div class="campo-dato">
+                <label><strong>Nivel de Estudios Alcanzado:</strong></label>
+                <select class="campo-editable" style="width: 100%;">
+                    <option>Primaria Incompleta</option>
+                    <option>Primaria Completa</option>
+                    <option>Bachillerato Incompleto</option>
+                    <option>Bachillerato Completo</option>
+                    <option>Técnico</option>
+                    <option>Tecnólogo</option>
+                    <option>Profesional</option>
+                    <option>Especialización</option>
+                    <option>Maestría</option>
+                    <option>Doctorado</option>
+                </select>
+            </div>
+            <div class="campo-dato" style="margin-top: 1rem;">
+                <label>Título Obtenido / Área de Formación:</label>
+                <input type="text" class="campo-editable" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">6. Información Laboral</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Cargo Actual:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Área/Departamento:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Fecha de Ingreso:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Antigüedad (años):</label><input type="number" step="0.1"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Tipo de Contrato:</label>
+                    <select class="campo-editable">
+                        <option>Término Indefinido</option>
+                        <option>Término Fijo</option>
+                        <option>Obra o Labor</option>
+                        <option>Prestación de Servicios</option>
+                        <option>Aprendizaje (SENA)</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Jornada Laboral:</label>
+                    <select class="campo-editable">
+                        <option>Diurna (6AM - 6PM)</option>
+                        <option>Nocturna (6PM - 6AM)</option>
+                        <option>Mixta</option>
+                        <option>Por Turnos Rotativos</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <label><strong>¿Ha trabajado en otras empresas?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select class="campo-editable" onchange="toggleExperiencia(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                    <input type="text" id="campoExperiencia" class="campo-editable"
+                        placeholder="Describa brevemente empresas anteriores y tiempo laborado" style="display:none;">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">7. Condiciones de Vivienda</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Tipo de Vivienda:</label>
+                    <select class="campo-editable">
+                        <option>Casa</option>
+                        <option>Apartamento</option>
+                        <option>Cuarto</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Tenencia:</label>
+                    <select class="campo-editable">
+                        <option>Propia</option>
+                        <option>Arrendada</option>
+                        <option>Familiar</option>
+                        <option>Otra</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Estrato Socioeconómico:</label>
+                    <select class="campo-editable">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <label><strong>Servicios Públicos con los que cuenta:</strong></label>
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+                    <label><input type="checkbox" checked> Agua</label>
+                    <label><input type="checkbox" checked> Luz</label>
+                    <label><input type="checkbox" checked> Gas</label>
+                    <label><input type="checkbox" checked> Alcantarillado</label>
+                    <label><input type="checkbox"> Internet</label>
+                    <label><input type="checkbox"> Teléfono</label>
+                    <label><input type="checkbox"> Recolección de Basuras</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">8. Seguridad Social</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>EPS:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>AFP (Pensión):</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>ARL:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Caja de Compensación:</label><input type="text" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">9. Condiciones de Salud</h2>
+            <div>
+                <label><strong>¿Padece alguna enfermedad crónica o condición de salud?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select onchange="toggleEnfermedades(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                    <textarea id="campoEnfermedades" rows="3" style="display:none;"
+                        placeholder="Describa las condiciones de salud (diabetes, hipertensión, asma, etc.)"></textarea>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <label><strong>¿Toma algún medicamento regularmente?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select onchange="toggleMedicamentos(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                    <textarea id="campoMedicamentos" rows="2" style="display:none;"
+                        placeholder="Liste medicamentos y para qué"></textarea>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <label><strong>¿Ha tenido cirugías o hospitalizaciones?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select onchange="toggleCirugias(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                    <textarea id="campoCirugias" rows="2" style="display:none;"
+                        placeholder="Describa motivo y año"></textarea>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <label><strong>¿Tiene alguna discapacidad?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select onchange="toggleDiscapacidad(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                    <input type="text" id="campoDiscapacidad" style="display:none;"
+                        placeholder="Describa el tipo de discapacidad">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">10. Hábitos y Estilo de Vida</h2>
+            <div style="margin-bottom: 1rem;">
+                <label><strong>¿Fuma?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select onchange="toggleFuma(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                        <option value="exfumador">Ex-fumador</option>
+                    </select>
+                    <input type="text" id="campoFuma" style="display:none;" placeholder="¿Cuántos cigarrillos al día?">
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label><strong>¿Consume bebidas alcohólicas?</strong></label>
+                <div style="margin-top: 0.5rem;">
+                    <select>
+                        <option>No consume</option>
+                        <option>Ocasionalmente (1-2 veces/mes)</option>
+                        <option>Frecuentemente (1-2 veces/semana)</option>
+                        <option>Diariamente</option>
+                    </select>
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label><strong>¿Realiza actividad física?</strong></label>
+                <div style="margin-top: 0.5rem;">
+                    <select>
+                        <option>No realiza</option>
+                        <option>Ocasionalmente</option>
+                        <option>1-2 veces por semana</option>
+                        <option>3 o más veces por semana</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label><strong>Horas de sueño promedio por noche:</strong></label>
+                <div style="margin-top: 0.5rem;">
+                    <input type="number" min="0" max="24" placeholder="Ejemplo: 7"> horas
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">11. Antecedentes Ocupacionales</h2>
+            <div>
+                <label><strong>¿Ha sufrido algún accidente de trabajo?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select onchange="toggleAccidenteTrabajo(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                    <textarea id="campoAccidenteTrabajo" rows="3" style="display:none;"
+                        placeholder="Describa el accidente, año y consecuencias"></textarea>
+                </div>
+            </div>
+            <div style="margin-top: 1rem;">
+                <label><strong>¿Le han diagnosticado alguna enfermedad laboral?</strong></label>
+                <div style="display: grid; grid-template-columns: 1fr 3fr; gap: 1rem; margin-top: 0.5rem;">
+                    <select onchange="toggleEnfermedadLaboral(this)">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                    <textarea id="campoEnfermedadLaboral" rows="3" style="display:none;"
+                        placeholder="Describa la enfermedad y año de diagnóstico"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">12. Autorización y Consentimiento</h2>
+            <div style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px;">
+                <label style="display: flex; align-items: start; gap: 0.5rem;">
+                    <input type="checkbox" required>
+                    <span>Autorizo el tratamiento de mis datos personales de acuerdo con la Ley 1581 de 2012 para fines
+                        exclusivamente relacionados con el SG-SST, medicina preventiva y del trabajo. Declaro que la
+                        información suministrada es veraz y completa.</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Firma del Trabajador</div>
+                <div style="margin-top: 0.5rem; font-size: 0.85rem;">CC: <input type="text"
+                        style="width:150px; border:none; border-bottom:1px solid #000;"></div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Encuesta guardada')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularEdad() {
+            const fechaNac = new Date(event.target.value);
+            const hoy = new Date();
+            let edad = hoy.getFullYear() - fechaNac.getFullYear();
+            const mes = hoy.getMonth() - fechaNac.getMonth();
+            if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+                edad--;
+            }
+            document.getElementById('edad').value = edad;
+        }
+
+        function toggleDependientes(select) {
+            const campo = document.getElementById('campoDependientes');
+            const tabla = document.getElementById('tablaDependientes');
+            if (select.value === 'si') {
+                campo.style.display = 'block';
+                tabla.style.display = 'table';
+            } else {
+                campo.style.display = 'none';
+                tabla.style.display = 'none';
+            }
+        }
+
+        function toggleExperiencia(select) {
+            document.getElementById('campoExperiencia').style.display = select.value === 'si' ? 'block' : 'none';
+        }
+
+        function toggleEnfermedades(select) {
+            document.getElementById('campoEnfermedades').style.display = select.value === 'si' ? 'block' : 'none';
+        }
+
+        function toggleMedicamentos(select) {
+            document.getElementById('campoMedicamentos').style.display = select.value === 'si' ? 'block' : 'none';
+        }
+
+        function toggleCirugias(select) {
+            document.getElementById('campoCirugias').style.display = select.value === 'si' ? 'block' : 'none';
+        }
+
+        function toggleDiscapacidad(select) {
+            document.getElementById('campoDiscapacidad').style.display = select.value === 'si' ? 'block' : 'none';
+        }
+
+        function toggleFuma(select) {
+            document.getElementById('campoFuma').style.display = (select.value === 'si' || select.value === 'exfumador') ? 'block' : 'none';
+        }
+
+        function toggleAccidenteTrabajo(select) {
+            document.getElementById('campoAccidenteTrabajo').style.display = select.value === 'si' ? 'block' : 'none';
+        }
+
+        function toggleEnfermedadLaboral(select) {
+            document.getElementById('campoEnfermedadLaboral').style.display = select.value === 'si' ? 'block' : 'none';
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

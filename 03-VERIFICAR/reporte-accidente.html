@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Accidente Laboral - SG-SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        .analisis-imagen {
+            background: #f0fdf4;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #10b981;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contenedor-formato" id="formato_reporte_accidente">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <!-- Encabezado -->
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Reporte de Accidente Laboral</div>
+                <div class="subtitulo-documento">Formato de Registro e Investigación</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control">
+                    <label>Código:</label>
+                    <input type="text" value="FO-SST-15" class="campo-editable">
+                </div>
+                <div class="campo-control">
+                    <label>Fecha:</label>
+                    <input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control">
+                    <label>Versión:</label>
+                    <input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos de la Empresa -->
+        <div class="datos-empresa">
+            <h3>📋 Información de la Empresa</h3>
+            <div class="grid-datos">
+                <div class="campo-dato">
+                    <label>Razón Social:</label>
+                    <input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>NIT:</label>
+                    <input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Responsable SST:</label>
+                    <input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>N° Reporte:</label>
+                    <input type="text" class="campo-editable" placeholder="Consecutivo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerta IA -->
+        <div class="alerta alerta-advertencia">
+            <div>
+                <strong>🤖 Asistente IA Activo</strong><br>
+                El sistema puede analizar fotografías del lugar del accidente para identificar factores contribuyentes y
+                generar recomendaciones automáticas de prevención.
+            </div>
+        </div>
+
+        <!-- Datos del Accidente -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">📅 Datos del Accidente</h2>
+            <div class="grid-datos">
+                <div class="campo-dato">
+                    <label>Fecha del Accidente: *</label>
+                    <input type="date" class="campo-editable" required>
+                </div>
+                <div class="campo-dato">
+                    <label>Hora del Accidente: *</label>
+                    <input type="time" class="campo-editable" required>
+                </div>
+                <div class="campo-dato">
+                    <label>Lugar del Accidente: *</label>
+                    <input type="text" class="campo-editable" placeholder="Área/ubicación exacta">
+                </div>
+                <div class="campo-dato">
+                    <label>Tipo de Accidente: *</label>
+                    <select class="campo-editable" id="tipo-accidente">
+                        <option value="">Seleccione...</option>
+                        <option value="caida">Caída de personas</option>
+                        <option value="golpe">Golpeado por/contra</option>
+                        <option value="atrapamiento">Atrapamiento</option>
+                        <option value="quemadura">Quemadura</option>
+                        <option value="electrico">Contacto eléctrico</option>
+                        <option value="corte">Corte/herida</option>
+                        <option value="transito">Accidente de tránsito</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos del Trabajador Accidentado -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">👤 Datos del Trabajador Accidentado</h2>
+            <div class="grid-datos">
+                <div class="campo-dato">
+                    <label>Nombre Completo: *</label>
+                    <input type="text" class="campo-editable" required>
+                </div>
+                <div class="campo-dato">
+                    <label>Cédula: *</label>
+                    <input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Cargo: *</label>
+                    <input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Antigüedad en el Cargo:</label>
+                    <input type="text" class="campo-editable" placeholder="Ej: 2 años 3 meses">
+                </div>
+                <div class="campo-dato">
+                    <label>Tipo de Vinculación:</label>
+                    <select class="campo-editable">
+                        <option>Directo</option>
+                        <option>Temporal</option>
+                        <option>Contratista</option>
+                        <option>Aprendiz</option>
+                    </select>
+                </div>
+                <div class="campo-dato">
+                    <label>ARL:</label>
+                    <input type="text" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <!-- Descripción del Accidente -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Descripción Detallada del Accidente</h2>
+            <textarea class="campo-editable" rows="6"
+                placeholder="Describa detalladamente cómo ocurrió el accidente, qué estaba haciendo el trabajador, qué condiciones existían, etc."
+                style="width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 8px;"></textarea>
+        </div>
+
+        <!-- Lesiones -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">🩹 Lesiones Sufridas</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Parte del Cuerpo Afectada</th>
+                        <th>Tipo de Lesión</th>
+                        <th>Gravedad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select style="width: 100%;">
+                                <option>Cabeza</option>
+                                <option>Ojos</option>
+                                <option>Cara</option>
+                                <option>Cuello</option>
+                                <option>Brazo derecho</option>
+                                <option>Brazo izquierdo</option>
+                                <option>Mano derecha</option>
+                                <option>Mano izquierda</option>
+                                <option>Torso</option>
+                                <option>Espalda</option>
+                                <option>Pierna derecha</option>
+                                <option>Pierna izquierda</option>
+                                <option>Pie derecho</option>
+                                <option>Pie izquierdo</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width: 100%;">
+                                <option>Contusión</option>
+                                <option>Herida/Corte</option>
+                                <option>Fractura</option>
+                                <option>Quemadura</option>
+                                <option>Luxación</option>
+                                <option>Esguince</option>
+                                <option>Amputación</option>
+                                <option>Otro</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select style="width: 100%;">
+                                <option value="leve">Leve (sin incapacidad)</option>
+                                <option value="temporal">Incapacidad temporal</option>
+                                <option value="permanente">Incapacidad permanente</option>
+                                <option value="mortal">Mortal</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Atención Médica -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">🏥 Atención Médica Prestada</h2>
+            <div class="grid-datos">
+                <div class="campo-dato">
+                    <label>Primeros Auxilios Por:</label>
+                    <input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Entidad de Atención:</label>
+                    <input type="text" class="campo-editable" placeholder="IPS, Hospital, Clínica">
+                </div>
+                <div class="campo-dato">
+                    <label>Diagnóstico Médico:</label>
+                    <input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato">
+                    <label>Días de Incapacidad:</label>
+                    <input type="number" class="campo-editable" min="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Fotografías del lugar -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">📸 Evidencia Fotográfica con Análisis IA</h2>
+            <div id="cargador-imagenes-accidente"></div>
+            <div id="recomendaciones-ia" style="margin-top: 1rem;"></div>
+        </div>
+
+        <!-- Testigos -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">👥 Testigos del Accidente</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Cargo</th>
+                        <th>Teléfono/Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" style="width:100%"></td>
+                        <td><input type="text" style="width:100%"></td>
+                        <td><input type="text" style="width:100%"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%"></td>
+                        <td><input type="text" style="width:100%"></td>
+                        <td><input type="text" style="width:100%"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Análisis de Causas (IA sugiere automáticamente) -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔍 Análisis de Causas</h2>
+
+            <h4>Causas Inmediatas:</h4>
+            <div class="alerta alerta-info" style="font-size: 0.9rem;">
+                La IA sugerirá causas basándose en el tipo de accidente seleccionado y las fotografías analizadas.
+            </div>
+            <textarea class="campo-editable" id="causas-inmediatas" rows="3"
+                placeholder="Ej: Falta de uso de EPP, superficie resbalosa, maquinaria sin resguardo..."
+                style="width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 8px;"></textarea>
+
+            <h4 style="margin-top: 1rem;">Causas Básicas:</h4>
+            <textarea class="campo-editable" id="causas-basicas" rows="3"
+                placeholder="Ej: Ausencia de capacitación, falta de supervisión, procedimientos inadecuados..."
+                style="width: 100%; padding: 1rem; border: 2px solid var(--border-color); border-radius: 8px;"></textarea>
+        </div>
+
+        <!-- Acciones Correctivas (IA sugiere) -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Acciones Correctivas y Preventivas</h2>
+            <button class="btn btn-secundario" onclick="generarRecomendacionesIA()">🤖 Generar Recomendaciones con
+                IA</button>
+            <table class="tabla-formato" style="margin-top: 1rem;" id="tabla-acciones">
+                <thead>
+                    <tr>
+                        <th>Acción Correctiva/Preventiva</th>
+                        <th>Responsable</th>
+                        <th>Fecha Compromiso</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><textarea rows="2" style="width:100%"></textarea></td>
+                        <td><input type="text" style="width:100%"></td>
+                        <td><input type="date" style="width:100%"></td>
+                        <td>
+                            <select style="width:100%">
+                                <option>Pendiente</option>
+                                <option>En proceso</option>
+                                <option>Completada</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Firmas -->
+        <div class="seccion-firmas">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Elaboró - Responsable SST</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Jefe Inmediato</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Gerencia General</div>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-secundario" onclick="guardarFormato()">💾 Guardar</button>
+            <button class="btn btn-primario" onclick="enviarARL()">📧 Enviar a ARL</button>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+    <script src="../js/analisis-imagenes.js"></script>
+    <script>
+        // Inicializar análisis de imágenes
+        document.addEventListener('DOMContentLoaded', function () {
+            crearCargadorImagenes('cargador-imagenes-accidente', function (analisis, archivo) {
+                const divRecomendaciones = document.getElementById('recomendaciones-ia');
+                divRecomendaciones.innerHTML += `
+                    <div class="alerta alerta-exito">
+                        <div>
+                            <strong>✅ Imagen Analizada: ${archivo.name}</strong><br>
+                            ${new AnalizadorImagenes().generarReporte(analisis)}
+                        </div>
+                    </div>
+                `;
+            });
+        });
+
+        // Generar recomendaciones automáticas según tipo de accidente
+        function generarRecomendacionesIA() {
+            const tipoAccidente = document.getElementById('tipo-accidente').value;
+            const tabla = document.getElementById('tabla-acciones').querySelector('tbody');
+
+            const recomendaciones = AsistenteSST.generarRecomendaciones(tipoAccidente);
+
+            // Limpiar tabla
+            tabla.innerHTML = '';
+
+            // Agregar recomendaciones
+            recomendaciones.forEach(rec => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><textarea rows="2" style="width:100%">${rec}</textarea></td>
+                    <td><input type="text" style="width:100%"></td>
+                    <td><input type="date" style="width:100%"></td>
+                    <td><select style="width:100%"><option>Pendiente</option><option>En proceso</option><option>Completada</option></select></td>
+                `;
+                tabla.appendChild(tr);
+            });
+
+            alert('✅ Recomendaciones generadas con IA');
+        }
+
+        function guardarFormato() {
+            UtilidadesSST.guardarDatos('reporte_accidente', { timestamp: new Date().toISOString() });
+            alert('✅ Reporte guardado');
+        }
+
+        function enviarARL() {
+            alert('📧 Funcionalidad de envío a ARL (requiere integración con email)');
+        }
+    </script>
+</body>
+
+</html>

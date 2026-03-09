@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspección Preoperacional de Vehículos</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Inspección Preoperacional de Vehículos</div>
+                <div class="subtitulo-documento">Verificación Diaria de Condiciones de Seguridad</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-25"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Hora:</label><input type="time" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>⚠️ OBLIGATORIO:</strong> Todo conductor debe realizar esta inspección ANTES de iniciar
+                operaciones. Si algún ítem crítico falla, NO operar el vehículo hasta corregir la falla.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🚗 Información del Vehículo y Conductor</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Placa:</label><input type="text" class="campo-editable"
+                        placeholder="ABC-123"></div>
+                <div class="campo-dato"><label>Tipo de Vehículo:</label>
+                    <select class="campo-editable">
+                        <option>Automóvil</option>
+                        <option>Camioneta</option>
+                        <option>Camión</option>
+                        <option>Bus/Buseta</option>
+                        <option>Motocicleta</option>
+                        <option>Montacargas</option>
+                        <option>Maquinaria pesada</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Kilometraje Actual:</label><input type="number" class="campo-editable">
+                    km</div>
+                <div class="campo-dato"><label>Conductor:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Cédula:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Licencia de Conducción:</label><input type="text" class="campo-editable"
+                        placeholder="Categoría y número"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Lista de Verificación Preoperacional</h2>
+
+            <h4 style="color: var(--color-primario);">🔴 ÍTEMS CRÍTICOS (Obligatorios para operar)</h4>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th width="60%">Ítem a Verificar</th>
+                        <th width="10%">Bueno</th>
+                        <th width="10%">Regular</th>
+                        <th width="10%">Malo</th>
+                        <th width="10%">N/A</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Sistema de frenos operativo</strong></td>
+                        <td><input type="radio" name="frenos"></td>
+                        <td><input type="radio" name="frenos"></td>
+                        <td><input type="radio" name="frenos"></td>
+                        <td><input type="radio" name="frenos"></td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Dirección sin juego excesivo</strong></td>
+                        <td><input type="radio" name="direccion"></td>
+                        <td><input type="radio" name="direccion"></td>
+                        <td><input type="radio" name="direccion"></td>
+                        <td><input type="radio" name="direccion"></td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Luces delanteras y traseras funcionales</strong></td>
+                        <td><input type="radio" name="luces"></td>
+                        <td><input type="radio" name="luces"></td>
+                        <td><input type="radio" name="luces"></td>
+                        <td><input type="radio" name="luces"></td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Neumáticos en buen estado y presión adecuada</strong></td>
+                        <td><input type="radio" name="neumaticos"></td>
+                        <td><input type="radio" name="neumaticos"></td>
+                        <td><input type="radio" name="neumaticos"></td>
+                        <td><input type="radio" name="neumaticos"></td>
+                    </tr>
+                    <tr style="background: #fee2e2;">
+                        <td><strong>CRÍTICO: Cinturones de seguridad operativos</strong></td>
+                        <td><input type="radio" name="cinturones"></td>
+                        <td><input type="radio" name="cinturones"></td>
+                        <td><input type="radio" name="cinturones"></td>
+                        <td><input type="radio" name="cinturones"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Motor y Sistemas</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="60%">Nivel de aceite del motor</td>
+                        <td width="10%"><input type="radio" name="aceite"></td>
+                        <td width="10%"><input type="radio" name="aceite"></td>
+                        <td width="10%"><input type="radio" name="aceite"></td>
+                        <td width="10%"><input type="radio" name="aceite"></td>
+                    </tr>
+                    <tr>
+                        <td>Nivel de refrigerante</td>
+                        <td><input type="radio" name="refrigerante"></td>
+                        <td><input type="radio" name="refrigerante"></td>
+                        <td><input type="radio" name="refrigerante"></td>
+                        <td><input type="radio" name="refrigerante"></td>
+                    </tr>
+                    <tr>
+                        <td>Nivel de líquido de frenos</td>
+                        <td><input type="radio" name="liqFreno"></td>
+                        <td><input type="radio" name="liqFreno"></td>
+                        <td><input type="radio" name="liqFreno"></td>
+                        <td><input type="radio" name="liqFreno"></td>
+                    </tr>
+                    <tr>
+                        <td>Nivel de líquido hidráulico (dirección)</td>
+                        <td><input type="radio" name="hidraulico"></td>
+                        <td><input type="radio" name="hidraulico"></td>
+                        <td><input type="radio" name="hidraulico"></td>
+                        <td><input type="radio" name="hidraulico"></td>
+                    </tr>
+                    <tr>
+                        <td>Fugas de fluidos (aceite, combustible, refrigerante)</td>
+                        <td><input type="radio" name="fugas"></td>
+                        <td><input type="radio" name="fugas"></td>
+                        <td><input type="radio" name="fugas"></td>
+                        <td><input type="radio" name="fugas"></td>
+                    </tr>
+                    <tr>
+                        <td>Batería (bornes limpios, sin corrosión)</td>
+                        <td><input type="radio" name="bateria"></td>
+                        <td><input type="radio" name="bateria"></td>
+                        <td><input type="radio" name="bateria"></td>
+                        <td><input type="radio" name="bateria"></td>
+                    </tr>
+                    <tr>
+                        <td>Correas y mangueras (sin grietas ni desgaste)</td>
+                        <td><input type="radio" name="correas"></td>
+                        <td><input type="radio" name="correas"></td>
+                        <td><input type="radio" name="correas"></td>
+                        <td><input type="radio" name="correas"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Sistema de Luces e Indicadores</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="60%">Luces altas y bajas</td>
+                        <td width="10%"><input type="radio" name="lucesAltas"></td>
+                        <td width="10%"><input type="radio" name="lucesAltas"></td>
+                        <td width="10%"><input type="radio" name="lucesAltas"></td>
+                        <td width="10%"><input type="radio" name="lucesAltas"></td>
+                    </tr>
+                    <tr>
+                        <td>Luces de freno</td>
+                        <td><input type="radio" name="lucesFreno"></td>
+                        <td><input type="radio" name="lucesFreno"></td>
+                        <td><input type="radio" name="lucesFreno"></td>
+                        <td><input type="radio" name="lucesFreno"></td>
+                    </tr>
+                    <tr>
+                        <td>Direccionales</td>
+                        <td><input type="radio" name="direccionales"></td>
+                        <td><input type="radio" name="direccionales"></td>
+                        <td><input type="radio" name="direccionales"></td>
+                        <td><input type="radio" name="direccionales"></td>
+                    </tr>
+                    <tr>
+                        <td>Luces de reversa</td>
+                        <td><input type="radio" name="reversa"></td>
+                        <td><input type="radio" name="reversa"></td>
+                        <td><input type="radio" name="reversa"></td>
+                        <td><input type="radio" name="reversa"></td>
+                    </tr>
+                    <tr>
+                        <td>Luces de emergencia</td>
+                        <td><input type="radio" name="emergencia"></td>
+                        <td><input type="radio" name="emergencia"></td>
+                        <td><input type="radio" name="emergencia"></td>
+                        <td><input type="radio" name="emergencia"></td>
+                    </tr>
+                    <tr>
+                        <td>Tablero de instrumentos (medidores funcionales)</td>
+                        <td><input type="radio" name="tablero"></td>
+                        <td><input type="radio" name="tablero"></td>
+                        <td><input type="radio" name="tablero"></td>
+                        <td><input type="radio" name="tablero"></td>
+                    </tr>
+                    <tr>
+                        <td>Alarma de reversa (si aplica)</td>
+                        <td><input type="radio" name="alarmaRev"></td>
+                        <td><input type="radio" name="alarmaRev"></td>
+                        <td><input type="radio" name="alarmaRev"></td>
+                        <td><input type="radio" name="alarmaRev"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Elementos de Seguridad</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="60%">Extintor (cargado, vigente, accesible)</td>
+                        <td width="10%"><input type="radio" name="extintor"></td>
+                        <td width="10%"><input type="radio" name="extintor"></td>
+                        <td width="10%"><input type="radio" name="extintor"></td>
+                        <td width="10%"><input type="radio" name="extintor"></td>
+                    </tr>
+                    <tr>
+                        <td>Botiquín de primeros auxilios completo</td>
+                        <td><input type="radio" name="botiquin"></td>
+                        <td><input type="radio" name="botiquin"></td>
+                        <td><input type="radio" name="botiquin"></td>
+                        <td><input type="radio" name="botiquin"></td>
+                    </tr>
+                    <tr>
+                        <td>Herramientas básicas (gato, llave de ruedas, triángulos)</td>
+                        <td><input type="radio" name="herramientas"></td>
+                        <td><input type="radio" name="herramientas"></td>
+                        <td><input type="radio" name="herramientas"></td>
+                        <td><input type="radio" name="herramientas"></td>
+                    </tr>
+                    <tr>
+                        <td>Triángulos de seguridad/conos</td>
+                        <td><input type="radio" name="triangulos"></td>
+                        <td><input type="radio" name="triangulos"></td>
+                        <td><input type="radio" name="triangulos"></td>
+                        <td><input type="radio" name="triangulos"></td>
+                    </tr>
+                    <tr>
+                        <td>Chaleco reflectivo</td>
+                        <td><input type="radio" name="chaleco"></td>
+                        <td><input type="radio" name="chaleco"></td>
+                        <td><input type="radio" name="chaleco"></td>
+                        <td><input type="radio" name="chaleco"></td>
+                    </tr>
+                    <tr>
+                        <td>Llanta de repuesto (buen estado, inflada)</td>
+                        <td><input type="radio" name="repuesto"></td>
+                        <td><input type="radio" name="repuesto"></td>
+                        <td><input type="radio" name="repuesto"></td>
+                        <td><input type="radio" name="repuesto"></td>
+                    </tr>
+                    <tr>
+                        <td>Documentos del vehículo (SOAT, TM, revisión técnico-mecánica)</td>
+                        <td><input type="radio" name="documentos"></td>
+                        <td><input type="radio" name="documentos"></td>
+                        <td><input type="radio" name="documentos"></td>
+                        <td><input type="radio" name="documentos"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 2rem;">Carrocería y Otros</h4>
+            <table class="tabla-formato">
+                <tbody>
+                    <tr>
+                        <td width="60%">Espejos retrovisores (limpios, ajustados)</td>
+                        <td width="10%"><input type="radio" name="espejos"></td>
+                        <td width="10%"><input type="radio" name="espejos"></td>
+                        <td width="10%"><input type="radio" name="espejos"></td>
+                        <td width="10%"><input type="radio" name="espejos"></td>
+                    </tr>
+                    <tr>
+                        <td>Parabrisas y ventanas (sin grietas, limpios)</td>
+                        <td><input type="radio" name="parabrisas"></td>
+                        <td><input type="radio" name="parabrisas"></td>
+                        <td><input type="radio" name="parabrisas"></td>
+                        <td><input type="radio" name="parabrisas"></td>
+                    </tr>
+                    <tr>
+                        <td>Limpiaparabrisas y líquido lavador</td>
+                        <td><input type="radio" name="limpiaparabrisas"></td>
+                        <td><input type="radio" name="limpiaparabrisas"></td>
+                        <td><input type="radio" name="limpiaparabrisas"></td>
+                        <td><input type="radio" name="limpiaparabrisas"></td>
+                    </tr>
+                    <tr>
+                        <td>Bocina funcional</td>
+                        <td><input type="radio" name="bocina"></td>
+                        <td><input type="radio" name="bocina"></td>
+                        <td><input type="radio" name="bocina"></td>
+                        <td><input type="radio" name="bocina"></td>
+                    </tr>
+                    <tr>
+                        <td>Puertas y chapas (cierran correctamente)</td>
+                        <td><input type="radio" name="puertas"></td>
+                        <td><input type="radio" name="puertas"></td>
+                        <td><input type="radio" name="puertas"></td>
+                        <td><input type="radio" name="puertas"></td>
+                    </tr>
+                    <tr>
+                        <td>Estado general de la carrocería</td>
+                        <td><input type="radio" name="carroceria"></td>
+                        <td><input type="radio" name="carroceria"></td>
+                        <td><input type="radio" name="carroceria"></td>
+                        <td><input type="radio" name="carroceria"></td>
+                    </tr>
+                    <tr>
+                        <td>Limpieza general del vehículo</td>
+                        <td><input type="radio" name="limpieza"></td>
+                        <td><input type="radio" name="limpieza"></td>
+                        <td><input type="radio" name="limpieza"></td>
+                        <td><input type="radio" name="limpieza"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones y Fallas Detectadas</h2>
+            <textarea rows="4" style="width:100%;"
+                placeholder="Describa cualquier anomalía, falla o condición que requiera atención..."></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Resultado de la Inspección</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="background: #dcfce7; padding: 1.5rem; border-radius: 8px;">
+                    <label
+                        style="display: flex; align-items: center; font-size: 1.1rem; font-weight: 600; color: #065f46;">
+                        <input type="radio" name="resultado" value="apto"
+                            style="margin-right: 1rem; width: 24px; height: 24px;">
+                        ✓ VEHÍCULO APTO PARA OPERAR
+                    </label>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Todas las condiciones de seguridad están OK</p>
+                </div>
+                <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px;">
+                    <label
+                        style="display: flex; align-items: center; font-size: 1.1rem; font-weight: 600; color: #991b1b;">
+                        <input type="radio" name="resultado" value="noApto"
+                            style="margin-right: 1rem; width: 24px; height: 24px;">
+                        ✗ VEHÍCULO NO APTO - NO OPERAR
+                    </label>
+                    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Existen falsos críticas que deben corregirse</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre del conductor"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Conductor - Realizó Inspección</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre supervisor"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Supervisor/Coordinador de Flota</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Inspección guardada')">💾 Guardar Inspección</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            const hoy = new Date().toISOString().split('T')[0];
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = hoy;
+            });
+        };
+    </script>
+</body>
+
+</html>

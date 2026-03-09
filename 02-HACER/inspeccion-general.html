@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspección General de Seguridad - SG-SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <!-- Encabezado -->
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Inspección General de Seguridad</div>
+                <div class="subtitulo-documento">Verificación de Condiciones Seguras</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-08"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos -->
+        <div class="datos-empresa">
+            <h3>📋 Información de la Inspección</h3>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Área Inspeccionada:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Responsable Inspección:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Fecha Inspección:</label><input type="date"
+                        class="auto-fecha campo-editable"></div>
+                <div class="campo-dato"><label>Tipo:</label>
+                    <select class="campo-editable">
+                        <option>Programada</option>
+                        <option>No programada</option>
+                        <option>Post-accidente</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Análisis de Imágenes -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">📸 Análisis con IA - Fotografías del Área</h2>
+            <div class="alerta alerta-info">
+                <div><strong>🤖 IA Activada:</strong> Sube fotografías y la IA detectará condiciones inseguras
+                    automáticamente</div>
+            </div>
+            <div id="cargador-imagenes-inspeccion"></div>
+        </div>
+
+        <!-- Lista de Verificación -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Lista de Verificación</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width:5%">#</th>
+                        <th style="width:40%">Aspecto a Verificar</th>
+                        <th style="width:10%">Conforme</th>
+                        <th style="width:10%">No Conforme</th>
+                        <th style="width:15%">Nivel Riesgo</th>
+                        <th style="width:20%">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>Orden y Aseo:</strong> Pisos libres de obstáculos, áreas limpias</td>
+                        <td style="text-align:center"><input type="radio" name="item1"></td>
+                        <td style="text-align:center"><input type="radio" name="item1"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>Señalización:</strong> Señales visibles y en buen estado</td>
+                        <td style="text-align:center"><input type="radio" name="item2"></td>
+                        <td style="text-align:center"><input type="radio" name="item2"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>Iluminación:</strong> Niveles adecuados</td>
+                        <td style="text-align:center"><input type="radio" name="item3"></td>
+                        <td style="text-align:center"><input type="radio" name="item3"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>Ventilación:</strong> Ventilación natural o mecánica adecuada</td>
+                        <td style="text-align:center"><input type="radio" name="item4"></td>
+                        <td style="text-align:center"><input type="radio" name="item4"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>Maquinaria:</strong> Resguardos en partes móviles</td>
+                        <td style="text-align:center"><input type="radio" name="item5"></td>
+                        <td style="text-align:center"><input type="radio" name="item5"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>Instalaciones Eléctricas:</strong> Cableado protegido, tableros cerrados</td>
+                        <td style="text-align:center"><input type="radio" name="item6"></td>
+                        <td style="text-align:center"><input type="radio" name="item6"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>Extintores:</strong> Ubicados, señalizados, vigentes</td>
+                        <td style="text-align:center"><input type="radio" name="item7"></td>
+                        <td style="text-align:center"><input type="radio" name="item7"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>Rutas de Evacuación:</strong> Despejadas y señalizadas</td>
+                        <td style="text-align:center"><input type="radio" name="item8"></td>
+                        <td style="text-align:center"><input type="radio" name="item8"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>EPP:</strong> Disponible y en uso</td>
+                        <td style="text-align:center"><input type="radio" name="item9"></td>
+                        <td style="text-align:center"><input type="radio" name="item9"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><strong>Almacenamiento:</strong> Materiales correctamente apilados y asegurados</td>
+                        <td style="text-align:center"><input type="radio" name="item10"></td>
+                        <td style="text-align:center"><input type="radio" name="item10"></td>
+                        <td><select>
+                                <option>Bajo</option>
+                                <option>Medio</option>
+                                <option>Alto</option>
+                            </select></td>
+                        <td><input type="text"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Hallazgos y Recomendaciones -->
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔍 Hallazgos y Recomendaciones</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Hallazgo/Condición Insegura</th>
+                        <th>Recomendación</th>
+                        <th>Responsable</th>
+                        <th>Fecha Compromiso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><textarea rows="2"></textarea></td>
+                        <td><textarea rows="2"></textarea></td>
+                        <td><input type="text"></td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td><textarea rows="2"></textarea></td>
+                        <td><textarea rows="2"></textarea></td>
+                        <td><input type="text"></td>
+                        <td><input type="date"></td>
+                    </tr>
+                    <tr>
+                        <td><textarea rows="2"></textarea></td>
+                        <td><textarea rows="2"></textarea></td>
+                        <td><input type="text"></td>
+                        <td><input type="date"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Firmas -->
+        <div class="seccion-firmas">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Inspector</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable del Área</div>
+            </div>
+        </div>
+
+        <!-- Botones -->
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario"
+                onclick="UtilidadesSST.guardarDatos('inspeccion', {}); alert('✅ Guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script src="../js/asistente-ia.js"></script>
+    <script src="../js/analisis-imagenes.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            crearCargadorImagenes('cargador-imagenes-inspeccion', function (analisis, archivo) {
+                console.log('Condiciones inseguras detectadas:', analisis.peligros);
+            });
+        });
+    </script>
+</body>
+
+</html>

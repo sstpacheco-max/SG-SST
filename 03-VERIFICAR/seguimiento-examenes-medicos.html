@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento Exámenes Médicos Ocupacionales</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Seguimiento a Exámenes Médicos Ocupacionales</div>
+                <div class="subtitulo-documento">Resolución 2346 de 2007 - Control de Aptitud Médica</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-20"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Periodo:</label><input type="text" class="campo-editable"
+                        value="2025"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📋 Objetivo:</strong> Hacer seguimiento al cumplimiento de los exámenes médicos ocupacionales
+                según la normativa colombiana y asegurar que todos los trabajadores cuenten con concepto de aptitud
+                vigente.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Resumen General</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div
+                    style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700;" id="totalEmpleados">0</div>
+                    <div>Total Empleados</div>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700;" id="examenesVigentes">0</div>
+                    <div>Exámenes Vigentes</div>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700;" id="proximosVencer">0</div>
+                    <div>Próximos a Vencer</div>
+                </div>
+                <div
+                    style="background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%); color: white; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 700;" id="examenesVencidos">0</div>
+                    <div>Exámenes Vencidos</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👥 Registro de Seguimiento Individual</h2>
+            <div style="margin-bottom: 1rem;">
+                <button class="btn btn-secundario" onclick="agregarEmpleado()">+ Agregar Empleado</button>
+                <button class="btn btn-outline" onclick="filtrar('proximos')">🟡 Ver Próximos a Vencer</button>
+                <button class="btn btn-outline" onclick="filtrar('vencidos')">🔴 Ver Vencidos</button>
+                <button class="btn btn-outline" onclick="filtrar('todos')">Ver Todos</button>
+            </div>
+
+            <table class="tabla-formato" id="tablaExamenes">
+                <thead>
+                    <tr>
+                        <th>Nombre Completo</th>
+                        <th>Cédula</th>
+                        <th>Cargo/Área</th>
+                        <th>Tipo Examen</th>
+                        <th>Fecha Examen</th>
+                        <th>Próximo Examen</th>
+                        <th>Concepto</th>
+                        <th>Restricciones</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpoTabla">
+                    <tr data-estado="vigente">
+                        <td><input type="text" style="width:100%;" placeholder="Nombre completo"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Cédula"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Cargo"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option>Ingreso</option>
+                                <option>Periódico</option>
+                                <option>Egreso</option>
+                                <option>Reintegro</option>
+                            </select>
+                        </td>
+                        <td><input type="date" style="width:100%;" onchange="calcularProximo(this)"></td>
+                        <td><input type="date" style="width:100%;" class="fecha-proximo"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option style="color:green;">Apto</option>
+                                <option style="color:orange;">Apto con restricciones</option>
+                                <option style="color:red;">No apto</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;" placeholder="Describir si aplica"></td>
+                        <td class="estado-cell">
+                            <span class="badge badge-vigente">Vigente</span>
+                        </td>
+                        <td>
+                            <button onclick="eliminarFila(this)" class="btn-mini">🗑️</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⚕️ Seguimiento a Restricciones Médicas</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Trabajador</th>
+                        <th>Cargo</th>
+                        <th>Restricción</th>
+                        <th>Adaptación Implementada</th>
+                        <th>Responsable Seguimiento</th>
+                        <th>Fecha Reevaluación</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaRestricciones">
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Ej: No levantar > 10 kg"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Rotación, ayuda mecánica"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarRestriccion()">+ Agregar Restricción</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📈 Indicadores de Cumplimiento</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Indicador</th>
+                        <th>Fórmula</th>
+                        <th>Resultado</th>
+                        <th>Meta</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cobertura Exámenes Médicos</strong></td>
+                        <td>(Exámenes vigentes / Total empleados) × 100</td>
+                        <td id="indCobertura">--%</td>
+                        <td>100%</td>
+                        <td id="estadoCobertura">-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% Cumplimiento Ingreso</strong></td>
+                        <td>(Ingresos con examen / Total ingresos) × 100</td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td>100%</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td><strong>% Cumplimiento Periódicos</strong></td>
+                        <td>(Per iódicos al día / Total periódicos programados) × 100</td>
+                        <td><input type="number" style="width:80px;"> %</td>
+                        <td>100%</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="guardarDatos()">💾 Guardar Seguimiento</button>
+            <button class="btn btn-secundario" onclick="exportarCSV()">📊 Exportar CSV</button>
+        </div>
+    </div>
+
+    <style>
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .badge-vigente {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .badge-proximo {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-vencido {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .btn-mini {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    </style>
+
+    <script>
+        function agregarEmpleado() {
+            const tabla = document.getElementById('cuerpoTabla');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+            actualizarContadores();
+        }
+
+        function agregarRestriccion() {
+            const tabla = document.getElementById('tablaRestricciones');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function eliminarFila(btn) {
+            if (confirm('¿Eliminar este registro?')) {
+                btn.closest('tr').remove();
+                actualizarContadores();
+            }
+        }
+
+        function calcularProximo(input) {
+            const fechaExamen = new Date(input.value);
+            if (fechaExamen) {
+                const proximoExamen = new Date(fechaExamen);
+                proximoExamen.setFullYear(proximoExamen.getFullYear() + 1);
+                const proximoInput = input.closest('tr').querySelector('.fecha-proximo');
+                proximoInput.value = proximoExamen.toISOString().split('T')[0];
+
+                actualizarEstado(input.closest('tr'));
+                actualizarContadores();
+            }
+        }
+
+        function actualizarEstado(fila) {
+            const fechaProximo = new Date(fila.querySelector('.fecha-proximo').value);
+            const hoy = new Date();
+            const diasDiferencia = Math.floor((fechaProximo - hoy) / (1000 * 60 * 60 * 24));
+
+            const estadoCell = fila.querySelector('.estado-cell');
+            let badge = '';
+            let estado = '';
+
+            if (diasDiferencia < 0) {
+                badge = '<span class="badge badge-vencido">Vencido</span>';
+                estado = 'vencido';
+            } else if (diasDiferencia <= 30) {
+                badge = '<span class="badge badge-proximo">Por vencer</span>';
+                estado = 'proximo';
+            } else {
+                badge = '<span class="badge badge-vigente">Vigente</span>';
+                estado = 'vigente';
+            }
+
+            estadoCell.innerHTML = badge;
+            fila.setAttribute('data-estado', estado);
+        }
+
+        function actualizarContadores() {
+            const filas = document.querySelectorAll('#cuerpoTabla tr');
+            const total = filas.length;
+            let vigentes = 0;
+            let proximos = 0;
+            let vencidos = 0;
+
+            filas.forEach(fila => {
+                const fechaProximo = fila.querySelector('.fecha-proximo').value;
+                if (fechaProximo) {
+                    const dias = Math.floor((new Date(fechaProximo) - new Date()) / (1000 * 60 * 60 * 24));
+                    if (dias < 0) vencidos++;
+                    else if (dias <= 30) proximos++;
+                    else vigentes++;
+                }
+            });
+
+            document.getElementById('totalEmpleados').textContent = total;
+            document.getElementById('examenesVigentes').textContent = vigentes;
+            document.getElementById('proximosVencer').textContent = proximos;
+            document.getElementById('examenesVencidos').textContent = vencidos;
+
+            // Calcular cobertura
+            const cobertura = total > 0 ? Math.round((vigentes / total) * 100) : 0;
+            document.getElementById('indCobertura').textContent = cobertura + '%';
+            document.getElementById('estadoCobertura').textContent = cobertura >= 100 ? '✓ Cumple' : '✗ No cumple';
+        }
+
+        function filtrar(tipo) {
+            const filas = document.querySelectorAll('#cuerpoTabla tr');
+            filas.forEach(fila => {
+                if (tipo === 'todos') {
+                    fila.style.display = '';
+                } else {
+                    const estado = fila.getAttribute('data-estado');
+                    fila.style.display = (estado === tipo || (tipo === 'proximos' && estado === 'proximo')) ? '' : 'none';
+                }
+            });
+        }
+
+        function guardarDatos() {
+            // Aquí iría la lógica de guardado
+            alert('✅ Datos guardados exitosamente');
+        }
+
+        function exportarCSV() {
+            alert('📊 Exportación en desarrollo');
+        }
+
+        // Actualizar estados al cargar
+        window.onload = function () {
+            setTimeout(() => {
+                document.querySelectorAll('#cuerpoTabla tr').forEach(actualizarEstado);
+                actualizarContadores();
+            }, 100);
+        };
+    </script>
+</body>
+
+</html>

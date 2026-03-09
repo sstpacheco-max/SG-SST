@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento a Portal Sociales</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Seguimiento a Aportes a Seguridad Social</div>
+                <div class="subtitulo-documento">Verificación Mensual de Cumplimiento</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-32"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Periodo:</label><input type="month" class="campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>⚠️ OBLIGACIÓN LEGAL:</strong> El empleador debe realizar aportes mensuales al Sistema de
+                Seguridad Social Integral (Salud, Pensión, Riesgos Laborales) y Parafiscales. El incumplimiento genera
+                multas y sanciones.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información del Periodo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Mes de Aporte:</label><input type="month" class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha Límite de Pago:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Número de Empleados:</label><input type="number" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Nómina Total del Mes:</label>$ <input type="number"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Responsable de Pagos:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Estado General:</label>
+                    <select class="campo-editable">
+                        <option style="color: green;">✓ Al día</option>
+                        <option style="color: orange;">⚠ Pendiente de pago</option>
+                        <option style="color: red;">✗ En mora</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🏥 Aportes a Salud (EPS)</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>EPS</th>
+                        <th>#Afiliados</th>
+                        <th>IBC Total</th>
+                        <th>% Aporte (12.5%)</th>
+                        <th>Valor a Pagar</th>
+                        <th>Fecha Pago</th>
+                        <th>Comprobante</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaSalud">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="EPS Sanitas"></td>
+                        <td><input type="number" style="width:60px;"></td>
+                        <td>$ <input type="number" style="width:120px;" class="ibc" onchange="calcularSalud(this)"></td>
+                        <td style="text-align:center;">12.5%</td>
+                        <td class="valorPago">$ 0</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="# comprobante"></td>
+                        <td><select style="width:100%;">
+                                <option style="color: green;">✓ Pagado</option>
+                                <option style="color: orange;">Pendiente</option>
+                                <option style="color: red;">En mora</option>
+                            </select></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarEPS()">+ Agregar EPS</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👴 Aportes a Pensión</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Fondo de Pensión</th>
+                        <th>#Afiliados</th>
+                        <th>IBC Total</th>
+                        <th>% Aporte (16%)</th>
+                        <th>Valor a Pagar</th>
+                        <th>Fecha Pago</th>
+                        <th>Comprobante</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaPension">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Porvenir"></td>
+                        <td><input type="number" style="width:60px;"></td>
+                        <td>$ <input type="number" style="width:120px;" class="ibc" onchange="calcularPension(this)">
+                        </td>
+                        <td style="text-align:center;">16%</td>
+                        <td class="valorPago">$ 0</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><select style="width:100%;">
+                                <option style="color: green;">✓ Pagado</option>
+                                <option style="color: orange;">Pendiente</option>
+                                <option style="color: red;">En mora</option>
+                            </select></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarPension()">+ Agregar Fondo</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🦺 Aportes a Riesgos Laborales (ARL)</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>ARL:</label><input type="text" class="campo-editable"
+                        placeholder="SURA ARL, Positiva, etc."></div>
+                <div class="campo-dato"><label>Clase de Riesgo:</label>
+                    <select class="campo-editable" id="claseRiesgo" onchange="actualizarTarifaARL()">
+                        <option value="0.522">I - 0.522%</option>
+                        <option value="1.044">II - 1.044%</option>
+                        <option value="2.436">III - 2.436%</option>
+                        <option value="4.350">IV - 4.350%</option>
+                        <option value="6.960">V - 6.960%</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Tarifa Aplicable:</label><input type="text" id="tarifaARL"
+                        class="campo-editable" value="0.522%" readonly></div>
+            </div>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Total Empleados</th>
+                        <th>IBC Total</th>
+                        <th>% Aporte</th>
+                        <th>Valor a Pagar</th>
+                        <th>Fecha Pago</th>
+                        <th>Comprobante</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="number" style="width:80px;" id="totalEmpARL"></td>
+                        <td>$ <input type="number" style="width:120px;" id="ibcARL" onchange="calcularARL()"></td>
+                        <td style="text-align:center;" id="porcARL">0.522%</td>
+                        <td id="valorARL">$ 0</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><select style="width:100%;">
+                                <option style="color: green;">✓ Pagado</option>
+                                <option style="color: orange;">Pendiente</option>
+                                <option style="color: red;">En mora</option>
+                            </select></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👶 Aportes Parafiscales</h2>
+
+            <h4 style="color: var(--color-primario);">SENA (2%)</h4>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nómina Gravable:</label>$ <input type="number" id="nominaSENA"
+                        class="campo-editable" onchange="calcularParafiscales()"></div>
+                <div class="campo-dato"><label>Valor SENA (2%):</label>$ <span id="valorSENA">0</span></div>
+                <div class="campo-dato"><label>Fecha Pago:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Comprobante:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Estado:</label>
+                    <select class="campo-editable">
+                        <option style="color: green;">✓ Pagado</option>
+                        <option style="color: orange;">Pendiente</ option>
+                        <option style="color: red;">En mora</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label><input type="checkbox"> ¿Exento?</label><small>Empresas <10 trabajadores
+                            o patrimonio <31,000 SMMLV</small>
+                </div>
+            </div>
+
+            <h4 style="color: var(--color-primario); margin-top: 1.5rem;">ICBF (3%)</h4>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nómina Gravable:</label>$ <input type="number" id="nominaICBF"
+                        class="campo-editable" onchange="calcularParafiscales()"></div>
+                <div class="campo-dato"><label>Valor ICBF (3%):</label>$ <span id="valorICBF">0</span></div>
+                <div class="campo-dato"><label>Fecha Pago:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Comprobante:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Estado:</label>
+                    <select class="campo-editable">
+                        <option style="color: green;">✓ Pagado</option>
+                        <option style="color: orange;">Pendiente</option>
+                        <option style="color: red;">En mora</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label><input type="checkbox"> ¿Exento?</label><small>Empresas <10 trabajadores
+                            o patrimonio <31,000 SMMLV</small>
+                </div>
+            </div>
+
+            <h4 style="color: var(--color-primario); margin-top: 1.5rem;">Cajas de Compensación (4%)</h4>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Caja de Compensación:</label><input type="text" class="campo-editable"
+                        placeholder="Compensar, Colsubsidio, etc."></div>
+                <div class="campo-dato"><label>Nómina Gravable:</label>$ <input type="number" id="nominaCaja"
+                        class="campo-editable" onchange="calcularParafiscales()"></div>
+                <div class="campo-dato"><label>Valor Caja (4%):</label>$ <span id="valorCaja">0</span></div>
+                <div class="campo-dato"><label>Fecha Pago:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Comprobante:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Estado:</label>
+                    <select class="campo-editable">
+                        <option style="color: green;">✓ Pagado</option>
+                        <option style="color: orange;">Pendiente</option>
+                        <option style="color: red;">En mora</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Resumen de Aportes del Mes</h2>
+            <table class="tabla-formato" style="font-size: 1rem;">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th>Concepto</th>
+                        <th>Valor Total</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Salud (12.5%)</strong></td>
+                        <td>$ <span id="resumenSalud">0</span></td>
+                        <td><span id="estadoSalud">-</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pensión (16%)</strong></td>
+                        <td>$ <span id="resumenPension">0</span></td>
+                        <td><span id="estadoPension">-</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ARL</strong></td>
+                        <td>$ <span id="resumenARL">0</span></td>
+                        <td><span id="estadoARL">-</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>SENA (2%)</strong></td>
+                        <td>$ <span id="resumenSENA">0</span></td>
+                        <td><span id="estadoSENA">-</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>ICBF (3%)</strong></td>
+                        <td>$ <span id="resumenICBF">0</span></td>
+                        <td><span id="estadoICBF">-</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Caja de Compensación (4%)</strong></td>
+                        <td>$ <span id="resumenCaja">0</span></td>
+                        <td><span id="estadoCaja">-</span></td>
+                    </tr>
+                    <tr style="background: #dcfce7; font-weight: 700; font-size: 1.1rem;">
+                        <td><strong>TOTAL APORTES SEGURIDAD SOCIAL</strong></td>
+                        <td><strong>$ <span id="granTotal">0</span></strong></td>
+                        <td><strong id="estadoGeneral">-</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones</h2>
+            <textarea rows="3" style="width:100%;"
+                placeholder="Novedades, notas o aclaraciones sobre los pagos del mes..."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Contador / Responsable de Nómina</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST / Gerente</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Seguimiento guardado')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularSalud(input) {
+            const fila = input.closest('tr');
+            const ibc = parseFloat(input.value) || 0;
+            const valor = ibc * 0.125;
+            fila.querySelector('.valorPago').textContent = '$ ' + valor.toLocaleString('es-CO');
+        }
+
+        function calcularPension(input) {
+            const fila = input.closest('tr');
+            const ibc = parseFloat(input.value) || 0;
+            const valor = ibc * 0.16;
+            fila.querySelector('.valorPago').textContent = '$ ' + valor.toLocaleString('es-CO');
+        }
+
+        function actualizarTarifaARL() {
+            const select = document.getElementById('claseRiesgo');
+            const tarifa = select.value;
+            document.getElementById('tarifaARL').value = tarifa + '%';
+            document.getElementById('porcARL').textContent = tarifa + '%';
+            calcularARL();
+        }
+
+        function calcularARL() {
+            const ibc = parseFloat(document.getElementById('ibcARL').value) || 0;
+            const tarifa = parseFloat(document.getElementById('claseRiesgo').value) || 0.522;
+            const valor = ibc * (tarifa / 100);
+            document.getElementById('valorARL').textContent = '$ ' + valor.toLocaleString('es-CO');
+            document.getElementById('resumenARL').textContent = valor.toLocaleString('es-CO');
+        }
+
+        function calcularParafiscales() {
+            const nominaSENA = parseFloat(document.getElementById('nominaSENA').value) || 0;
+            const nominaICBF = parseFloat(document.getElementById('nominaICBF').value) || 0;
+            const nominaCaja = parseFloat(document.getElementById('nominaCaja').value) || 0;
+
+            const valorSENA = nominaSENA * 0.02;
+            const valorICBF = nominaICBF * 0.03;
+            const valorCaja = nominaCaja * 0.04;
+
+            document.getElementById('valorSENA').textContent = valorSENA.toLocaleString('es-CO');
+            document.getElementById('valorICBF').textContent = valorICBF.toLocaleString('es-CO');
+            document.getElementById('valorCaja').textContent = valorCaja.toLocaleString('es-CO');
+
+            document.getElementById('resumenSENA').textContent = valorSENA.toLocaleString('es-CO');
+            document.getElementById('resumenICBF').textContent = valorICBF.toLocaleString('es-CO');
+            document.getElementById('resumenCaja').textContent = valorCaja.toLocaleString('es-CO');
+        }
+
+        function agregarEPS() {
+            const tabla = document.getElementById('tablaSalud');
+            const nueva = tabla.rows[0].cloneNode(true);
+            nueva.querySelectorAll('input').forEach(i => i.value = '');
+            nueva.querySelector('.valorPago').textContent = '$ 0';
+            tabla.appendChild(nueva);
+        }
+
+        function agregarPension() {
+            const tabla = document.getElementById('tablaPension');
+            const nueva = tabla.rows[0].cloneNode(true);
+            nueva.querySelectorAll('input').forEach(i => i.value = '');
+            nueva.querySelector('.valorPago').textContent = '$ 0';
+            tabla.appendChild(nueva);
+        }
+    </script>
+</body>
+
+</html>

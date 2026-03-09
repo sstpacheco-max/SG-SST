@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Actos y Condiciones Inseguras</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Reporte de Actos y Condiciones Inseguras</div>
+                <div class="subtitulo-documento">Identificación y Control de Riesgos</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-35"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-advertencia">
+            <div><strong>⚠️ Reporte Inmediato:</strong> Es DEBER de todo trabajador reportar actos y condiciones
+                inseguras. Este reporte ayuda a prevenir accidentes y salva vidas.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👤 Datos de Quien Reporta</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nombre:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Cargo:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Área:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Extensión/Correo:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha del Reporte:</label><input type="date"
+                        class="auto-fecha campo-editable"></div>
+                <div class="campo-dato"><label>Hora:</label><input type="time" class="campo-editable"></div>
+            </div>
+
+            <div style="background: #e0f2fe; padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+                <label><input type="checkbox"> <strong>Deseo permanecer anónimo</strong></label><br>
+                <small>Si marca esta opción, su identidad no será revelada en las investigaciones.</small>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📍 Localización del Hallazgo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Sede/Planta:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Área Específica:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Ubicación Exacta:</label><input type="text" class="campo-editable"
+                        placeholder="Ej: Zona de producción, línea 2, lado izquierdo"></div>
+                <div class="campo-dato"><label>Fecha de Observación:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Hora:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Turno:</label>
+                    <select class="campo-editable">
+                        <option>Diurno</option>
+                        <option>Nocturno</option>
+                        <option>Mixto</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⚠️ Tipo de Hallazgo</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #dc2626;">
+                    <h4 style="color: #991b1b; margin-top: 0;">🚫 Acto Inseguro</h4>
+                    <label><input type="radio" name="tipoHallazgo" value="acto" onchange="mostrarFormulario('acto')"> Es
+                        un acto inseguro</label>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0 0 0;">Comportamiento o acción que puede causar un
+                        accidente</p>
+                </div>
+                <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b;">
+                    <h4 style="color: #92400e; margin-top: 0;">⚡ Condición Insegura</h4>
+                    <label><input type="radio" name="tipoHallazgo" value="condicion"
+                            onchange="mostrarFormulario('condicion')"> Es una condición insegura</label>
+                    <p style="font-size: 0.9rem; margin: 0.5rem 0 0 0;">Circunstancia física que puede causar un
+                        accidente</p>
+                </div>
+            </div>
+
+            <div id="formularioActo" style="display: none;">
+                <h4 style="color: #991b1b;">Descripción del Acto Inseguro:</h4>
+                <div style="background: #fee2e2; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                    <strong>Ejemplos de actos inseguros:</strong>
+                    <ul style="margin: 0.5rem 0 0 1.5rem; font-size: 0.9rem;">
+                        <li>No usar EPP requerido</li>
+                        <li>Operar equipos sin autorización</li>
+                        <li>Trabajar a velocidades peligrosas</li>
+                        <li>Desactivar dispositivos de seguridad</li>
+                        <li>Uso inadecuado de herramientas</li>
+                        <li>Adoptar posturas incorrectas</li>
+                    </ul>
+                </div>
+
+                <table class="tabla-formato">
+                    <tr>
+                        <td style="width: 200px;"><strong>Persona(s) involucrada(s):</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cargo/Función:</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Actividad que realizaba:</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>¿Estaba capacitado?:</strong></td>
+                        <td>
+                            <label><input type="radio" name="capacitado" value="si"> Sí</label>
+                            <label style="margin-left: 1rem;"><input type="radio" name="capacitado" value="no">
+                                No</label>
+                            <label style="margin-left: 1rem;"><input type="radio" name="capacitado" value="noSabe"> No
+                                sé</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="formularioCondicion" style="display: none;">
+                <h4 style="color: #92400e;">Descripción de la Condición Insegura:</h4>
+                <div style="background: #fef3c7; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                    <strong>Ejemplos de condiciones inseguras:</strong>
+                    <ul style="margin: 0.5rem 0 0 1.5rem; font-size: 0.9rem;">
+                        <li>Pisos resbaladizos o irregulares</li>
+                        <li>Iluminación deficiente</li>
+                        <li>Equipos sin guardas de seguridad</li>
+                        <li>Herramientas defectuosas</li>
+                        <li>Cables eléctricos expuestos</li>
+                        <li>Falta de señalización</li>
+                        <li>Orden y aseo deficiente</li>
+                        <li>Escaleras sin pasamanos</li>
+                    </ul>
+                </div>
+
+                <table class="tabla-formato">
+                    <tr>
+                        <td style="width: 200px;"><strong>Equipo/Máquina/Área:</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Código del Activo:</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Estado del elemento:</strong></td>
+                        <td>
+                            <label><input type="radio" name="estadoElemento" value="operativo"> Operativo con
+                                falla</label>
+                            <label style="margin-left: 1rem;"><input type="radio" name="estadoElemento"
+                                    value="inoperativo"> Inoperativo</label>
+                            <label style="margin-left: 1rem;"><input type="radio" name="estadoElemento"
+                                    value="deterioro"> En deterioro</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Descripción Detallada</h2>
+            <textarea rows="5" style="width:100%;"
+                placeholder="Describa con el mayor detalle posible lo observado. Sea específico: ¿Qué vio? ¿Cómo ocurrió? ¿Quién estaba involucrado? ¿Qué condiciones había?"></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Evaluación del Riesgo</h2>
+            <table class="tabla-formato">
+                <tr>
+                    <td style="width: 25%;"><strong>Probabilidad de Accidente:</strong></td>
+                    <td>
+                        <select id="probabilidad" onchange="evaluarRiesgo()" style="width: 100%;">
+                            <option value="">Seleccione...</option>
+                            <option value="1">Baja - Puede ocurrir eventualmente</option>
+                            <option value="2">Media - Puede ocurrir ocasionalmente</option>
+                            <option value="3">Alta - Ocurre frecuentemente</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Severidad del Daño Potencial:</strong></td>
+                    <td>
+                        <select id="severidad" onchange="evaluarRiesgo()" style="width: 100%;">
+                            <option value="">Seleccione...</option>
+                            <option value="1">Leve - Lesiones menores, primeros auxilios</option>
+                            <option value="2">Moderado - Lesiones con incapacidad temporal</option>
+                            <option value="3">Grave - Incapacidad permanente o muerte</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Nivel de Riesgo:</strong></td>
+                    <td id="nivelRiesgo" style="font-weight: 700; font-size: 1.1rem; padding: 1rem;">
+                        Seleccione probabilidad y severidad
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💡 Recomendaciones del Reportante</h2>
+            <textarea rows="4" style="width:100%;"
+                placeholder="Si tiene sugerencias de cómo corregir o prevenir esta situación, por favor descríbalas aquí (opcional)"></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📸 Evidencia Fotográfica</h2>
+            <input type="file" accept="image/*" multiple style="margin-bottom: 1rem;">
+            <div style="background: #f1f5f9; padding: 1rem; border-radius: 6px;">
+                <small>Se recomienda tomar fotografías que muestren claramente el acto o condición insegura. Puede
+                    adjuntar varias imágenes.</small>
+            </div>
+        </div>
+
+        <div class="seccion" style="border: 2px solid var(--color-primario); background: #f8fafc;">
+            <h2 class="seccion-titulo">✅ Seguimiento y Cierre (Solo para Responsable SST)</h2>
+
+            <table class="tabla-formato">
+                <tr>
+                    <td style="width: 25%;"><strong>Recibido por:</strong></td>
+                    <td><input type="text" style="width:100%;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Fecha de Recepción:</strong></td>
+                    <td><input type="date" style="width:200px;"></td>
+                </tr>
+                <tr>
+                    <td><strong>Estado del Reporte:</strong></td>
+                    <td>
+                        <select style="width:100%;">
+                            <option>Abierto - En revisión</option>
+                            <option>En proceso - Acción correctiva en curso</option>
+                            <option>Cerrado - Solucionado</option>
+                            <option>Cerrado - No procede</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Prioridad:</strong></td>
+                    <td>
+                        <select style="width:100%;">
+                            <option style="color: red;">Alta - Acción inmediata</option>
+                            <option style="color: orange;">Media - Max 7 días</option>
+                            <option style="color: green;">Baja - Max 30 días</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 1.5rem;">Acción Correctiva Implementada:</h4>
+            <textarea rows="4" style="width:100%;" placeholder="Describa las medidas correctivas tomadas..."></textarea>
+
+            <div class="grid-datos" style="margin-top: 1rem;">
+                <div class="campo-dato"><label>Responsable de la Acción:</label><input type="text"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha de Implementación:</label><input type="date"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha de Verificación:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Inversión Realizada:</label>$ <input type="number"
+                        class="campo-editable"></div>
+            </div>
+
+            <h4 style="color: var(--color-primario); margin-top: 1.5rem;">Verificación de Eficacia:</h4>
+            <label><input type="checkbox"> La acción correctiva fue efectiva y el riesgo se eliminó/controló</label><br>
+            <label><input type="checkbox"> Se requiere seguimiento adicional</label>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Reportante</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Responsable SG-SST</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Reporte enviado al Responsable SST')">📤 Enviar
+                Reporte</button>
+        </div>
+    </div>
+
+    <script>
+        function mostrarFormulario(tipo) {
+            document.getElementById('formularioActo').style.display = tipo === 'acto' ? 'block' : 'none';
+            document.getElementById('formularioCondicion').style.display = tipo === 'condicion' ? 'block' : 'none';
+        }
+
+        function evaluarRiesgo() {
+            const prob = parseInt(document.getElementById('probabilidad').value);
+            const sev = parseInt(document.getElementById('severidad').value);
+
+            if (!prob || !sev) return;
+
+            const valor = prob * sev;
+            const nivelDiv = document.getElementById('nivelRiesgo');
+
+            let nivel, color, accion;
+
+            if (valor <= 2) {
+                nivel = 'BAJO';
+                color = '#10b981';
+                accion = 'Mantener controles actuales';
+            } else if (valor <= 4) {
+                nivel = 'MEDIO';
+                color = '#f59e0b';
+                accion = 'Mejorar controles - Acción requerida';
+            } else {
+                nivel = 'ALTO/CRÍTICO';
+                color = '#dc2626';
+                accion = 'ACCIÓN INMEDIATA - Suspender actividad si es necesario';
+            }
+
+            nivelDiv.style.background = color;
+            nivelDiv.style.color = 'white';
+            nivelDiv.innerHTML = `<strong>${nivel}</strong><br><small>${accion}</small>`;
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

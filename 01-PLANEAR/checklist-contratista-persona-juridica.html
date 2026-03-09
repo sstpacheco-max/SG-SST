@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Chequeo Contratista Persona Jurídica</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Lista de Chequeo Contratista Persona Jurídica</div>
+                <div class="subtitulo-documento">Verificación de Requisitos SST y SG-SST</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-37"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>📋 Requisito Legal:</strong> Decreto 1072/2015. El contratista debe demostrar implementación y
+                cumplimiento de su SG-SST, y garantizar condiciones seguras para sus trabajadores.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🏢 Datos de la Empresa Contratista</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Razón Social:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>NIT:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Representante Legal:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Teléfono:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Correo Electrónico:</label><input type="email" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Dirección:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Actividad Económica:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Clase de Riesgo ARL:</label>
+                    <select class="campo-editable">
+                        <option>I - Mínimo</option>
+                        <option>II - Bajo</option>
+                        <option>III - Medio</option>
+                        <option>IV - Alto</option>
+                        <option>V - Máximo</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📄 Datos del Contrato</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Número de Contrato:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Objeto del Contrato:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Fecha de Inicio:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Fecha de Terminación:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Valor del Contrato:</label>$ <input type="number" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Supervisor del Contrato:</label><input type="text"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Personal del Contratista en Obra:</label><input type="number"
+                        class="campo-editable"> trabajadores</div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Verificación de Requisitos SST y SG-SST</h2>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 50%;">Requisito</th>
+                        <th style="width: 15%;">Cumple</th>
+                        <th style="width: 20%;">Fecha de Verificación</th>
+                        <th style="width: 15%;">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>1. DOCUMENTACIÓN LEGAL Y ADMINISTRATIVA</strong></td>
+                    </tr>
+                    <tr>
+                        <td>RUT actualizado (expedido en el último año)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Certificado de existencia y representación legal (no mayor a 90 días)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Copia de cédula del Representante Legal</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>2. SISTEMA DE GESTIÓN DE SST (SG-SST)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Política de Seguridad y Salud en el Trabajo firmada y vigente</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Plan Anual de Trabajo del SG-SST del año en curso</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Matriz de Identificación de Peligros y Evaluación de Riesgos actualizada</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Matriz de Requisitos Legales actualizada</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Autoevaluación Res. 0312/2019 del último año</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"><br><small>Puntaje: _____%</small></td>
+                    </tr>
+                    <tr>
+                        <td>Designación del Responsable del SG-SST con licencia vigente</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="Nombre y # licencia"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>3. AFILIACIÓN DE TRABAJADORES</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Planillas de pago de seguridad social (últimos 3 meses) - EPS, AFP, ARL</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Certificado de afiliación a ARL de todos los trabajadores</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>No registra mora en el pago de aportes parafiscales</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>4. MEDICINA PREVENTIVA Y DEL TRABAJO</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Exámenes médicos ocupacionales (ingreso, periódicos, retiro) actualizados</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Profesiograma o perfil de cargo con requisitos de salud</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Programa de Vigilancia Epidemiológica (PVE) si aplica</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>5. CAPACITACIÓN Y FORMACIÓN</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Programa de capacitación anual en SST</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Registros de inducción y reinducción del personal</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Certificados de capacitación en trabajos de alto riesgo:<br>
+                            <small>
+                                <label><input type="checkbox"> Trabajo en alturas</label> &nbsp;
+                                <label><input type="checkbox"> Espacios confinados</label> &nbsp;
+                                <label><input type="checkbox"> Eléctrico</label> &nbsp;
+                                <label><input type="checkbox"> Químicos</label> &nbsp;
+                                <label><input type="checkbox"> Operación de equipos</label>
+                            </small>
+                        </td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Personal capacitado como brigadista de emergencias</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>6. PREPARACIÓN Y RESPUESTA ANTE EMERGENCIAS</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Plan de Emergencias y Contingencias</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Brigada de emergencias conformada y capacitada</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Equipos de emergencia (extintores, botiquín, camillas, etc.)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>7. PÓLIZAS Y SEGUROS</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Póliza de Responsabilidad Civil Extracontractual vigente</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;" placeholder="# póliza y aseguradora"></td>
+                    </tr>
+                    <tr>
+                        <td>Póliza TODO RIESGO para equipos y maquinaria (si aplica)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>8. COMITÉS Y COMISIONES</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Acta de conformación del COPASST (si aplica: ≥10 trabajadores)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Actas de reunión del COPASST últ imos 6 meses</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Comité de Convivencia Laboral (si aplica: ≥10 trabajadores)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>9. INVESTIGACIÓN DE INCIDENTES Y ACCIDENTES</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Procedimiento de investigación de accidentes e incidentes</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Registro de accidentalidad del último año</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Indicadores de SST (IFI, ILI, ISI, IAI)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+
+                    <tr style="background: #f1f5f9;">
+                        <td colspan="4"><strong>10. EQUIPOS, HERRAMIENTAS Y EPP</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Certificado de inspección de equipos críticos (grúas, andamios, etc.)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Certificado de calidad de EPP (certificaciones NTC, ANSI, etc.)</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                    <tr>
+                        <td>Programa de mantenimiento preventivo de equipos</td>
+                        <td style="text-align:center;"><input type="checkbox" class="check-req"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Resultado de la Evaluación</h2>
+            <div style="background: #f1f5f9; padding: 2rem; border-radius: 8px;">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <div style="font-size: 3rem; font-weight: 700; color: var(--color-primario);">
+                        <span id="porcentajeCumplimiento">0%</span>
+                    </div>
+                    <div style="font-size: 1.2rem; color: #64748b;">Cumplimiento de Requisitos</div>
+                </div>
+
+                <div id="resultadoFinal"
+                    style="padding: 1.5rem; border-radius: 6px; text-align: center; font-weight: 600; font-size: 1.1rem;">
+                    Marque los requisitos cumplidos para ver el resultado
+                </div>
+
+                <button class="btn btn-secundario" onclick="calcularCumplimiento()"
+                    style="width: 100%; margin-top: 1rem;">🔄 Calcular Cumplimiento</button>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones y Plan de Mejora</h2>
+            <textarea rows="4" style="width:100%;"
+                placeholder="Documentos faltantes, plazos de entrega, compromisos de mejora, etc."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Representante Legal Contratista</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Supervisor del Contrato / Responsable SST</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Lista de chequeo guardada')">💾 Guardar</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularCumplimiento() {
+            const checks = document.querySelectorAll('.check-req');
+            const total = checks.length;
+            let cumplidos = 0;
+
+            checks.forEach(check => {
+                if (check.checked) cumplidos++;
+            });
+
+            const porcentaje = ((cumplidos / total) * 100).toFixed(0);
+            document.getElementById('porcentajeCumplimiento').textContent = porcentaje + '%';
+
+            const resultadoDiv = document.getElementById('resultadoFinal');
+
+            if (porcentaje >= 85) {
+                resultadoDiv.style.background = '#dcfce7';
+                resultadoDiv.style.color = '#166534';
+                resultadoDiv.textContent = '✓ APROBADO - SG-SST cumple requisitos mínimos';
+            } else if (porcentaje >= 60) {
+                resultadoDiv.style.background = '#fef3c7';
+                resultadoDiv.style.color = '#92400e';
+                resultadoDiv.textContent = '⚠ CONDICIONAL - Presentar plan de mejora';
+            } else {
+                resultadoDiv.style.background = '#fee2e2';
+                resultadoDiv.style.color = '#991b1b';
+                resultadoDiv.textContent = '✗ NO APROBADO - Deficiencias críticas en SG-SST';
+            }
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

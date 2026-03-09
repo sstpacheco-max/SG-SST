@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acta de Reunión SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Acta de Reunión</div>
+                <div class="subtitulo-documento">Seguimiento de Actividades del SG-SST</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-39"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Acta #:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información de la Reunión</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Tipo de Reunión:</label>
+                    <select class="campo-editable">
+                        <option>COPASST</option>
+                        <option>Comité de Convivencia</option>
+                        <option>Brigada de Emergencias</option>
+                        <option>Seg uimiento SG-SST</option>
+                        <option>Alta Dirección</option>
+                        <option>Otra</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Fecha:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora Inicio:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora Fin:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Lugar:</label><input type="text" class="campo-editable"></div>
+                <div class="campo-dato"><label>Convoca:</label><input type="text" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">👥 Participantes</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Nombre</th>
+                        <th style="width: 25%;">Cargo</th>
+                        <th style="width: 20%;">Área</th>
+                        <th style="width: 20%;">Firma</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaParticipantes">
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td style="background: #f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td style="background: #f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td style="background: #f8fafc;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarParticipante()">+ Agregar Participante</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📌 Orden del Día</h2>
+            <ol id="ordenDia" style="line-height: 2;">
+                <li><input type="text" style="width:95%; border:none; border-bottom: 1px solid #e2e8f0;"
+                        placeholder="Tema 1"></li>
+                <li><input type="text" style="width:95%; border:none; border-bottom: 1px solid #e2e8f0;"
+                        placeholder="Tema 2"></li>
+                <li><input type="text" style="width:95%; border:none; border-bottom: 1px solid #e2e8f0;"
+                        placeholder="Tema 3"></li>
+            </ol>
+            <button class="btn btn-secundario" onclick="agregarTema()" style="margin-top: 0.5rem;">+ Agregar
+                Tema</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Desarrollo de la Reunión</h2>
+            <textarea rows="8" style="width:100%;" placeholder="Resumen detallado de lo tratado en la reunión. Incluya:
+- Temas discutidos
+- Intervenciones relevantes
+- Decisiones tomadas
+- Situaciones identificadas
+- Propuestas presentadas"></textarea>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📊 Seguimiento de Compromisos Anteriores</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 25%;">Compromiso</th>
+                        <th style="width: 15%;">Responsable</th>
+                        <th style="width: 12%;">Fecha Límite</th>
+                        <th style="width: 12%;">Estado</th>
+                        <th style="width: 8%;">% Avance</th>
+                        <th style="width: 28%;">Observaciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaSeguimiento">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Completar matriz IPER"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option style="color: orange;">Pendiente</option>
+                                <option style="color: blue;">En proceso</option>
+                                <option style="color: green;">Completado</option>
+                                <option style="color: red;">Vencido</option>
+                            </select>
+                        </td>
+                        <td><input type="number" min="0" max="100" style="width:60px;"> %</td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarSeguimiento()">+ Agregar Seguimiento</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✅ Compromisos y Tareas Nuevas</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th style="width: 30%;">Compromiso/Tarea</th>
+                        <th style="width: 20%;">Responsable</th>
+                        <th style="width: 15%;">Fecha Límite</th>
+                        <th style="width: 15%;">Prioridad</th>
+                        <th style="width: 20%;">Recursos Necesarios</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCompromisos">
+                    <tr>
+                        <td><input type="text" style="width:100%;"
+                                placeholder="Ejemplo: Realizar inspección de extintores"></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td>
+                            <select style="width:100%;">
+                                <option style="color: red;">Alta</option>
+                                <option style="color: orange;">Media</option>
+                                <option style="color: green;">Baja</option>
+                            </select>
+                        </td>
+                        <td><input type="text" style="width:100%;"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarCompromiso()">+ Agregar Compromiso</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📌 Conclusiones</h2>
+            <ul id="listaConclusiones" style="list-style: none; padding: 0;">
+                <li style="margin-bottom: 0.5rem;">•&nbsp;<input type="text"
+                        style="width:95%; border:none; border-bottom: 1px solid #e2e8f0;" placeholder="Conclusión 1">
+                </li>
+                <li style="margin-bottom: 0.5rem;">•&nbsp;<input type="text"
+                        style="width:95%; border:none; border-bottom: 1px solid #e2e8f0;" placeholder="Conclusión 2">
+                </li>
+            </ul>
+            <button class="btn btn-secundario" onclick="agregarConclusion()" style="margin-top: 0.5rem;">+ Agregar
+                Conclusión</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📅 Próxima Reunión</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Fecha Propuesta:</label><input type="date" class="campo-editable"></div>
+                <div class="campo-dato"><label>Hora:</label><input type="time" class="campo-editable"></div>
+                <div class="campo-dato"><label>Lugar:</label><input type="text" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Observaciones Generales</h2>
+            <textarea rows="3" style="width:100%;"
+                placeholder="Comentarios adicionales, incidentes, sugerencias..."></textarea>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Quien Preside / Convoca</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Secretario / Quien Redacta</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Acta guardada')">💾 Guardar Acta</button>
+            <button class="btn btn-secundario" onclick="alert('📧 Enviar por correo')">📧 Enviar a
+                Participantes</button>
+        </div>
+    </div>
+
+    <script>
+        function agregarParticipante() {
+            const tabla = document.getElementById('tablaParticipantes');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarTema() {
+            const lista = document.getElementById('ordenDia');
+            const numero = lista.children.length + 1;
+            const nuevoItem = document.createElement('li');
+            nuevoItem.innerHTML = `<input type="text" style="width:95%; border:none; border-bottom: 1px solid #e2e8f0;" placeholder="Tema ${numero}">`;
+            lista.appendChild(nuevoItem);
+        }
+
+        function agregarSeguimiento() {
+            const tabla = document.getElementById('tablaSeguimiento');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input[type="text"], input[type="date"], input[type="number"]').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarCompromiso() {
+            const tabla = document.getElementById('tablaCompromisos');
+            const nuevaFila = tabla.rows[0].cloneNode(true);
+            nuevaFila.querySelectorAll('input').forEach(input => input.value = '');
+            tabla.appendChild(nuevaFila);
+        }
+
+        function agregarConclusion() {
+            const lista = document.getElementById('listaConclusiones');
+            const nuevoItem = document.createElement('li');
+            nuevoItem.style.marginBottom = '0.5rem';
+            nuevoItem.innerHTML = '•&nbsp;<input type="text" style="width:95%; border:none; border-bottom: 1px solid #e2e8f0;" placeholder="Nueva conclusión">';
+            lista.appendChild(nuevoItem);
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

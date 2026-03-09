@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Responsable del SG-SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Perfil del Responsable del SG-SST</div>
+                <div class="subtitulo-documento">Requisitos y Competencias - Res. 0312/2019</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-30"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Fecha:</label><input type="date" class="auto-fecha campo-editable">
+                </div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>👤 Perfil Obligatorio:</strong> La empresa debe designar un responsable del SG-SST con licencia
+                vigente en Seguridad y Salud en el Trabajo según la Res. 0312/2019 y Res. 4927/2016.</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información del Cargo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Nombre del Cargo:</label><input type="text" class="campo-editable"
+                        value="Responsable del SG-SST"></div>
+                <div class="campo-dato"><label>Área:</label><input type="text" class="campo-editable"
+                        placeholder="RRHH / SST / Gerencia"></div>
+                <div class="campo-dato"><label>Reporta a:</label><input type="text" class="campo-editable"
+                        placeholder="Gerente General"></div>
+                <div class="campo-dato"><label>Número de trabajadores a su cargo:</label><input type="number"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Tipo de vinculación:</label>
+                    <select class="campo-editable">
+                        <option>Tiempo completo</option>
+                        <option>Medio tiempo</option>
+                        <option>Tiempo parcial</option>
+                        <option>Por horas</option>
+                        <option>Contrato de prestación de servicios</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Horario:</label><input type="text" class="campo-editable"
+                        placeholder="Lun-Vie 8:00-17:00"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🎓 Formación Académica Requerida</h2>
+
+            <div style="background: #fef3c7; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                <strong style="color: #92400e;">📌 Requisitos Legales (Res. 4927/2016):</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li><strong>Técnico o Tecnólogo en SST:</strong> Mínimo 2 años de experiencia</li>
+                    <li><strong>Profesional con posgrado en SST:</strong> Especialización o Maestría</li>
+                    <li><strong>Profesional con licencia en SST:</strong> Licencia vigente</li>
+                </ul>
+            </div>
+
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Nivel de Formación</th>
+                        <th>Título/Especialidad</th>
+                        <th>Requerido</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Profesional Universitario</td>
+                        <td><input type="text" style="width:100%;" placeholder="Ingeniería, Administración, etc."></td>
+                        <td style="text-align:center;"><input type="radio" name="nivelForm" value="profesional"></td>
+                    </tr>
+                    <tr>
+                        <td>Tecnólogo en SST</td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="radio" name="nivelForm" value="tecnologo"></td>
+                    </tr>
+                    <tr>
+                        <td>Técnico en SST</td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td style="text-align:center;"><input type="radio" name="nivelForm" value="tecnico"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="color: var(--color-primario); margin-top: 1.5rem;">Posgrados en SST</h4>
+            <div class="grid-datos">
+                <div class="campo-dato">
+                    <label><input type="checkbox"> Especialización en SST</label>
+                    <input type="text" class="campo-editable" placeholder="Nombre de la institución">
+                </div>
+                <div class="campo-dato">
+                    <label><input type="checkbox"> Maestría en SST</label>
+                    <input type="text" class="campo-editable" placeholder="Nombre de la institución">
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📜 Licencia en Seguridad y Salud en el Trabajo</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>¿Cuenta con Licencia SST vigente?:</label>
+                    <select class="campo-editable" id="licenciaSi">
+                        <option>Sí</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Número de Licencia:</label><input type="text" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Fecha de Expedición:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Fecha de Vencimiento:</label><input type="date" class="campo-editable">
+                </div>
+                <div class="campo-dato"><label>Entidad que expide:</label><input type="text" class="campo-editable"
+                        placeholder="Secretaría de Salud"></div>
+                <div class="campo-dato"><label>Estado:</label>
+                    <select class="campo-editable">
+                        <option style="color: green;">Vigente</option>
+                        <option style="color: orange;">Próxima a vencer</option>
+                        <option style="color: red;">Vencida</option>
+                        <option>En trámite</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💼 Experiencia Requerida</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Experiencia</th>
+                        <th>Años Mínimos</th>
+                        <th>Deseable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gestión de Sistemas de SST</td>
+                        <td style="text-align:center;">2 años</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Identificación y control de peligros</td>
+                        <td style="text-align:center;">1 año</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Investigación de accidentes</td>
+                        <td style="text-align:center;">1 año</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Auditorías de SST</td>
+                        <td style="text-align:center;">1 año</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>Gestión de emergencias</td>
+                        <td style="text-align:center;">1 año</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🎯 Competencias Específicas</h2>
+
+            <h4 style="color: var(--color-primario);">Conocimientos Técnicos</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <label><input type="checkbox"> Normatividad SST colombiana</label>
+                <label><input type="checkbox"> Metodologías de evaluación de riesgos</label>
+                <label><input type="checkbox"> Higiene ocupacional</label>
+                <label><input type="checkbox"> Ergonomía y factores humanos</label>
+                <label><input type="checkbox"> Gestión de riesgo psicosocial</label>
+                <label><input type="checkbox"> Planes de emergencia</label>
+                <label><input type="checkbox"> Sistemas de gestión ISO 45001</label>
+                <label><input type="checkbox"> Estadísticas e indicadores SST</label>
+            </div>
+
+            <h4 style="color: var(--color-primario);">Habilidades Blandas</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <label><input type="checkbox"> Liderazgo</label>
+                <label><input type="checkbox"> Comunicación efectiva</label>
+                <label><input type="checkbox"> Trabajo en equipo</label>
+                <label><input type="checkbox"> Capacidad de negociación</label>
+                <label><input type="checkbox"> Pensamiento analítico</label>
+                <label><input type="checkbox"> Orientación a resultados</label>
+            </div>
+
+            <h4 style="color: var(--color-primario);">Competencias Tecnológicas</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                <label><input type="checkbox"> Microsoft Office avanzado</label>
+                <label><input type="checkbox"> Software de gestión SST</label>
+                <label><input type="checkbox"> Manejo de bases de datos</label>
+                <label><input type="checkbox"> Herramientas de presentación</label>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📝 Funciones y Responsabilidades</h2>
+            <ol style="margin-left: 1.5rem; line-height: 1.8;">
+                <li>Planificar, organizar, dirigir, desarrollar y controlar el SG-SST</li>
+                <li>Reportar a la alta dirección sobre el funcionamiento y resultados del sistema</li>
+                <li>Promover la participación de todos los trabajadores</li>
+                <li>Conservar la documentación del SG-SST por 20 años</li>
+                <li>Gestionar los peligros y riesgos de la empresa</li>
+                <li>Dirigir la investigación de incidentes, accidentes y enfermedades laborales</li>
+                <li>Interactuar con la ARL y demás administradoras</li>
+                <li>Implementar programas de vigilancia epidemiológica</li>
+                <li>Coordinar y ejecutar el plan de capacitaciones</li>
+                <li>Realizar el reporte de AT y EL ante la ARL y Ministerio del Trabajo</li>
+            </ol>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⏰ Disponibilidad de Tiempo</h2>
+
+            <div style="background: #e0f2fe; padding: 1.5rem; border-radius: 8px;">
+                <strong>Según Res. 0312/2019, la dedicación mínima es:</strong>
+                <table class="tabla-formato" style="margin-top: 1rem;">
+                    <thead>
+                        <tr>
+                            <th>Número de Trabajadores</th>
+                            <th>Dedicación Mínima</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Menos de 10 trabajadores</td>
+                            <td>Mínimo 2 horas semanales</td>
+                        </tr>
+                        <tr>
+                            <td>10 a 50 trabajadores</td>
+                            <td>Tiempo parcial o contrato</td>
+                        </tr>
+                        <tr>
+                            <td>Más de 50 trabajadores</td>
+                            <td>Tiempo completo exclusivo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="seccion-firmas" style="margin-top: 3rem;">
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Jefe de RRHH / Responsable de Selección</div>
+            </div>
+            <div class="firma-campo">
+                <div class="firma-linea"></div>
+                <div class="firma-nombre"><input type="text" placeholder="Nombre"
+                        style="border: none; text-align: center; font-weight: 600;"></div>
+                <div class="firma-cargo">Gerente General</div>
+            </div>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Perfil guardado')">💾 Guardar Perfil</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>

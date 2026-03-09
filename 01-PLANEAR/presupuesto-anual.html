@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto Anual del SG-SST</title>
+    <link rel="stylesheet" href="../css/estilos-formatos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="contenedor-formato">
+        <div style="margin-bottom: 1rem;">
+            <a href="../index.html" class="btn btn-outline">← Volver al Inicio</a>
+        </div>
+
+        <div class="encabezado-corporativo">
+            <div class="logo-empresa">
+                <div class="logo-placeholder">LOGO<br>EMPRESA</div>
+            </div>
+            <div class="info-documento">
+                <div class="titulo-documento">Presupuesto Anual del SG-SST</div>
+                <div class="subtitulo-documento">Elaboración, Revisión y Aprobación</div>
+            </div>
+            <div class="datos-control">
+                <div class="campo-control"><label>Código:</label><input type="text" value="FO-SST-31"
+                        class="campo-editable"></div>
+                <div class="campo-control"><label>Vigencia:</label><input type="text" class="campo-editable"
+                        value="2025"></div>
+                <div class="campo-control"><label>Versión:</label><input type="text" value="1.0" class="campo-editable">
+                </div>
+            </div>
+        </div>
+
+        <div class="alerta alerta-info">
+            <div><strong>💰 Presupuesto SST:</strong> Documento que establece los recursos financieros, técnicos y
+                humanos necesarios para implementar el SG-SST. La alta dirección DEBE garantizar estos recursos (Res.
+                0312/2019).</div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📋 Información General</h2>
+            <div class="grid-datos">
+                <div class="campo-dato"><label>Año Fiscal:</label><input type="text" class="campo-editable"
+                        value="2025"></div>
+                <div class="campo-dato"><label>Número de Trabajadores:</label><input type="number"
+                        class="campo-editable"></div>
+                <div class="campo-dato"><label>Clase de Riesgo ARL:</label>
+                    <select class="campo-editable">
+                        <option>I - Riesgo Mínimo</option>
+                        <option>II - Riesgo Bajo</option>
+                        <option>III - Riesgo Medio</option>
+                        <option>IV - Riesgo Alto</option>
+                        <option>V - Riesgo Máximo</option>
+                    </select>
+                </div>
+                <div class="campo-dato"><label>Presupuesto Total Empresa:</label>$ <input type="number"
+                        class="campo-editable" placeholder="1000000000"></div>
+                <div class="campo-dato"><label>% SST del Total:</label><input type="number" step="0.1"
+                        class="campo-editable"> %</div>
+                <div class="campo-dato"><label>Elaborado por:</label><input type="text" class="campo-editable"></div>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💼 Recursos Humanos</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Cargo/Rol</th>
+                        <th>Dedicación</th>
+                        <th>Salario Mensual</th>
+                        <th>Prestaciones (40%)</th>
+                        <th>Costo Anual</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaRRHH">
+                    <tr>
+                        <td><input type="text" style="width:100%;" value="Responsable SG-SST"></td>
+                        <td><select style="width:100%;">
+                                <option>Tiempo completo</option>
+                                <option>Medio tiempo</option>
+                                <option>Parcial</option>
+                            </select></td>
+                        <td>$ <input type="number" style="width:120px;" class="salario"
+                                onchange="calcularCostoRRHH(this)"></td>
+                        <td class="prestaciones">$ 0</td>
+                        <td class="costoAnual">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Brigadistas (dedicación parcial)"></td>
+                        <td><select style="width:100%;">
+                                <option>Tiempo completo</option>
+                                <option>Medio tiempo</option>
+                                <option>Parcial</option>
+                            </select></td>
+                        <td>$ <input type="number" style="width:120px;" class="salario"
+                                onchange="calcularCostoRRHH(this)"></td>
+                        <td class="prestaciones">$ 0</td>
+                        <td class="costoAnual">$ 0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td colspan="4"><strong>SUBTOTAL RECURSOS HUMANOS</strong></td>
+                        <td><strong>$ <span id="totalRRHH">0</span></strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarRecursoHumano()">+ Agregar Recurso</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">📚 Capacitación y Formación</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Tema/Programa</th>
+                        <th>#Participantes</th>
+                        <th>Costo Unitario</th>
+                        <th>Frecuencia/Año</th>
+                        <th>Costo Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaCapacitacion">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Trabajo en alturas"></td>
+                        <td><input type="number" style="width:80px;" class="participantes"
+                                onchange="calcularCapacitacion(this)"></td>
+                        <td>$ <input type="number" style="width:100px;" class="costoUnit"
+                                onchange="calcularCapacitacion(this)"></td>
+                        <td><input type="number" style="width:60px;" class="frecuencia" value="1"
+                                onchange="calcularCapacitacion(this)"></td>
+                        <td class="totalCap">$ 0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td colspan="4"><strong>SUBTOTAL CAPACITACIÓN</strong></td>
+                        <td><strong>$ <span id="totalCapacitacion">0</span></strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarCapacitacion()">+ Agregar Capacitación</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">⚕️ Medicina Preventiva y del Trabajo</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Cantidad</th>
+                        <th>Costo Unitario</th>
+                        <th>Costo Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaMedica">
+                    <tr>
+                        <td>Exámenes médicos de ingreso</td>
+                        <td><input type="number" style="width:80px;" class="cantMed" onchange="calcularMedica(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:100px;" class="costoMed"
+                                onchange="calcularMedica(this)"></td>
+                        <td class="totalMed">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Exámenes médicos periódicos</td>
+                        <td><input type="number" style="width:80px;" class="cantMed" onchange="calcularMedica(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:100px;" class="costoMed"
+                                onchange="calcularMedica(this)"></td>
+                        <td class="totalMed">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Exámenes médicos de retiro</td>
+                        <td><input type="number" style="width:80px;" class="cantMed" onchange="calcularMedica(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:100px;" class="costoMed"
+                                onchange="calcularMedica(this)"></td>
+                        <td class="totalMed">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Valoraciones especializadas</td>
+                        <td><input type="number" style="width:80px;" class="cantMed" onchange="calcularMedica(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:100px;" class="costoMed"
+                                onchange="calcularMedica(this)"></td>
+                        <td class="totalMed">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td>Vacunación (según riesgo)</td>
+                        <td><input type="number" style="width:80px;" class="cantMed" onchange="calcularMedica(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:100px;" class="costoMed"
+                                onchange="calcularMedica(this)"></td>
+                        <td class="totalMed">$ 0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td colspan="3"><strong>SUBTOTAL MEDICINA</strong></td>
+                        <td><strong>$ <span id="totalMedica">0</span></strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarMedica()">+ Agregar Actividad</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🦺 Elementos de Protección Personal (EPP)</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>EPP</th>
+                        <th>Cantidad</th>
+                        <th>Costo Unitario</th>
+                        <th>Reposición/Año</th>
+                        <th>Costo Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEPP">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Cascos"></td>
+                        <td><input type="number" style="width:80px;" class="cantEPP" onchange="calcularEPP(this)"></td>
+                        <td>$ <input type="number" style="width:100px;" class="costoEPP" onchange="calcularEPP(this)">
+                        </td>
+                        <td><input type="number" style="width:60px;" class="repoEPP" value="1"
+                                onchange="calcularEPP(this)"></td>
+                        <td class="totalEPP">$ 0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td colspan="4"><strong>SUBTOTAL EPP</strong></td>
+                        <td><strong>$ <span id="totalEPP">0</span></strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarEPP()">+ Agregar EPP</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🚨 Preparación y Respuesta ante Emergencias</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Recurso/Actividad</th>
+                        <th>Cantidad</th>
+                        <th>Costo Unitario</th>
+                        <th>Costo Total</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEmergencia">
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Extintores (compra/recarga)"></td>
+                        <td><input type="number" style="width:80px;" class="cantEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td>$ <input type="number" style="width:100px;" class="costoEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td class="totalEmer">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Botiquines y reposición"></td>
+                        <td><input type="number" style="width:80px;" class="cantEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td>$ <input type="number" style="width:100px;" class="costoEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td class="totalEmer">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Camillas, inmovilizadores"></td>
+                        <td><input type="number" style="width:80px;" class="cantEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td>$ <input type="number" style="width:100px;" class="costoEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td class="totalEmer">$ 0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" style="width:100%;" placeholder="Señalización de emergencia"></td>
+                        <td><input type="number" style="width:80px;" class="cantEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td>$ <input type="number" style="width:100px;" class="costoEmer"
+                                onchange="calcularEmergencia(this)"></td>
+                        <td class="totalEmer">$ 0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td colspan="3"><strong>SUBTOTAL EMERGENCIAS</strong></td>
+                        <td><strong>$ <span id="totalEmergencia">0</span></strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <button class="btn btn-secundario" onclick="agregarEmergencia()">+ Agregar Recurso</button>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">🔬 Higiene Ocupacional</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Medición/Estudio</th>
+                        <th>Cantidad</th>
+                        <th>Costo</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaHigiene">
+                    <tr>
+                        <td>Medición de ruido</td>
+                        <td><input type="number" style="width:80px;" class="cantHig" onchange="calcularHigiene(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="costoHig"
+                                onchange="calcularHigiene(this)"></td>
+                    </tr>
+                    <tr>
+                        <td>Medición de iluminación</td>
+                        <td><input type="number" style="width:80px;" class="cantHig" onchange="calcularHigiene(this)">
+                        </td>
+                        <td>$ <input type="number" style="width:120px;" class="costoHig"
+                                onchange="calcularHigiene(this)"></td>
+                    </tr>
+                    <tr>
+                        <td>Estudio de riesgo psicosocial</td>
+                        <td><input type="number" style="width:80px;" class="cantHig" value="1"
+                                onchange="calcularHigiene(this)"></td>
+                        <td>$ <input type="number" style="width:120px;" class="costoHig"
+                                onchange="calcularHigiene(this)"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr style="background: #f1f5f9; font-weight: 600;">
+                        <td colspan="2"><strong>SUBTOTAL HIGIENE</strong></td>
+                        <td><strong>$ <span id="totalHigiene">0</span></strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">💰 RESUMEN PRESUPUESTAL</h2>
+            <table class="tabla-formato" style="font-size: 1rem;">
+                <thead>
+                    <tr style="background: var(--color-primario); color: white;">
+                        <th>Categoría</th>
+                        <th>Presupuesto Anual</th>
+                        <th>% del Total SST</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Recursos Humanos</strong></td>
+                        <td>$ <span id="resumenRRHH">0</span></td>
+                        <td id="porcRRHH">0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Capacitación</strong></td>
+                        <td>$ <span id="resumenCap">0</span></td>
+                        <td id="porcCap">0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Medicina Preventiva</strong></td>
+                        <td>$ <span id="resumenMed">0</span></td>
+                        <td id="porcMed">0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>EPP</strong></td>
+                        <td>$ <span id="resumenEPP">0</span></td>
+                        <td id="porcEPP">0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Emergencias</strong></td>
+                        <td>$ <span id="resumenEmer">0</span></td>
+                        <td id="porcEmer">0%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Higiene Ocupacional</strong></td>
+                        <td>$ <span id="resumenHig">0</span></td>
+                        <td id="porcHig">0%</td>
+                    </tr>
+                    <tr style="background: #dcfce7; font-weight: 700; font-size: 1.1rem;">
+                        <td><strong>PRESUPUESTO TOTAL SG-SST</strong></td>
+                        <td><strong>$ <span id="presupuestoTotal">0</span></strong></td>
+                        <td><strong>100%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="seccion">
+            <h2 class="seccion-titulo">✍️ Aprobaciones</h2>
+            <table class="tabla-formato">
+                <thead>
+                    <tr>
+                        <th>Rol</th>
+                        <th>Nombre</th>
+                        <th>Acción</th>
+                        <th>Fecha</th>
+                        <th>Firma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Elaboró</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>Responsable SG-SST</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="background: #f8fafc;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Revisó</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>Gerente Administrativo/Financiero</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="background: #f8fafc;"></td>
+                    </tr>
+                    <tr style="background: #dcfce7;">
+                        <td><strong>Aprobó</strong></td>
+                        <td><input type="text" style="width:100%;"></td>
+                        <td>Gerente General / Rep. Legal</td>
+                        <td><input type="date" style="width:100%;"></td>
+                        <td style="background: #f8fafc;"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="botones-accion">
+            <button class="btn btn-outline" onclick="window.print()">🖨️ Imprimir / PDF</button>
+            <button class="btn btn-primario" onclick="alert('✅ Presupuesto guardado')">💾 Guardar Presupuesto</button>
+            <button class="btn btn-secundario" onclick="exportarExcel()">📊 Exportar Excel</button>
+        </div>
+    </div>
+
+    <script>
+        function calcularCostoRRHH(input) {
+            const fila = input.closest('tr');
+            const salario = parseFloat(fila.querySelector('.salario').value) || 0;
+            const prestaciones = salario * 0.4;
+            const costoAnual = (salario + prestaciones) * 12;
+
+            fila.querySelector('.prestaciones').textContent = '$ ' + prestaciones.toLocaleString('es-CO');
+            fila.querySelector('.costoAnual').textContent = '$ ' + costoAnual.toLocaleString('es-CO');
+
+            actualizarTotales();
+        }
+
+        function calcularCapacitacion(input) {
+            const fila = input.closest('tr');
+            const participantes = parseFloat(fila.querySelector('.participantes').value) || 0;
+            const costoUnit = parseFloat(fila.querySelector('.costoUnit').value) || 0;
+            const frecuencia = parseFloat(fila.querySelector('.frecuencia').value) || 1;
+            const total = participantes * costoUnit * frecuencia;
+
+            fila.querySelector('.totalCap').textContent = '$ ' + total.toLocaleString('es-CO');
+            actualizarTotales();
+        }
+
+        function calcularMedica(input) {
+            const fila = input.closest('tr');
+            const cant = parseFloat(fila.querySelector('.cantMed').value) || 0;
+            const costo = parseFloat(fila.querySelector('.costoMed').value) || 0;
+            const total = cant * costo;
+
+            fila.querySelector('.totalMed').textContent = '$ ' + total.toLocaleString('es-CO');
+            actualizarTotales();
+        }
+
+        function calcularEPP(input) {
+            const fila = input.closest('tr');
+            const cant = parseFloat(fila.querySelector('.cantEPP').value) || 0;
+            const costo = parseFloat(fila.querySelector('.costoEPP').value) || 0;
+            const repo = parseFloat(fila.querySelector('.repoEPP').value) || 1;
+            const total = cant * costo * repo;
+
+            fila.querySelector('.totalEPP').textContent = '$ ' + total.toLocaleString('es-CO');
+            actualizarTotales();
+        }
+
+        function calcularEmergencia(input) {
+            const fila = input.closest('tr');
+            const cant = parseFloat(fila.querySelector('.cantEmer').value) || 0;
+            const costo = parseFloat(fila.querySelector('.costoEmer').value) || 0;
+            const total = cant * costo;
+
+            fila.querySelector('.totalEmer').textContent = '$ ' + total.toLocaleString('es-CO');
+            actualizarTotales();
+        }
+
+        function calcularHigiene(input) {
+            const fila = input.closest('tr');
+            const cant = parseFloat(fila.querySelector('.cantHig').value) || 0;
+            const costo = parseFloat(fila.querySelector('.costoHig').value) || 0;
+            actualizarTotales();
+        }
+
+        function actualizarTotales() {
+            // RRHH
+            let totalRRHH = 0;
+            document.querySelectorAll('#tablaRRHH .costoAnual').forEach(cell => {
+                const valor = cell.textContent.replace(/[^0-9]/g, '');
+                totalRRHH += parseFloat(valor) || 0;
+            });
+            document.getElementById('totalRRHH').textContent = totalRRHH.toLocaleString('es-CO');
+            document.getElementById('resumenRRHH').textContent = totalRRHH.toLocaleString('es-CO');
+
+            // Capacitación
+            let totalCap = 0;
+            document.querySelectorAll('#tablaCapacitacion .totalCap').forEach(cell => {
+                const valor = cell.textContent.replace(/[^0-9]/g, '');
+                totalCap += parseFloat(valor) || 0;
+            });
+            document.getElementById('totalCapacitacion').textContent = totalCap.toLocaleString('es-CO');
+            document.getElementById('resumenCap').textContent = totalCap.toLocaleString('es-CO');
+
+            // Medicina
+            let totalMed = 0;
+            document.querySelectorAll('#tablaMedica .totalMed').forEach(cell => {
+                const valor = cell.textContent.replace(/[^0-9]/g, '');
+                totalMed += parseFloat(valor) || 0;
+            });
+            document.getElementById('totalMedica').textContent = totalMed.toLocaleString('es-CO');
+            document.getElementById('resumenMed').textContent = totalMed.toLocaleString('es-CO');
+
+            // EPP
+            let totalEPP = 0;
+            document.querySelectorAll('#tablaEPP .totalEPP').forEach(cell => {
+                const valor = cell.textContent.replace(/[^0-9]/g, '');
+                totalEPP += parseFloat(valor) || 0;
+            });
+            document.getElementById('totalEPP').textContent = totalEPP.toLocaleString('es-CO');
+            document.getElementById('resumenEPP').textContent = totalEPP.toLocaleString('es-CO');
+
+            // Emergencias
+            let totalEmer = 0;
+            document.querySelectorAll('#tablaEmergencia .totalEmer').forEach(cell => {
+                const valor = cell.textContent.replace(/[^0-9]/g, '');
+                totalEmer += parseFloat(valor) || 0;
+            });
+            document.getElementById('totalEmergencia').textContent = totalEmer.toLocaleString('es-CO');
+            document.getElementById('resumenEmer').textContent = totalEmer.toLocaleString('es-CO');
+
+            // Higiene
+            let totalHig = 0;
+            document.querySelectorAll('#tablaHigiene .costoHig').forEach(input => {
+                const cant = parseFloat(input.closest('tr').querySelector('.cantHig').value) || 0;
+                const costo = parseFloat(input.value) || 0;
+                totalHig += cant * costo;
+            });
+            document.getElementById('totalHigiene').textContent = totalHig.toLocaleString('es-CO');
+            document.getElementById('resumenHig').textContent = totalHig.toLocaleString('es-CO');
+
+            // Total general
+            const gran totalTotal = totalRRHH + totalCap + totalMed + totalEPP + totalEmer + totalHig;
+            document.getElementById('presupuestoTotal').textContent = grandTotal.toLocaleString('es-CO');
+
+            // Porcentajes
+            if (grandTotal > 0) {
+                document.getElementById('porcRRHH').textContent = ((totalRRHH / grandTotal) * 100).toFixed(1) + '%';
+                document.getElementById('porcCap').textContent = ((totalCap / grandTotal) * 100).toFixed(1) + '%';
+                document.getElementById('porcMed').textContent = ((totalMed / grandTotal) * 100).toFixed(1) + '%';
+                document.getElementById('porcEPP').textContent = ((totalEPP / grandTotal) * 100).toFixed(1) + '%';
+                document.getElementById('porcEmer').textContent = ((totalEmer / grandTotal) * 100).toFixed(1) + '%';
+                document.getElementById('porcHig').textContent = ((totalHig / grandTotal) * 100).toFixed(1) + '%';
+            }
+        }
+
+        function agregarRecursoHumano() {
+            const tabla = document.getElementById('tablaRRHH');
+            const nueva = tabla.rows[0].cloneNode(true);
+            nueva.querySelectorAll('input').forEach(i => i.value = '');
+            nueva.querySelector('.prestaciones').textContent = '$ 0';
+            nueva.querySelector('.costoAnual').textContent = '$ 0';
+            tabla.appendChild(nueva);
+        }
+
+        function agregarCapacitacion() {
+            const tabla = document.getElementById('tablaCapacitacion');
+            const nueva = tabla.rows[0].cloneNode(true);
+            nueva.querySelectorAll('input').forEach(i => i.value = '');
+            nueva.querySelector('.totalCap').textContent = '$ 0';
+            tabla.appendChild(nueva);
+        }
+
+        function agregarMedica() {
+            const tabla = document.getElementById('tablaMedica');
+            const nueva = tabla.rows[0].cloneNode(true);
+            nueva.querySelectorAll('input').forEach(i => i.value = '');
+            nueva.querySelector('.totalMed').textContent = '$ 0';
+            tabla.appendChild(nueva);
+        }
+
+        function agregarEPP() {
+            const tabla = document.getElementById('tablaEPP');
+            const nueva = tabla.rows[0].cloneNode(true);
+            nueva.querySelectorAll('input').forEach(i => i.value = '');
+            nueva.querySelector('.totalEPP').textContent = '$ 0';
+            tabla.appendChild(nueva);
+        }
+
+        function agregarEmergencia() {
+            const tabla = document.getElementById('tablaEmergencia');
+            const nueva = tabla.rows[0].cloneNode(true);
+            nueva.querySelectorAll('input').forEach(i => i.value = '');
+            nueva.querySelector('.totalEmer').textContent = '$ 0';
+            tabla.appendChild(nueva);
+        }
+
+        function exportarExcel() {
+            alert('📊 Función de exportación a Excel en desarrollo');
+        }
+
+        window.onload = function () {
+            document.querySelectorAll('.auto-fecha').forEach(input => {
+                if (!input.value) input.value = new Date().toISOString().split('T')[0];
+            });
+        };
+    </script>
+</body>
+
+</html>
